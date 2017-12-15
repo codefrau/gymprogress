@@ -315,7 +315,8 @@ let storage = {}; try {storage = localStorage} catch(e) {};
     makeBadges();
     makeJumpTable();
     updateShare();
-    if (location.hash === '#map') showAsMap();
+    if (location.hash === '#map') showAsMap(); 
+    else showByName();
 })();
 
 // add <img> tags
@@ -323,13 +324,8 @@ function makeBadges() {
     const list = document.getElementsByTagName('li');
     for (let i = 0; i < list.length; i++) {
         const item = list[i];
-        const label = document.createElement('span');
         const badge = document.createElement('img');
         item.insertBefore(badge, item.childNodes[0]);
-        item.insertBefore(label, item.childNodes[0]);
- 
-        label.className = 'number';
-        label.textContent = `${i + 1}.`;
  
         const level = getLevel(i);
         badge.src = `gym${level}.png`;
@@ -482,11 +478,7 @@ function showByName() {
     deleteJumpTargets();
     const ol = document.getElementById('list');
     const array = Array.from(ol.getElementsByTagName('li'));
-    array.sort((a, b) => {
-        const nrA = +a.childNodes[0].textContent;
-        const nrB = +b.childNodes[0].textContent;
-        return nrA - nrB;
-    });
+    array.sort((a, b) => getName(a).localeCompare(getName(b)));
     array.forEach(li => ol.appendChild(li));
     makeJumpTable();
 }
@@ -496,17 +488,7 @@ function showByDistrict() {
     deleteJumpTargets();
     const ol = document.getElementById('list');
     const array = Array.from(ol.getElementsByTagName('li'));
-    array.sort(function(a, b) {
-        const divA = a.getElementsByTagName('div')[0];
-        const divB = b.getElementsByTagName('div')[0];
-        const districtA = divA.childNodes[2].textContent;
-        const districtB = divB.childNodes[2].textContent;
-        const result = districtA.localeCompare(districtB);
-        if (result) return result;
-        const addressA = divA.getElementsByTagName('b')[0].textContent;
-        const addressB = divB.getElementsByTagName('b')[0].textContent;
-        return addressA.localeCompare(addressB);
-    });
+    array.sort(compareDistricts);
     array.forEach(li => ol.appendChild(li));
     makeJumpTable(li => li.getElementsByTagName('div')[0].childNodes[2].textContent);
 }
@@ -529,12 +511,26 @@ function setLevel(i, level) {
     setLevelsString(s.substr(0, i) + level + s.substr(i + 1));
 }
 function getLevel(i) { return getLevelsString()[i] & 3; }
-
 function incLevel(i) {
     const level = (getLevel(i) + 1) % 4;
     setLevel(i, level);
     updateSums();
     return level;
+}
+
+function getName(item) {
+    return item.getElementsByTagName('b')[0].textContent;
+}
+function getAddress(item) {
+    return last(item.getElementsByTagName('a')).textContent;
+}
+function getDistrict(item) {
+    return item.getElementsByTagName('div')[0].childNodes[2].textContent;
+}
+function compareDistricts(a, b) {
+    const result = getDistrict(a).localeCompare(getDistrict(b));
+    if (result) return result;
+    return getAddress(a).localeCompare(getAddress(b));
 }
 
 function last(a) { return a[a.length - 1]; }
