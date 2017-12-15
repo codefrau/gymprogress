@@ -541,7 +541,9 @@ function getDistrict(item) {
     return item.getElementsByTagName('div')[0].childNodes[2].textContent;
 }
 function compareDistricts(a, b) {
-    const result = getDistrict(a).localeCompare(getDistrict(b));
+    let result = getDistrict(a).localeCompare(getDistrict(b));
+    if (result) return result;
+    result = b.getLevel() - a.getLevel();
     if (result) return result;
     return getAddress(a).localeCompare(getAddress(b));
 }
