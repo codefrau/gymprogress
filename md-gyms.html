@@ -472,16 +472,13 @@ function loadPlainPage(suffix) {
     location.href = plainURL() + (suffix ? suffix : '');
 }
 
-function showMap(showMap) {
-    const listDisplay = showMap ? 'none' : 'block';
-    const mapDisplay = showMap ? 'block' : 'none';
-    document.getElementById('jump').style.display = listDisplay;
-    document.getElementById('list').style.display = listDisplay;
-    document.getElementById('map').style.display = mapDisplay;
+function show(ids) {
+    ['list', 'jump', 'map'].forEach(id =>
+        document.getElementById(id).style.display = ids.includes(id) ? 'block' : 'none');
 }
 
 function showByName() {
-    showMap(false);
+    show(['list','jump']);
     deleteJumpTargets();
     const ol = document.getElementById('list');
     const array = Array.from(ol.getElementsByTagName('li'));
@@ -491,7 +488,7 @@ function showByName() {
 }
 
 function showByDistrict() {
-    showMap(false);
+    show(['list','jump']);
     deleteJumpTargets();
     const ol = document.getElementById('list');
     const array = Array.from(ol.getElementsByTagName('li'));
@@ -501,7 +498,7 @@ function showByDistrict() {
 }
 
 function showByLevel() {
-    showMap(false);
+    show(['list']);
     deleteJumpTargets();
     const ol = document.getElementById('list');
     const array = Array.from(ol.getElementsByTagName('li'));
@@ -512,7 +509,7 @@ function showByLevel() {
 function showAsMap() {
     const mapContent = document.getElementById('map').children.length;
     if (!mapContent) makeMap();
-    showMap(true);
+    show(['map']);
 }
 
 function getLevelsString() { return storage['gym-levels'] || ''; }
