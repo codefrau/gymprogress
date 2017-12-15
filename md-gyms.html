@@ -62,8 +62,9 @@
 <div id="content">
     <div class="small">Klicke die Medaillen in der Liste an, um sie auf Bronze/Silber/Gold zu stellen. 
         <span style="white-space:nowrap">Viel Spaß! Bert</span></div>
-    <button type="button" onclick="showByName()">Nach Name sortieren</button>
-    <button type="button" onclick="showByDistrict()">Nach Stadtteil sortieren</button>
+    <button type="button" onclick="showByName()">Namen</button>
+    <button type="button" onclick="showByDistrict()">Stadtteile</button>
+    <button type="button" onclick="showByLevel()">Medaillen</button>
     <button type="button" onclick="showAsMap()">Karte</button>
     <div id="map"></div>
     <ol id="list">
@@ -330,6 +331,8 @@ function makeBadges() {
         item.insertBefore(badge, item.childNodes[0]);
  
         const level = getLevel(i);
+        item.getLevel = () => getLevel(i);
+
         badge.src = `gym${level}.png`;
         badge.className = 'badge';
         badge.width = 36;
@@ -494,7 +497,16 @@ function showByDistrict() {
     const array = Array.from(ol.getElementsByTagName('li'));
     array.sort(compareDistricts);
     array.forEach(li => ol.appendChild(li));
-    makeJumpTable(li => li.getElementsByTagName('div')[0].childNodes[2].textContent);
+    makeJumpTable(getDistrict);
+}
+
+function showByLevel() {
+    showMap(false);
+    deleteJumpTargets();
+    const ol = document.getElementById('list');
+    const array = Array.from(ol.getElementsByTagName('li'));
+    array.sort(compareLevels);
+    array.forEach(li => ol.appendChild(li));
 }
 
 function showAsMap() {
@@ -535,6 +547,11 @@ function compareDistricts(a, b) {
     const result = getDistrict(a).localeCompare(getDistrict(b));
     if (result) return result;
     return getAddress(a).localeCompare(getAddress(b));
+}
+function compareLevels(a, b) {
+    const result = b.getLevel() - a.getLevel();
+    if (result) return result;
+    return compareDistricts(a, b);
 }
 
 function last(a) { return a[a.length - 1]; }
