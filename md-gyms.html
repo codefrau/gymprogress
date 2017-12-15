@@ -1,0 +1,542 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="author" content="Bert Freudenberg">
+<meta name="keywords" content="magdeburg,pokemon,pokemon go">
+<meta name="description" content="List of Pokemon Go Gyms in Magdeburg by Bert Freudenberg">
+<style type="text/css">
+    body{margin:0 auto;max-width:650px;line-height:1.6;font-family:sans-serif;font-size:16px;color:#444;padding:5px;
+        color:#44696c;background: linear-gradient(135deg,#fff,#eeffeb) #f7fff5;background-attachment: fixed}
+    h1{line-height:1.2;-webkit-margin-after:0.2em}
+    a,li{white-space:nowrap}
+    ol{list-style-type: none;margin: 0;padding: 0}
+    li{margin:10px}
+    li>*{display:inline-block;vertical-align:middle}
+    span.number{font-size:20px;width:30px;text-align:right}
+    .big{font-size:24px}
+    .small{font-size:12px;font-style:italic}
+    a{text-decoration:none;color:#719968}
+    a.jump{display: block;position: relative;top:-15px;visibility: hidden}
+    button,#sums{background-image: linear-gradient(to left, rgb(36, 204, 170) 5%, rgb(162, 219, 149) 95%);
+        border-radius:20px;border-width:0;color:white;font-weight:bold;height:24px;}
+    center{position:fixed;bottom:90px;right:0;width:20px;line-height:1.4;border-radius:5px 0 0 5px;background-color: white;box-shadow:0 0 10px}
+    #sums{position:fixed;bottom:0;height:50px;padding:10px;border-radius:20px 20px 0 0;z-index:2000}
+    #share{margin:100px 0}
+    #restore,#undo,#map{display:none}
+    #map{width:512px;height:512px;margin:20px 0}
+</style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+    integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+    crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+    integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
+    crossorigin=""></script>
+<title>Berts Arena Tracker MD</title>
+</head>
+<body bgcolor="#FFFFFF" text="#000000">
+<form id="undo">
+    Die Medaillen wurden ersetzt.
+    <br>
+    <button type="button" onclick="undoRestore()">Rückgängig machen</button>
+    <button type="button" onclick="loadPlainPage()">Neue Medaillen behalten</button>
+</form>
+<h1>Arena Tracker MD</h1>
+<form id="restore">
+    <i>Teile diese Seite, um die Medaillen in einen anderen Browser zu übertragen.</i>
+    <br><br>
+    Willst du die in diesem Browser gespeicherten Medaillen ersetzen?
+    <br>
+    <button type="button" onclick="doRestore()">Ja, Medaillen ersetzen</button>
+    <button type="button" onclick="loadPlainPage()">Nein, abbrechen</button>
+</form>
+<center id="jump"></center>
+<div id="sums" class="big">
+    <img src="gym3.png" width=48><span id="sum3">0</span> &nbsp;
+    <img src="gym2.png" width=48><span id="sum2">0</span> &nbsp;
+    <img src="gym1.png" width=48><span id="sum1">0</span> &nbsp;
+    <img src="gym0.png" width=48><span id="sum0">0</span>
+</div>
+<div id="content">
+    <div class="small">Klicke die Medaillen in der Liste an, um sie auf Bronze/Silber/Gold zu stellen. 
+        <span style="white-space:nowrap">Viel Spaß! Bert</span></div>
+    <button type="button" onclick="showByName()">Nach Name sortieren</button>
+    <button type="button" onclick="showByDistrict()">Nach Stadtteil sortieren</button>
+    <button type="button" onclick="showAsMap()">Karte</button>
+    <div id="map"></div>
+    <ol id="list">
+        <li><div><b>3 Flotte Bienen</b><br>Leipziger Straße, <a href="https://www.google.com/maps/?q=52.105404,11.615429">Fermersleber Weg 45D</a></div></li>
+        <li><div><b>30 Jahre Straßenbahn nach Olvenstedt</b><br>Neu Olvenstedt, <a href="https://www.google.com/maps/?q=52.149517,11.586183">Scharnhorstring 51</a></div></li>
+        <li><div><b>Alter Getreidespeicher Buckau</b><br>Buckau, <a href="https://www.google.com/maps/?q=52.111855,11.637621">Bleckenburgstraße 11A</a></div></li>
+        <li><div><b>Alter Schlachthof</b><br>Stadtfeld Ost, <a href="https://www.google.com/maps/?q=52.121349,11.612569">Johann-Gottlieb-Schoch-Straße</a></div></li>
+        <li><div><b>Altes Rathaus Olvenstedt</b><br>Alt Olvenstedt, <a href="https://www.google.com/maps/?q=52.155323,11.565906">Helmstedter Chaussee 25</a></div></li>
+        <li><div><b>Altes Theater Reform</b><br>Reform, <a href="https://www.google.com/maps/?q=52.09499,11.618528">Kirschweg 25</a></div></li>
+        <li><div><b>Bahnhof Magdeburg-Buckau</b><br>Buckau, <a href="https://www.google.com/maps/?q=52.109352,11.630778">Porsestraße 16</a></div></li>
+        <li><div><b>Bahnhof Neustadt</b><br>Alte Neustadt, <a href="https://www.google.com/maps/?q=52.148232,11.641431">Gröperstraße 2</a></div></li>
+        <li><div><b>Bahnwärterhaus Südost</b><br>Salbke, <a href="https://www.google.com/maps/?q=52.070456,11.669139">Welsleber Str. 1</a></div></li>
+        <li><div><b>Black Smiler</b><br>Sudenburg, <a href="https://www.google.com/maps/?q=52.118736,11.587494">Sudenburger Wuhne 48</a></div></li>
+        <li><div><b>Brauereistr Circus Museum</b><br>Buckau, <a href="https://www.google.com/maps/?q=52.103832,11.638013">Brauereistraße 2</a></div></li>
+        <li><div><b>Bridge Lion</b><br>Brückfeld, <a href="https://www.google.com/maps/?q=52.12701,11.65309">Turmschanzenstraße 7</a></div></li>
+        <li><div><b>Bronzefarbener Reiter</b><br>Herrenkrug, <a href="https://www.google.com/maps/?q=52.140396,11.67838">Breitscheidstraße 46</a></div></li>
+        <li><div><b>Buckauer Graffitiwand</b><br>Buckau, <a href="https://www.google.com/maps/?q=52.108852,11.634948">Klosterbergestraße 17</a></div></li>
+        <li><div><b>Börde Brauerei</b><br>Alte Neustadt, <a href="https://www.google.com/maps/?q=52.149586,11.647303">Sieverstorstraße 45</a></div></li>
+        <li><div><b>Bürgerdenkmal Magdeburg</b><br>Altstadt, <a href="https://www.google.com/maps/?q=52.125088,11.633311">Lothar-Kreyssig-Straße</a></div></li>
+        <li><div><b>Children Outdoor Art - Picnic</b><br>Buckau, <a href="https://www.google.com/maps/?q=52.102982,11.643632">Schönebecker Str. 82</a></div></li>
+        <li><div><b>Circusmuseum</b><br>Buckau, <a href="https://www.google.com/maps/?q=52.104977,11.637986">Karl-Schmidt-Straße 13C</a></div></li>
+        <li><div><b>Dampfwalze Bauhof</b><br>Industriehafen, <a href="https://www.google.com/maps/?q=52.161587,11.663179">Allerstraße</a></div></li>
+        <li><div><b>Das Pferd</b><br>Westerhüsen, <a href="https://www.google.com/maps/?q=52.064858,11.676651">Alt Westerhüsen 31</a></div></li>
+        <li><div><b>Das Rote Haus</b><br>Alte Neustadt, <a href="https://www.google.com/maps/?q=52.143295,11.650275">Wittenberger Str. 26</a></div></li>
+        <li><div><b>Das, was nie sein wird</b><br>Berliner Chaussee, <a href="https://www.google.com/maps/?q=52.137978,11.68624">An der Lake 28-36</a></div></li>
+        <li><div><b>Denkmal Dampfmaschine Buckau</b><br>Buckau, <a href="https://www.google.com/maps/?q=52.107243,11.642326">Schönebecker Str. 106B</a></div></li>
+        <li><div><b>Denkmal Julius Fučik</b><br>Stadtfeld Ost, <a href="https://www.google.com/maps/?q=52.141945,11.624286">Albert-Vater-Straße 21</a></div></li>
+        <li><div><b>Der bunte Weg</b><br>Sudenburg, <a href="https://www.google.com/maps/?q=52.120815,11.586438">Seehäuser Weg</a></div></li>
+        <li><div><b>Der Löwe</b><br>Sudenburg, <a href="https://www.google.com/maps/?q=52.109203,11.598706">Halberstädter Str. 137</a></div></li>
+        <li><div><b>Der Schäfer</b><br>Buckau, <a href="https://www.google.com/maps/?q=52.109509,11.634358">Klosterbergestraße 10</a></div></li>
+        <li><div><b>Deutsche Reichsbahn</b><br>Alte Neustadt, <a href="https://www.google.com/maps/?q=52.145481,11.658057">Niels-Bohr-Straße</a></div></li>
+        <li><div><b>Die Badende</b><br>Altstadt, <a href="https://www.google.com/maps/?q=52.134174,11.638214">Breiter Weg 30</a></div></li>
+        <li><div><b>Die Magdeburger Jungfrau</b><br>Buckau, <a href="https://www.google.com/maps/?q=52.106861,11.644071">An der Elbe 14</a></div></li>
+        <li><div><b>Die trauernde Witwe</b><br>Stadtfeld West, <a href="https://www.google.com/maps/?q=52.126232,11.584242">Große Diesdorfer Str. 160</a></div></li>
+        <li><div><b>Dom zu Magdeburg St. Mauritius und Katharina</b><br>Altstadt, <a href="https://www.google.com/maps/?q=52.124676,11.633836">Am Dom 1</a></div></li>
+        <li><div><b>Düppler Mühle</b><br>Neu Olvenstedt, <a href="https://www.google.com/maps/?q=52.1474,11.58775">Düppler Mühlenstraße 27</a></div></li>
+        <li><div><b>Eiserner Vogel</b><br>Alte Neustadt, <a href="https://www.google.com/maps/?q=52.141609,11.63884">Haydnpl. 11</a></div></li>
+        <li><div><b>Elbauenpark / Kugelfänger</b><br>Herrenkrug, <a href="https://www.google.com/maps/?q=52.139027,11.679312">Breitscheidstraße 46</a></div></li>
+        <li><div><b>Elbauenpark, Strategen</b><br>Herrenkrug, <a href="https://www.google.com/maps/?q=52.137753,11.665789">Herrenkrugstraße 18</a></div></li>
+        <li><div><b>Elbauenpark, Stundenblumen</b><br>Herrenkrug, <a href="https://www.google.com/maps/?q=52.140385,11.685577">Breitscheidstraße 48</a></div></li>
+        <li><div><b>Elbelandhaus</b><br>Buckau, <a href="https://www.google.com/maps/?q=52.113049,11.635954">Benediktinerstraße</a></div></li>
+        <li><div><b>Endzeit Jeep</b><br>Hopfengarten, <a href="https://www.google.com/maps/?q=52.080368,11.625407">Carnotstraße 10</a></div></li>
+        <li><div><b>Erbaut Anno 1899 - Kleiststraße</b><br>Stadtfeld Ost, <a href="https://www.google.com/maps/?q=52.125191,11.612781">Kleiststraße 2</a></div></li>
+        <li><div><b>Erdachse, M. 1:1.000.000 </b><br>Altstadt, <a href="https://www.google.com/maps/?q=52.130592,11.62895">Bahnhofstraße 69</a></div></li>
+        <li><div><b>Erich-Rademacher-Bad</b><br>Neu Olvenstedt, <a href="https://www.google.com/maps/?q=52.153633,11.595796">Johannes-Göderitz-Straße 113</a></div></li>
+        <li><div><b>Erker Maxim-Gorki-Straße</b><br>Stadtfeld Ost, <a href="https://www.google.com/maps/?q=52.131969,11.618515">Maxim-Gorki-Straße 6</a></div></li>
+        <li><div><b>Ernst Toller Straße</b><br>Sudenburg, <a href="https://www.google.com/maps/?q=52.107811,11.588989">Ernst-Toller-Straße 29</a></div></li>
+        <li><div><b>Erwin und die Holzsoldaten</b><br>Alte Neustadt, <a href="https://www.google.com/maps/?q=52.13821,11.651306">Walther-Rathenau-Straße 8</a></div></li>
+        <li><div><b>EXFA</b><br>Alte Neustadt, <a href="https://www.google.com/maps/?q=52.138821,11.651945">Sandtorstraße 23</a></div></li>
+        <li><div><b>Feierabendheim Süd</b><br>Sudenburg, <a href="https://www.google.com/maps/?q=52.111774,11.596048">Hesekielstraße 7A</a></div></li>
+        <li><div><b>Fenstermotive</b><br>Stadtfeld Ost, <a href="https://www.google.com/maps/?q=52.12373,11.610421">Liebknechtstraße 44</a></div></li>
+        <li><div><b>Finanzdirektion</b><br>Altstadt, <a href="https://www.google.com/maps/?q=52.134018,11.632949">Otto-von-Guericke-Straße 108</a></div></li>
+        <li><div><b>Fischbrunnen an der Elbe</b><br>Altstadt, <a href="https://www.google.com/maps/?q=52.131416,11.646236">Schleinufer 5</a></div></li>
+        <li><div><b>Fluss des Geldes</b><br>Neue Neustadt, <a href="https://www.google.com/maps/?q=52.151459,11.63866">Lübecker Str. 126A</a></div></li>
+        <li><div><b>Fußgängerbrücke im Herrenkrug über die Elbe</b><br>Industriehafen, <a href="https://www.google.com/maps/?q=52.153851,11.675391">Zwischenwerkstraße 2</a></div></li>
+        <li><div><b>Gedenkstätte Diesdorf</b><br>Diesdorf, <a href="https://www.google.com/maps/?q=52.130844,11.566249">Am Denkmal 1</a></div></li>
+        <li><div><b>GETEC Arena</b><br>Brückfeld, <a href="https://www.google.com/maps/?q=52.128757,11.66736">Friedrich-Ebert-Straße 72</a></div></li>
+        <li><div><b>GETEC Arena North Side</b><br>Brückfeld, <a href="https://www.google.com/maps/?q=52.12833,11.666959">Friedrich-Ebert-Straße 72</a></div></li>
+        <li><div><b>Glockenklingel</b><br>Reform, <a href="https://www.google.com/maps/?q=52.08709,11.608916">Neptunweg 13</a></div></li>
+        <li><div><b>Grabsteine der Familie Schneiders</b><br>Sudenburg, <a href="https://www.google.com/maps/?q=52.115723,11.609468">Brunnerstraße 13B</a></div></li>
+        <li><div><b>Graf Schwerin August 1934</b><br>Herrenkrug, <a href="https://www.google.com/maps/?q=52.148834,11.677138">Herrenkrugstraße 40</a></div></li>
+        <li><div><b>Graffiti</b><br>Stadtfeld Ost, <a href="https://www.google.com/maps/?q=52.135288,11.624513">B71</a></div></li>
+        <li><div><b>Graffiti Brenneckestr</b><br>Lemsdorf, <a href="https://www.google.com/maps/?q=52.102821,11.60326">B71</a></div></li>
+        <li><div><b>Graffiti Funkmast</b><br>Altstadt, <a href="https://www.google.com/maps/?q=52.136303,11.641777">Weitlingstraße 12</a></div></li>
+        <li><div><b>Graffiti Kunst</b><br>Stadtfeld West, <a href="https://www.google.com/maps/?q=52.129501,11.604249">Große Diesdorfer Str. 202</a></div></li>
+        <li><div><b>Graffiti Lido Duschen</b><br>Alte Neustadt, <a href="https://www.google.com/maps/?q=52.151344,11.649406">Sieverstorstraße 32-33</a></div></li>
+        <li><div><b>Graffiti Liebknechtstraße</b><br>Stadtfeld Ost, <a href="https://www.google.com/maps/?q=52.123116,11.617804">Sachsenring 21</a></div></li>
+        <li><div><b>Graffiti Luftballons</b><br>Altstadt, <a href="https://www.google.com/maps/?q=52.128887,11.642442">Ernst-Reuter-Allee</a></div></li>
+        <li><div><b>Graffiti Neustädter See</b><br>Neustädter See, <a href="https://www.google.com/maps/?q=52.170265,11.63267">Barleber Str.</a></div></li>
+        <li><div><b>Graffiti Park</b><br>Alte Neustadt, <a href="https://www.google.com/maps/?q=52.147873,11.64394">Sieverstorstraße 55A</a></div></li>
+        <li><div><b>Graffiti Schnecke</b><br>Stadtfeld Ost, <a href="https://www.google.com/maps/?q=52.126328,11.612149">Lessingstraße 21</a></div></li>
+        <li><div><b>Gravurwerk Hubbrücke</b><br>Werder, <a href="https://www.google.com/maps/?q=52.120747,11.638299">Kleiner Stadtmarsch</a></div></li>
+        <li><div><b>Grosser Angerfelsen</b><br>Herrenkrug, <a href="https://www.google.com/maps/?q=52.136417,11.675737">Tessenowstraße 15</a></div></li>
+        <li><div><b>Grüne Zitadelle - Hundertwasserhaus</b><br>Altstadt, <a href="https://www.google.com/maps/?q=52.126701,11.63357">Arthur-Ruppin-Straße</a></div></li>
+        <li><div><b>Gruson-Gewächshäuser</b><br>Buckau, <a href="https://www.google.com/maps/?q=52.113815,11.631601">Schönebecker Str. 129a</a></div></li>
+        <li><div><b>Guardian Angel</b><br>Westerhüsen, <a href="https://www.google.com/maps/?q=52.064209,11.673188">Sohlener Str. 6</a></div></li>
+        <li><div><b>Gussasphaltkocher</b><br>Werder, <a href="https://www.google.com/maps/?q=52.123486,11.649843">Am Winterhafen 3</a></div></li>
+        <li><div><b>Gustav Adolf Pfeiffer</b><br>Cracau, <a href="https://www.google.com/maps/?q=52.116249,11.667232">Schwarzkopfweg 2</a></div></li>
+        <li><div><b>Halbkugeln Lemsdorfer Lümmel</b><br>Lemsdorf, <a href="https://www.google.com/maps/?q=52.099281,11.597336">Blankenburger Str. 11</a></div></li>
+        <li><div><b>Harry Potter Spielplatz</b><br>Neustädter Feld, <a href="https://www.google.com/maps/?q=52.155457,11.617514">Othrichstraße 34</a></div></li>
+        <li><div><b>Hasselbachplatz / Plättbolzen</b><br>Altstadt, <a href="https://www.google.com/maps/?q=52.120865,11.627843">Breiter Weg 232</a></div></li>
+        <li><div><b>Hauptbahnhof</b><br>Altstadt, <a href="https://www.google.com/maps/?q=52.130337,11.628231">Bahnhofstraße 69</a></div></li>
+        <li><div><b>Hauptbahnhof Seiteneingang</b><br>Altstadt, <a href="https://www.google.com/maps/?q=52.131149,11.626944">Ernst-Reuter-Allee 45</a></div></li>
+        <li><div><b>Haus mit Hüten</b><br>Stadtfeld Ost, <a href="https://www.google.com/maps/?q=52.136105,11.609808">Olvenstedter Str. 39</a></div></li>
+        <li><div><b>Healing Power Statue</b><br>Leipziger Straße, <a href="https://www.google.com/maps/?q=52.099957,11.617117">Brenneckestraße</a></div></li>
+        <li><div><b>Henning von Tresckow</b><br>Alte Neustadt, <a href="https://www.google.com/maps/?q=52.141697,11.642134">Henning-von-Tresckow-Straße 2</a></div></li>
+        <li><div><b>Hier Wohnte Abraham Basch</b><br>Stadtfeld Ost, <a href="https://www.google.com/maps/?q=52.130554,11.608861">Annastraße 17</a></div></li>
+        <li><div><b>Hier wohnte Marianne Zentawer</b><br>Stadtfeld Ost, <a href="https://www.google.com/maps/?q=52.135227,11.610068">Friesenstraße 51</a></div></li>
+        <li><div><b>Hier Wohnten Grete Spangenthal Und Klaus Zindel</b><br>Stadtfeld Ost, <a href="https://www.google.com/maps/?q=52.13308,11.611289">Goethestraße 41</a></div></li>
+        <li><div><b>Holundermauer Leipziger Straße</b><br>Hopfengarten, <a href="https://www.google.com/maps/?q=52.092258,11.621087">Lindenplan 1</a></div></li>
+        <li><div><b>Holzkunst im Art Depot</b><br>Stadtfeld West, <a href="https://www.google.com/maps/?q=52.127319,11.60489">Spielhagenstraße 14</a></div></li>
+        <li><div><b>Holzschnecke</b><br>Herrenkrug, <a href="https://www.google.com/maps/?q=52.139408,11.673041">Herrenkrugstraße 14</a></div></li>
+        <li><div><b>HS Magdeburg-Stendal, Haus 1</b><br>Herrenkrug, <a href="https://www.google.com/maps/?q=52.141144,11.673909">Breitscheidstraße 1B</a></div></li>
+        <li><div><b>Hsv Medizin Magdeburg</b><br>Hopfengarten, <a href="https://www.google.com/maps/?q=52.090614,11.621261">Leipziger Chaussee 55</a></div></li>
+        <li><div><b>Hubbrücke "Von So Weit Her Bis Hier Hin"</b><br>Altstadt, <a href="https://www.google.com/maps/?q=52.119759,11.635375">Hubbrücke</a></div></li>
+        <li><div><b>Ich warte vor der Turnhalle</b><br>Alte Neustadt, <a href="https://www.google.com/maps/?q=52.139713,11.648348">Johann-Gottlob-Nathusius-Ring 8</a></div></li>
+        <li><div><b>Iss Raumstation</b><br>Reform, <a href="https://www.google.com/maps/?q=52.092087,11.615098">Lunochodstraße 7</a></div></li>
+        <li><div><b>Jean Burger</b><br>Leipziger Straße, <a href="https://www.google.com/maps/?q=52.115273,11.621239">Lennéstraße 4-5</a></div></li>
+        <li><div><b>Johann Gutenberg</b><br>Alte Neustadt, <a href="https://www.google.com/maps/?q=52.140247,11.63952">Gareisstraße 12</a></div></li>
+        <li><div><b>Kampfmähdrescher</b><br>Sudenburg, <a href="https://www.google.com/maps/?q=52.118385,11.615154">Sudenburger Wuhne 4</a></div></li>
+        <li><div><b>Kapelle of Death</b><br>Fermersleben, <a href="https://www.google.com/maps/?q=52.098377,11.649622">Alt Fermersleben 104</a></div></li>
+        <li><div><b>Karl-Liebknecht-Platz</b><br>Sudenburg, <a href="https://www.google.com/maps/?q=52.104862,11.588102">Karl-Liebknecht-Platz 1</a></div></li>
+        <li><div><b>Katholische Kirche</b><br>Neu Olvenstedt, <a href="https://www.google.com/maps/?q=52.154083,11.57892">St.-Josef-Straße 13A</a></div></li>
+        <li><div><b>Kettendampfer</b><br>Alte Neustadt, <a href="https://www.google.com/maps/?q=52.148357,11.661748">Werner-Heisenberg-Straße 38</a></div></li>
+        <li><div><b>Kidsplace Frankefelde</b><br>Ottersleben, <a href="https://www.google.com/maps/?q=52.096172,11.580728">Zum Wiesgen 33A</a></div></li>
+        <li><div><b>Kirche Prester</b><br>Prester, <a href="https://www.google.com/maps/?q=52.103487,11.675044">Alt Prester 86</a></div></li>
+        <li><div><b>Klausenerstr. 45</b><br>Sudenburg, <a href="https://www.google.com/maps/?q=52.118015,11.604719">Klausenerstraße 49</a></div></li>
+        <li><div><b>Kleiner Leuchtturm</b><br>Industriehafen, <a href="https://www.google.com/maps/?q=52.153019,11.670544">Zwischenwerkstraße</a></div></li>
+        <li><div><b>Klinik St. Marienstift</b><br>Stadtfeld West, <a href="https://www.google.com/maps/?q=52.136959,11.600485">Neustädter Bierweg 11A</a></div></li>
+        <li><div><b>Kopfarbeit</b><br>Stadtfeld West, <a href="https://www.google.com/maps/?q=52.127487,11.605249">Westring 18</a></div></li>
+        <li><div><b>Kreuzkirche</b><br>Nordwest, <a href="https://www.google.com/maps/?q=52.151855,11.605404">Flachsbreite 17</a></div></li>
+        <li><div><b>Kriegerdenkmal Buckau 1914</b><br>Fermersleben, <a href="https://www.google.com/maps/?q=52.097694,11.652882">Faberstraße 8</a></div></li>
+        <li><div><b>Kriegerdenkmal Fermersleben</b><br>Fermersleben, <a href="https://www.google.com/maps/?q=52.092785,11.654331">Alt Fermersleben 87A</a></div></li>
+        <li><div><b>Kriegerdenkmal</b><br>Alt Olvenstedt, <a href="https://www.google.com/maps/?q=52.155952,11.571209">Am Freiheitspl. 1</a></div></li>
+        <li><div><b>Kristall-Palast</b><br>Leipziger Straße, <a href="https://www.google.com/maps/?q=52.112911,11.61912">Am Fuchsberg 5</a></div></li>
+        <li><div><b>Krokodil</b><br>Stadtfeld West, <a href="https://www.google.com/maps/?q=52.122692,11.599438">Liebknechtstraße 79-89</a></div></li>
+        <li><div><b>Kulturdenkmal Wasserkunst 1849</b><br>Neue Neustadt, <a href="https://www.google.com/maps/?q=52.154926,11.651033">Wasserkunststraße 99</a></div></li>
+        <li><div><b>Kunst an der Elbe</b><br>Werder, <a href="https://www.google.com/maps/?q=52.132156,11.650037">Kleiner Werder</a></div></li>
+        <li><div><b>Kunst in Olve</b><br>Neu Olvenstedt, <a href="https://www.google.com/maps/?q=52.153629,11.591518">Johannes-Göderitz-Straße 79</a></div></li>
+        <li><div><b>KZ Gedenkstätte</b><br>Stadtfeld West, <a href="https://www.google.com/maps/?q=52.123314,11.604337">Liebknechtstraße 68</a></div></li>
+        <li><div><b>Landeshauptarchiv Sachsen-Anhalt</b><br>Brückfeld, <a href="https://www.google.com/maps/?q=52.128395,11.659899">Brückstraße 2</a></div></li>
+        <li><div><b>Leeres Wasserspiel</b><br>Alte Neustadt, <a href="https://www.google.com/maps/?q=52.146633,11.653295">Rogätzer Str. 13</a></div></li>
+        <li><div><b>Leibniz-Institut für Neurobiologie</b><br>Leipziger Straße, <a href="https://www.google.com/maps/?q=52.101871,11.611201">Brenneckestraße 6</a></div></li>
+        <li><div><b>Lemsdorfer Kunst</b><br>Lemsdorf, <a href="https://www.google.com/maps/?q=52.100555,11.597927">Blankenburger Str. 21</a></div></li>
+        <li><div><b>Lichtstele</b><br>Werder, <a href="https://www.google.com/maps/?q=52.118587,11.640822">Heinrich-Heine-Weg</a></div></li>
+        <li><div><b>Lindwurmbrücke</b><br>Neustädter See, <a href="https://www.google.com/maps/?q=52.169106,11.628008">Lumumbastraße 9</a></div></li>
+        <li><div><b>Little John Bike</b><br>Neue Neustadt, <a href="https://www.google.com/maps/?q=52.161312,11.635264">K1170 3</a></div></li>
+        <li><div><b>LU FT Magdeburger Halbkugeln</b><br>Herrenkrug, <a href="https://www.google.com/maps/?q=52.141499,11.67533">Breitscheidstraße 3-4</a></div></li>
+        <li><div><b>Luise, Königin von Preussen</b><br>Altstadt, <a href="https://www.google.com/maps/?q=52.139713,11.635723">Walther-Rathenau-Straße 4</a></div></li>
+        <li><div><b>Lübecker Privatweg, Streetart Detektiv</b><br>Neue Neustadt, <a href="https://www.google.com/maps/?q=52.164463,11.632186">Lübecker Privatweg 1</a></div></li>
+        <li><div><b>Magdeburg fährt Grün</b><br>Leipziger Straße, <a href="https://www.google.com/maps/?q=52.109444,11.619825">Semmelweisstraße 2A</a></div></li>
+        <li><div><b>Markus Gemeinde</b><br>Stadtfeld West, <a href="https://www.google.com/maps/?q=52.130196,11.587504">Heinrich-Zille-Straße 5</a></div></li>
+        <li><div><b>Martins Gemeinde</b><br>Alte Neustadt, <a href="https://www.google.com/maps/?q=52.148697,11.65332">Salzwedeler Str. 4</a></div></li>
+        <li><div><b>Mausoleum C.F. Budenberg</b><br>Buckau, <a href="https://www.google.com/maps/?q=52.108543,11.636356">Budenbergstraße 9</a></div></li>
+        <li><div><b>Mechthild von Magdeburg</b><br>Altstadt, <a href="https://www.google.com/maps/?q=52.125721,11.638008">Schleinufer</a></div></li>
+        <li><div><b>Meerjungfrau</b><br>Werder, <a href="https://www.google.com/maps/?q=52.11924,11.639757">Kleiner Stadtmarsch</a></div></li>
+        <li><div><b>MICO-Pumpe Helmstedter</b><br>Sudenburg, <a href="https://www.google.com/maps/?q=52.114971,11.602646">Helmstedter Str. 54</a></div></li>
+        <li><div><b>Ministerium der Finanzen</b><br>Stadtfeld Ost, <a href="https://www.google.com/maps/?q=52.132683,11.622254">Editharing 42</a></div></li>
+        <li><div><b>Mutter Teresa</b><br>Cracau, <a href="https://www.google.com/maps/?q=52.121357,11.665217">Mühlweg 11</a></div></li>
+        <li><div><b>Nachdenken Im Klinikum Magdeburg</b><br>Alt Olvenstedt, <a href="https://www.google.com/maps/?q=52.158146,11.579957">Oberer Sülzeweg 25</a></div></li>
+        <li><div><b>Nackte Magdeburger</b><br>Neustädter See, <a href="https://www.google.com/maps/?q=52.166428,11.632191">Lumumbastraße 15</a></div></li>
+        <li><div><b>Naturmauer</b><br>Reform, <a href="https://www.google.com/maps/?q=52.090729,11.609923">Apollostraße 15</a></div></li>
+        <li><div><b>Nautilus</b><br>Herrenkrug, <a href="https://www.google.com/maps/?q=52.134869,11.664994">Herrenkrugstraße 18</a></div></li>
+        <li><div><b>Neuer Sudenburger Friedhof</b><br>Sudenburg, <a href="https://www.google.com/maps/?q=52.113148,11.585842">Otto-Richter-Straße 45</a></div></li>
+        <li><div><b>Neustädter Friedhof, Sockel des gestohlenen Engel</b><br>Neue Neustadt, <a href="https://www.google.com/maps/?q=52.151287,11.629927">Mittagstraße 9</a></div></li>
+        <li><div><b>Neustädter See</b><br>Neustädter See, <a href="https://www.google.com/maps/?q=52.172245,11.636692">Am Seeufer 9</a></div></li>
+        <li><div><b>Neustädtersee, Pumpe am Altersheim</b><br>Neustädter See, <a href="https://www.google.com/maps/?q=52.170883,11.643472">Heideweg 48</a></div></li>
+        <li><div><b>Notwasserpumpe Hospitalstraße</b><br>Neue Neustadt, <a href="https://www.google.com/maps/?q=52.154804,11.640614">Hospitalstraße 5</a></div></li>
+        <li><div><b>Notwasserpumpe Morgenstraße</b><br>Neue Neustadt, <a href="https://www.google.com/maps/?q=52.15794,11.640862">Morgenstraße 63</a></div></li>
+        <li><div><b>Oberfinanzdirektion</b><br>Altstadt, <a href="https://www.google.com/maps/?q=52.133694,11.631972">Stresemannstraße 4</a></div></li>
+        <li><div><b>Ökozentrum Magdeburg</b><br>Stadtfeld West, <a href="https://www.google.com/maps/?q=52.135277,11.596242">Harsdorfer Str. 49</a></div></li>
+        <li><div><b>Otto von Guericke - Brunnen</b><br>Altstadt, <a href="https://www.google.com/maps/?q=52.131832,11.639949">Bei der Hauptwache 3</a></div></li>
+        <li><div><b>Otto-von-Guericke-Universität</b><br>Alte Neustadt, <a href="https://www.google.com/maps/?q=52.139832,11.640374">Denhardtstraße 18</a></div></li>
+        <li><div><b>OVGU Heissdampf-Hochdruck-Lokomobile</b><br>Alte Neustadt, <a href="https://www.google.com/maps/?q=52.139736,11.644889">Gustav-Adolf-Straße 15</a></div></li>
+        <li><div><b>Palm Fountain - Allee Center</b><br>Altstadt, <a href="https://www.google.com/maps/?q=52.129147,11.638456">Prämonstratenserberg</a></div></li>
+        <li><div><b>Paul Niemeyer Denkmal</b><br>Werder, <a href="https://www.google.com/maps/?q=52.106754,11.657681">Niemeyerweg</a></div></li>
+        <li><div><b>Pavillon</b><br>Stadtfeld Ost, <a href="https://www.google.com/maps/?q=52.139866,11.629824">Albert-Vater-Straße 9</a></div></li>
+        <li><div><b>Poliklinik Sket</b><br>Leipziger Straße, <a href="https://www.google.com/maps/?q=52.105045,11.631012">Freie Str. 38</a></div></li>
+        <li><div><b>Power Station, Erich-Weinert-Straße</b><br>Buckau, <a href="https://www.google.com/maps/?q=52.114208,11.629316">Erich-Weinert-Straße 44</a></div></li>
+        <li><div><b>Pumpe G. Hauptmann-Str.</b><br>Stadtfeld Ost, <a href="https://www.google.com/maps/?q=52.132454,11.616352">Gerhart-Hauptmann-Straße 15</a></div></li>
+        <li><div><b>Pumpe Heidestraße</b><br>Sudenburg, <a href="https://www.google.com/maps/?q=52.108025,11.603041">Heidestraße 14-15</a></div></li>
+        <li><div><b>Pumpe Ottersleben</b><br>Ottersleben, <a href="https://www.google.com/maps/?q=52.090036,11.574036">Ernst-Wille-Straße 38-39</a></div></li>
+        <li><div><b>Radiator</b><br>Beyendorfer Grund, <a href="https://www.google.com/maps/?q=52.077503,11.620125">Leipziger Chaussee 91</a></div></li>
+        <li><div><b>Rayonhaus Leipziger Straße 8</b><br>Leipziger Straße, <a href="https://www.google.com/maps/?q=52.114025,11.619281">Leipziger Str. 7</a></div></li>
+        <li><div><b>Reformbrunnen</b><br>Reform, <a href="https://www.google.com/maps/?q=52.090103,11.611564">Kosmos-Promenade</a></div></li>
+        <li><div><b>Roter Gang</b><br>Herrenkrug, <a href="https://www.google.com/maps/?q=52.138306,11.666251">Herrenkrugstraße 18</a></div></li>
+        <li><div><b>Salzquelle</b><br>Werder, <a href="https://www.google.com/maps/?q=52.107155,11.654969">Niemeyerweg</a></div></li>
+        <li><div><b>Sandmann</b><br>Herrenkrug, <a href="https://www.google.com/maps/?q=52.136417,11.670594">Herrenkrugstraße 18</a></div></li>
+        <li><div><b>Sankt Maria Hilf Kirche</b><br>Ottersleben, <a href="https://www.google.com/maps/?q=52.090545,11.578117">Müllergasse 2</a></div></li>
+        <li><div><b>Sankt Petri Kirche</b><br>Altstadt, <a href="https://www.google.com/maps/?q=52.13332,11.645133">Neustädter Str. 1A</a></div></li>
+        <li><div><b>Sankt-Nicolai-Kirche</b><br>Neue Neustadt, <a href="https://www.google.com/maps/?q=52.155838,11.638322">Nicolaistraße 8</a></div></li>
+        <li><div><b>Schafkuh</b><br>Ottersleben, <a href="https://www.google.com/maps/?q=52.088715,11.563516">Am Birnengarten 3</a></div></li>
+        <li><div><b>Schauspielhaus Magdeburg</b><br>Altstadt, <a href="https://www.google.com/maps/?q=52.123398,11.628647">Otto-von-Guericke-Straße 64</a></div></li>
+        <li><div><b>Schlafende Schönheit</b><br>Stadtfeld West, <a href="https://www.google.com/maps/?q=52.127983,11.597104">Spielhagenstraße 60</a></div></li>
+        <li><div><b>Schleckerbiene</b><br>Buckau, <a href="https://www.google.com/maps/?q=52.102837,11.641193">Karl-Schmidt-Straße 45</a></div></li>
+        <li><div><b>Schubkarre</b><br>Stadtfeld Ost, <a href="https://www.google.com/maps/?q=52.138805,11.608778">Stormstraße 15</a></div></li>
+        <li><div><b>Schulkomplex Albert-Vater-Straße</b><br>Stadtfeld Ost, <a href="https://www.google.com/maps/?q=52.139996,11.615286">Albert-Vater-Straße 7</a></div></li>
+        <li><div><b>Schwarze Kunst</b><br>Neue Neustadt, <a href="https://www.google.com/maps/?q=52.154984,11.63217">Umfassungsstraße 76a</a></div></li>
+        <li><div><b>Schwarze Pumpe</b><br>Werder, <a href="https://www.google.com/maps/?q=52.128723,11.65041">Badestraße 2</a></div></li>
+        <li><div><b>Schwerkran Elefant</b><br>Alte Neustadt, <a href="https://www.google.com/maps/?q=52.149151,11.660668">Wittenberger Str. 17</a></div></li>
+        <li><div><b>Schützende Mutter</b><br>Nordwest, <a href="https://www.google.com/maps/?q=52.155128,11.603308">Ginsterbreite 21</a></div></li>
+        <li><div><b>Skulptur Fröhliche Frau</b><br>Sudenburg, <a href="https://www.google.com/maps/?q=52.112953,11.608056">Wiener Straße</a></div></li>
+        <li><div><b>Skulptur I Mensa</b><br>Leipziger Straße, <a href="https://www.google.com/maps/?q=52.101601,11.614984">Brenneckestraße 4B</a></div></li>
+        <li><div><b>Skulpturenpark/Jaguar</b><br>Altstadt, <a href="https://www.google.com/maps/?q=52.12772,11.636788">Regierungsstraße 6</a></div></li>
+        <li><div><b>Sowjetischer Ehrenfriedhof</b><br>Alte Neustadt, <a href="https://www.google.com/maps/?q=52.143799,11.646197">Große Weinhofstraße</a></div></li>
+        <li><div><b>Spielplatz Buckau</b><br>Leipziger Straße, <a href="https://www.google.com/maps/?q=52.107681,11.628183">Grusonstraße 8B</a></div></li>
+        <li><div><b>Sportkomplex Seilerwiesen</b><br>Werder, <a href="https://www.google.com/maps/?q=52.120594,11.646641">Am Winterhafen 8</a></div></li>
+        <li><div><b>Stadtbibliothek Magdeburg</b><br>Altstadt, <a href="https://www.google.com/maps/?q=52.136845,11.6389">Breiter Weg 109</a></div></li>
+        <li><div><b>Station Sudenburg</b><br>Sudenburg, <a href="https://www.google.com/maps/?q=52.120415,11.597279">Am Sudenburger Bahnhof 2</a></div></li>
+        <li><div><b>Statue Pfeiffersche Stiftung</b><br>Cracau, <a href="https://www.google.com/maps/?q=52.116356,11.666139">Schwarzkopfweg</a></div></li>
+        <li><div><b>Statue Sportgymnasium</b><br>Cracau, <a href="https://www.google.com/maps/?q=52.12328,11.664376">Friedrich-Ebert-Straße 48</a></div></li>
+        <li><div><b>Sternstraße 31</b><br>Altstadt, <a href="https://www.google.com/maps/?q=52.119167,11.627575">Sternstraße 31</a></div></li>
+        <li><div><b>Stolpersteine Einsteinstraße</b><br>Altstadt, <a href="https://www.google.com/maps/?q=52.122517,11.627476">Otto-von-Guericke-Straße 48</a></div></li>
+        <li><div><b>Street Art</b><br>Neue Neustadt, <a href="https://www.google.com/maps/?q=52.159168,11.634065">Haldensleber Str. 1</a></div></li>
+        <li><div><b>Streetart 24</b><br>Sudenburg, <a href="https://www.google.com/maps/?q=52.111485,11.60364">Halberstädter Str. 96-98</a></div></li>
+        <li><div><b>Säule Bahnhof Neustadt</b><br>Alte Neustadt, <a href="https://www.google.com/maps/?q=52.147865,11.639375">Lüneburger Str. 22</a></div></li>
+        <li><div><b>Südfriedhof Die Hüterin</b><br>Leipziger Straße, <a href="https://www.google.com/maps/?q=52.106895,11.622799">Leipziger Str. 47</a></div></li>
+        <li><div><b>Südfriedhof Kapelle</b><br>Leipziger Straße, <a href="https://www.google.com/maps/?q=52.107155,11.620982">Leipziger Str. 47</a></div></li>
+        <li><div><b>Südfriedhof,  Tür zur Anderen Seite</b><br>Leipziger Straße, <a href="https://www.google.com/maps/?q=52.108387,11.620258">Leipziger Str. 28A</a></div></li>
+        <li><div><b>Tattoo Graffiti</b><br>Alte Neustadt, <a href="https://www.google.com/maps/?q=52.150314,11.651618">Stendaler Str. 31</a></div></li>
+        <li><div><b>Technikmuseum</b><br>Leipziger Straße, <a href="https://www.google.com/maps/?q=52.103737,11.625546">Dodendorfer Str. 65</a></div></li>
+        <li><div><b>Tessenows Erbe</b><br>Herrenkrug, <a href="https://www.google.com/maps/?q=52.132778,11.66669">Tessenowstraße 2</a></div></li>
+        <li><div><b>Theater an der Angel</b><br>Werder, <a href="https://www.google.com/maps/?q=52.135326,11.654621">Zollstraße 19</a></div></li>
+        <li><div><b>Toepffer-Villa</b><br>Stadtfeld Ost, <a href="https://www.google.com/maps/?q=52.123852,11.615721">Liebknechtstraße 10</a></div></li>
+        <li><div><b>Toller Hecht</b><br>Salbke, <a href="https://www.google.com/maps/?q=52.086567,11.664533">Am Unterhorstweg 10</a></div></li>
+        <li><div><b>Troja Statue</b><br>Altstadt, <a href="https://www.google.com/maps/?q=52.114052,11.628258">Erich-Weinert-Straße 27</a></div></li>
+        <li><div><b>Turm Hundertwasser</b><br>Altstadt, <a href="https://www.google.com/maps/?q=52.127171,11.634887">Kreuzgangstraße</a></div></li>
+        <li><div><b>Turmuhr Ottersleben</b><br>Ottersleben, <a href="https://www.google.com/maps/?q=52.088478,11.570251">Alt Ottersleben 40</a></div></li>
+        <li><div><b>Uniklinikum / Mutter Mit Kind</b><br>Leipziger Straße, <a href="https://www.google.com/maps/?q=52.101482,11.619031">Leipziger Str. 45D</a></div></li>
+        <li><div><b>VDTC</b><br>Alte Neustadt, <a href="https://www.google.com/maps/?q=52.141384,11.656794">Werner-Heisenberg-Straße</a></div></li>
+        <li><div><b>Vollportal -Wippdrehkran Kran 20</b><br>Alte Neustadt, <a href="https://www.google.com/maps/?q=52.146473,11.66028">Werner-Heisenberg-Straße 33</a></div></li>
+        <li><div><b>Wächterin</b><br>Sudenburg, <a href="https://www.google.com/maps/?q=52.114616,11.600541">Wolfenbütteler Str. 12</a></div></li>
+        <li><div><b>Wandkunst</b><br>Neue Neustadt, <a href="https://www.google.com/maps/?q=52.162586,11.641619">Kastanienstraße 16</a></div></li>
+        <li><div><b>Wappen Adolf Mittag</b><br>Werder, <a href="https://www.google.com/maps/?q=52.133163,11.652818">Arkonastraße 1</a></div></li>
+        <li><div><b>Wartehäuschen Herrenkrug</b><br>Herrenkrug, <a href="https://www.google.com/maps/?q=52.151302,11.679046">Herrenkrugstraße 194</a></div></li>
+        <li><div><b>Wasser Marsch!</b><br>Altstadt, <a href="https://www.google.com/maps/?q=52.115646,11.629254">Schellingstraße 4</a></div></li>
+        <li><div><b>Wasserpumpe</b><br>Stadtfeld Ost, <a href="https://www.google.com/maps/?q=52.132816,11.606946">Alexander-Puschkin-Straße 50</a></div></li>
+        <li><div><b>Wasserspiele</b><br>Neu Olvenstedt, <a href="https://www.google.com/maps/?q=52.149872,11.581864">St.-Josef-Straße 34</a></div></li>
+        <li><div><b>Wasserturm Salbke</b><br>Salbke, <a href="https://www.google.com/maps/?q=52.082485,11.666805">Alt Salbke 111E</a></div></li>
+        <li><div><b>Westernplan 1945</b><br>Sfiltadtfeld Ost, <a href="https://www.google.com/maps/?q=52.137051,11.617642">Klopstockstraße 13</a></div></li>
+        <li><div><b>Windspiel</b><br>Hopfengarten, <a href="https://www.google.com/maps/?q=52.08646,11.638298">Gustav-Ricker-Straße 4</a></div></li>
+        <li><div><b>Wood Statue</b><br>Neue Neustadt, <a href="https://www.google.com/maps/?q=52.166401,11.64205">Klosterwuhne 27</a></div></li>
+        <li><div><b>Zoo,  Bronzener Widder</b><br>Neustädter See, <a href="https://www.google.com/maps/?q=52.16827,11.638449">Pablo-Neruda-Straße 10</a></div></li>
+        <li><div><b>Zoo, Der Ponystall</b><br>Neue Neustadt, <a href="https://www.google.com/maps/?q=52.167717,11.640037">Klosterwuhne 25</a></div></li>
+        <li><div><b>Zoo, Zoowelle</b><br>Neue Neustadt, <a href="https://www.google.com/maps/?q=52.165314,11.645291">Zooallee</a></div></li>
+        <li><div><b>Zug Spray</b><br>Alte Neustadt, <a href="https://www.google.com/maps/?q=52.150318,11.650093">Sieverstorstraße 33</a></div></li>
+        <li><div><b>Zum Pelikan</b><br>Altstadt, <a href="https://www.google.com/maps/?q=52.129059,11.633474">Himmelreichstraße 4</a></div></li>
+        <li><div><b>Zweierpack Russian Style</b><br>Neustädter See, <a href="https://www.google.com/maps/?q=52.171268,11.636608">Am Seeufer 10</a></div></li>
+    </ol>
+    <div id="share">
+        Die Medaillen sind nur in diesem Browser gespeichert. Um sie zu übertragen,
+        schicke den folgenden Link an ein anderes Gerät:<br>
+        <a id="share-url">Medaillen</a>
+    </div>
+</div>
+
+<script>
+let storage = {}; try {storage = localStorage} catch(e) {};
+
+(function start() {
+    updateSums();
+    if (location.search) {
+        document.getElementById('content').style.display = 'none';
+        document.getElementById('restore').style.display = 'inline';
+        return;
+    }
+    if (location.hash === '#undo' && getOldLevelsString()) {
+        document.getElementById('undo').style.display = 'inline';
+    }
+    makeBadges();
+    makeJumpTable();
+    updateShare();
+    if (location.hash === '#map') showAsMap();
+})();
+
+// add <img> tags
+function makeBadges() {
+    const list = document.getElementsByTagName('li');
+    for (let i = 0; i < list.length; i++) {
+        const item = list[i];
+        const label = document.createElement('span');
+        const badge = document.createElement('img');
+        item.insertBefore(badge, item.childNodes[0]);
+        item.insertBefore(label, item.childNodes[0]);
+ 
+        label.className = 'number';
+        label.textContent = `${i + 1}.`;
+ 
+        const level = getLevel(i);
+        badge.src = `gym${level}.png`;
+        badge.width = 48;
+        badge.height = 48;
+        badge.getLevel = () => getLevel(i);
+        badge.incLevel = () => incLevel(i);
+        badge.onclick = () => {
+            const lv = incLevel(i);
+            badge.src = `gym${lv}.png`;
+            if (badge.setMarker) badge.setMarker(lv);
+        };
+    }
+}
+
+// add markers to leaflet.js map
+function makeMap() {
+    var map = L.map('map', {
+        center: [52.1205,11.6277],
+        zoom: 14,
+        maxBounds: [[52.06,11.55],[52.18,11.7]],
+    });
+    //L.tileLayer('https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', {
+    //L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+        attribution: '© <a href="http://openstreetmap.org">OpenStreetMap</a> | © <a href="http://mapbox.com">Mapbox</a>',
+        minZoom: 12,
+        maxZoom: 16,
+        id: 'mapbox.pirates',
+        accessToken: ''
+    }).addTo(map);
+
+    const icons = [0,1,2,3].map(level => L.icon({
+        iconUrl: `gym${level}.png`,
+        iconSize: [48, 48],
+        iconAnchor: [24, 42],
+        popupAnchor: [24, 6],
+        shadowUrl: 'gym_.png',
+        shadowSize: [48, 48],
+        shadowAnchor: [24, 35],
+    }));
+
+    const list = document.getElementsByTagName('li');
+    for (let i = 0; i < list.length; i++) {
+        const item = list[i];
+        const name = item.getElementsByTagName('b')[0].textContent;
+        const loc = last(item.getElementsByTagName('a')).href.split('=')[1].split(',').map(Number);
+        const badge = item.getElementsByTagName('img')[0];
+        const level = badge.getLevel();
+        const marker = L.marker(loc, {icon:icons[level],riseOnHover:true}).addTo(map);
+        marker.bindTooltip(name);
+        badge.setMarker = lv => marker.setIcon(icons[lv]);
+    }
+    
+    L.Util.requestAnimFrame(map.invalidateSize, map, !1, map._container);
+}
+
+// add <a> jump targets and nav bar
+function makeJumpTable(nameFn) {
+    let letter = '3';
+    let letters = [];
+    const list = document.getElementsByTagName('li');
+    for (let i = 0; i < list.length; i++) {
+        const item = list[i];
+        const name = nameFn ? nameFn(item) : item.getElementsByTagName('b')[0].innerText;
+        if (letter !== name[0] && name[0].charCodeAt(0) < 100) {
+            letter = name[0];
+            const a = document.createElement('a');
+            a.id = `${letter}`;
+            a.className = 'jump';
+            item.insertBefore(a, item.childNodes[0]);
+            letters.push(letter);
+        }
+    }
+    document.getElementById('jump').innerHTML = letters.map(l=>`<a href="#${l}">&nbsp;${l}&nbsp;</a>`).join(' ');
+}
+
+function deleteJumpTargets() {
+    const ol = document.getElementById('list');
+    const array = Array.from(ol.getElementsByTagName('li'));
+    array.forEach(li => { if (li.children[0].tagName === 'A') li.removeChild(li.children[0]) });
+}
+
+function updateBadges() {
+    const list = document.getElementsByTagName('li');
+    for (let i = 0; i < list.length; i++) {
+        const badge = list[i].getElementsByTagName('img')[0];
+        badge.src = `gym${getLevel(i)}.png`;
+    }
+}
+
+function updateSums() {
+    const list = document.getElementsByTagName('li');
+    const sums = [0, 0, 0, 0];
+    for (let i = 0; i < list.length; i++)
+        sums[getLevel(i)]++;
+    for (let i = 0; i < 4; i++)
+        document.getElementById(`sum${i}`).innerText = sums[i];
+}
+
+function plainURL() {
+    return document.location.protocol + '//' +
+        document.location.host +
+        document.location.pathname;
+}
+
+function updateShare() {
+    const list = document.getElementsByTagName('li');
+    let numbers = '';
+    for (let i = 0; i < list.length; i++)
+        numbers += getLevel(i);
+    document.getElementById('share-url').href = plainURL() + '?' + numbers;
+}
+
+function doRestore() {
+    if (confirm("Wirklich alle Medaillen ersetzen?")) {
+        const undo = getLevelsString();
+        setLevelsString(location.search.substr(1));
+        if (undo) {
+            setOldLevelsString(undo);
+            loadPlainPage('#undo');
+        } else {
+            loadPlainPage();
+        }
+    }
+}
+
+function undoRestore() {
+    const redo = getLevelsString();
+    setLevelsString(getOldLevelsString());
+    setOldLevelsString(redo);
+    loadPlainPage();
+}
+
+
+function loadPlainPage(suffix) {
+    location.href = plainURL() + (suffix ? suffix : '');
+}
+
+function showMap(showMap) {
+    const listDisplay = showMap ? 'none' : 'block';
+    const mapDisplay = showMap ? 'block' : 'none';
+    document.getElementById('jump').style.display = listDisplay;
+    document.getElementById('list').style.display = listDisplay;
+    document.getElementById('map').style.display = mapDisplay;
+}
+
+function showByName() {
+    showMap(false);
+    deleteJumpTargets();
+    const ol = document.getElementById('list');
+    const array = Array.from(ol.getElementsByTagName('li'));
+    array.sort((a, b) => {
+        const nrA = +a.childNodes[0].textContent;
+        const nrB = +b.childNodes[0].textContent;
+        return nrA - nrB;
+    });
+    array.forEach(li => ol.appendChild(li));
+    makeJumpTable();
+}
+
+function showByDistrict() {
+    showMap(false);
+    deleteJumpTargets();
+    const ol = document.getElementById('list');
+    const array = Array.from(ol.getElementsByTagName('li'));
+    array.sort(function(a, b) {
+        const divA = a.getElementsByTagName('div')[0];
+        const divB = b.getElementsByTagName('div')[0];
+        const districtA = divA.childNodes[2].textContent;
+        const districtB = divB.childNodes[2].textContent;
+        const result = districtA.localeCompare(districtB);
+        if (result) return result;
+        const addressA = divA.getElementsByTagName('b')[0].textContent;
+        const addressB = divB.getElementsByTagName('b')[0].textContent;
+        return addressA.localeCompare(addressB);
+    });
+    array.forEach(li => ol.appendChild(li));
+    makeJumpTable(li => li.getElementsByTagName('div')[0].childNodes[2].textContent);
+}
+
+function showAsMap() {
+    const mapContent = document.getElementById('map').children.length;
+    if (!mapContent) makeMap();
+    showMap(true);
+}
+
+function getLevelsString() { return storage['gym-levels'] || ''; }
+function setLevelsString(s) { storage['gym-levels'] = s; updateShare(); }
+
+function getOldLevelsString() { return storage['gym-levels-old'] || ''; }
+function setOldLevelsString(s) { storage['gym-levels-old'] = s; }
+
+function setLevel(i, level) {
+    let s = getLevelsString();
+    while (s.length <= i) s += '0';
+    setLevelsString(s.substr(0, i) + level + s.substr(i + 1));
+}
+function getLevel(i) { return getLevelsString()[i] & 3; }
+
+function incLevel(i) {
+    const level = (getLevel(i) + 1) % 4;
+    setLevel(i, level);
+    updateSums();
+    return level;
+}
+
+function last(a) { return a[a.length - 1]; }
+</script>
+</body>
+</html>
