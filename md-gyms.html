@@ -57,6 +57,7 @@
     <img src="gym2.png" width="36"><span id="sum2">0</span> &nbsp;
     <img src="gym1.png" width="36"><span id="sum1">0</span> &nbsp;
     <img src="gym0.png" width="36"><span id="sum0">0</span>
+    / <span id="sum">0</span>
 </div>
 <div id="content">
     <div class="small">Klicke die Medaillen in der Liste an, um sie auf Bronze/Silber/Gold zu stellen. 
@@ -426,6 +427,7 @@ function updateSums() {
         sums[getLevel(i)]++;
     for (let i = 0; i < 4; i++)
         document.getElementById(`sum${i}`).innerText = sums[i];
+    document.getElementById(`sum`).innerText = list.length;
 }
 
 function plainURL() {
