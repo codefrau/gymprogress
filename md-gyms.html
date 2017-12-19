@@ -98,8 +98,12 @@ const gyms = getGyms();
     }
     makeList();
     updateShare();
-    if (location.hash === '#map') showAsMap(); 
-    else showByName();
+    switch (location.hash) {
+        case '#map': showAsMap(); break; 
+        case '#district': showByDistrict(); break; 
+        case '#level': showByLevel(); break; 
+        default: showByName();
+    }
 })();
 
 // add divs for each gym
@@ -168,7 +172,8 @@ function makeMap() {
     }));
 
     for (const gym of gyms) {
-        const marker = L.marker(gym.location, {icon: icons[gym.level], title: gym.name, riseOnHover: true});
+        const marker = L.marker(gym.location, {icon: icons[gym.level], riseOnHover: true});
+        marker.bindTooltip(gym.name);
         marker.addTo(map);
         gym.setMarker = lv => marker.setIcon(icons[lv]);
     }
@@ -227,21 +232,25 @@ function showList(sortFn, jumpFn) {
 
 function showByName() {
     showList(compareNames, gym => gym.name);
+    history.replaceState(null, "By Name", "#name");
 }
 
 function showByDistrict() {
     showList(compareDistricts, gym => gym.district);
+    history.replaceState(null, "By District", "#district");
 }
 
 function showByLevel(level) {
     showList(compareLevels, gym => '' + gym.level);
     if (level !== undefined) location.hash = "#" + level;
+    else history.replaceState(null, "By Level", "#level");
 }
 
 function showAsMap() {
     const mapContent = $('map').children.length;
     if (!mapContent) makeMap();
     show(['map']);
+    history.replaceState(null, "Map", "#map");
 }
 
 
