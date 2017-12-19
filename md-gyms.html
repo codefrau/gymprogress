@@ -161,8 +161,8 @@ function makeMap() {
 
 // add <a> jump targets and nav bar
 function makeJumpTable(nameFn) {
+    const targets = [];
     let target = '';
-    let targets = [];
     for (const gym of gyms) {
         const name = nameFn ? nameFn(gym) : gym.name;
         const initial = name[0].toUpperCase();
@@ -196,7 +196,7 @@ function updateSums() {
 //////////////// View Switching ////////////////
 
 function show(ids) {
-    for (let id of ['list', 'jump', 'map'])
+    for (const id of ['list', 'jump', 'map'])
         $(id).style.display = ids.includes(id) ? 'block' : 'none';
 }
 
