@@ -55,10 +55,10 @@
     <div id="jump"></div>
 
     <div id="sums" class="big">
-        <img src="gym3.png" width="36"><span id="sum3">0</span> &nbsp;
-        <img src="gym2.png" width="36"><span id="sum2">0</span> &nbsp;
-        <img src="gym1.png" width="36"><span id="sum1">0</span> &nbsp;
-        <img src="gym0.png" width="36"><span id="sum0">0</span>
+        <img src="gym3.png" width="36" onclick="showByLevel(3)"><span id="sum3">0</span> &nbsp;
+        <img src="gym2.png" width="36" onclick="showByLevel(2)"><span id="sum2">0</span> &nbsp;
+        <img src="gym1.png" width="36" onclick="showByLevel(1)"><span id="sum1">0</span> &nbsp;
+        <img src="gym0.png" width="36" onclick="showByLevel(0)"><span id="sum0">0</span>
         / <span id="sum">0</span>
     </div>
 
@@ -97,7 +97,6 @@ const gyms = getGyms();
         $('undo').style.display = 'inline';
     }
     makeList();
-    makeJumpTable();
     updateShare();
     if (location.hash === '#map') showAsMap(); 
     else showByName();
@@ -185,13 +184,13 @@ function makeJumpTable(nameFn) {
     for (const gym of gyms) {
         const name = nameFn ? nameFn(gym) : gym.name;
         const initial = name[0].toUpperCase();
-        if (target !== initial && initial.match(/[A-Z]/i)) {
+        if (target !== initial) {
             target = initial;
             const a = document.createElement('a');
             a.id = target;
             a.className = 'jumptarget';
             gym.div.insertBefore(a, gym.div.childNodes[0]);
-            targets.push(target);
+            if (initial.match(/[A-Z]/i)) targets.push(target);
         }
     }
     $('jump').innerHTML = targets.map(t => `<a href="#${t}">&nbsp;${t}&nbsp;</a>`).join(' ');
@@ -234,8 +233,9 @@ function showByDistrict() {
     showList(compareDistricts, gym => gym.district);
 }
 
-function showByLevel() {
-    showList(compareLevels);
+function showByLevel(level) {
+    showList(compareLevels, gym => '' + gym.level);
+    if (level !== undefined) location.hash = "#" + level;
 }
 
 function showAsMap() {
