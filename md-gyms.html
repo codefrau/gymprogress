@@ -124,10 +124,29 @@ function makeList() {
 
 // add markers to leaflet.js map
 function makeMap() {
-    var map = L.map('map', {
-        center: [52.1205,11.6277],
+    function mapCenter(weights = [1, 4, 16, 64]) {
+        let center = [0, 0],
+            count = 0;
+        for (const gym of gyms) {
+            const weight = weights[gym.level];
+            center[0] += weight * gym.location[0];
+            center[1] += weight * gym.location[1];
+            count += weight;
+        }
+        return center.map(x => x / count);
+    }
+
+    function gymBounds(expand = 0.01) {
+        return ['min', 'max']
+            .map(op => [0, 1]
+                .map(i => Math[op].apply(null,
+                    gyms.map(gym => gym.location[i] + expand * (op === 'min' ? -1 : 1)))));
+    }
+
+    const map = L.map('map', {
+        center: mapCenter(),
         zoom: 14,
-        maxBounds: [[52.06,11.55],[52.18,11.7]],
+        maxBounds: gymBounds(),
     });
     //L.tileLayer('https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', {
     //L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
@@ -150,12 +169,12 @@ function makeMap() {
     }));
 
     for (const gym of gyms) {
-        const marker = L.marker(gym.location, {icon: icons[gym.level], riseOnHover: true});
-        marker.bindTooltip(gym.name);
-        marker.addTo(map)
+        const marker = L.marker(gym.location, {icon: icons[gym.level], title: gym.name, riseOnHover: true});
+        marker.addTo(map);
         gym.setMarker = lv => marker.setIcon(icons[lv]);
     }
-    
+
+    // redisplay after one frame to avoid blank tiles
     L.Util.requestAnimFrame(map.invalidateSize, map, !1, map._container);
 }
 
