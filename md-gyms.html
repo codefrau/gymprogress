@@ -200,24 +200,23 @@ function show(ids) {
         $(id).style.display = ids.includes(id) ? 'block' : 'none';
 }
 
-function showByName() {
+function showList(sortFn, jumpFn) {
     deleteJumpTargets();
-    gyms.sort(compareNames).forEach(gym => $('list').appendChild(gym.div));
-    makeJumpTable();
-    show(['list','jump']);
+    gyms.sort(sortFn).forEach(gym => $('list').appendChild(gym.div));
+    if (jumpFn) makeJumpTable(jumpFn);
+    show(jumpFn ? ['list','jump'] : ['list']);
+}
+
+function showByName() {
+    showList(compareNames, gym => gym.name);
 }
 
 function showByDistrict() {
-    deleteJumpTargets();
-    gyms.sort(compareDistricts).forEach(gym => $('list').appendChild(gym.div));
-    makeJumpTable(gym => gym.district);
-    show(['list','jump']);
+    showList(compareDistricts, gym => gym.district);
 }
 
 function showByLevel() {
-    deleteJumpTargets();
-    gyms.sort(compareLevels).forEach(gym => $('list').appendChild(gym.div));
-    show(['list']);
+    showList(compareLevels);
 }
 
 function showAsMap() {
