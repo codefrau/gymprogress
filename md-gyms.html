@@ -295,12 +295,20 @@ function compareNames(a, b) {
     return a.name.localeCompare(b.name);
 }
 
+function compareAddress(a, b) {
+    const [, streetA, nrA] = a.address.match(/^([^0-9]*)(.*)$/);
+    const [, streetB, nrB] = b.address.match(/^([^0-9]*)(.*)$/);
+    const result = streetA.localeCompare(streetB);
+    if (result) return result;
+    return parseInt(nrA) - parseInt(nrB);
+}
+
 function compareDistricts(a, b) {
     let result = a.district.localeCompare(b.district);
     if (result) return result;
     result = b.level - a.level;
     if (result) return result;
-    return a.address.localeCompare(b.address);
+    return compareAddress(a, b);
 }
 
 function compareLevels(a, b) {
