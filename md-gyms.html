@@ -311,11 +311,12 @@ function compareLevels(a, b) {
 
 //////////////// Badge Storage ////////////////
 
-function getLevelsString() { return storage['gym-levels'] || ''; }
-function setLevelsString(s) { storage['gym-levels'] = s; updateShare(); }
+function sanitize(s) { return String(s).replace(/[^0-3]/g, '0'); }
+function getLevelsString() { return sanitize(storage['gym-levels'] || ''); }
+function setLevelsString(s) { storage['gym-levels'] = sanitize(s); updateShare(); }
 
-function getOldLevelsString() { return storage['gym-levels-old'] || ''; }
-function setOldLevelsString(s) { storage['gym-levels-old'] = s; }
+function getOldLevelsString() { return sanitize(storage['gym-levels-old'] || ''); }
+function setOldLevelsString(s) { storage['gym-levels-old'] = sanitize(s); }
 
 function setLevel(i, level) {
     let s = getLevelsString();
