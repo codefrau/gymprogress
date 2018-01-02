@@ -139,7 +139,7 @@ function makeMap() {
         return center.map(x => x / count);
     }
 
-    function gymBounds(expand = 0.01) {
+    function gymBounds(expand = 0.05) {
         return ['min', 'max']
             .map(op => [0, 1]
                 .map(i => Math[op].apply(null,
