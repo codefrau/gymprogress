@@ -71,6 +71,7 @@
         <button type="button" onclick="showByName()">Namen</button>
         <button type="button" onclick="showByDistrict()">Stadtteile</button>
         <button type="button" onclick="showByLevel()">Medaillen</button>
+        <button type="button" onclick="showByExraid()">EX</button>
         <button type="button" onclick="showAsMap()">Karte</button>
         <div id="map"></div>
         <div id="list"></div>
@@ -119,7 +120,7 @@ function makeList() {
             <img src="gym${gym.levelEx}.png" class="badge" width="36" height="48">
             <div><b>${gym.name}</b><br>
                 ${gym.district}, <a href="https://www.google.com/maps/?q=${gym.location}">${gym.address}</a>
-            </div>${gym.exraid ? '<img src="exraid.png" class="exbadge" onclick="showByExraid()">' : ''}`;
+            </div>${gym.exraid ? '<img src="exraid.png" class="exbadge">' : ''}`;
         const badge = byClass(gym.div, 'badge')[0];
         badge.onclick = () => {
             incLevel(gym.id);
