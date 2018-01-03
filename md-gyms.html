@@ -33,6 +33,9 @@
 <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
     integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
     crossorigin=""></script>
+<script src="https://unpkg.com/s2-geometry@1.2.9/src/s2geometry.js"
+    integrity="sha384-WGDofm6Km+bZIxd/uBU2QJlwIMxX/9H5H7G9glfYtcAAR8vrm0wbzvtpIG54XhOZ"
+    crossorigin=""></script>
 <title>Berts Arena Tracker</title>
 </head>
 
@@ -161,10 +164,12 @@ function makeMap() {
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
         attribution: '© <a href="http://openstreetmap.org">OpenStreetMap</a> | © <a href="http://mapbox.com">Mapbox</a>',
         minZoom: 12,
-        maxZoom: 16,
+        maxZoom: 17,
         id: 'mapbox.pirates',
         accessToken: '' // Bert's token. Please get your own. It's free.
     }).addTo(map);
+
+    // add gym markers
 
     const icons = [0,1,2,3,4,5,6,7].map(level => L.icon({
         iconUrl: `gym${level}.png`,
@@ -182,6 +187,34 @@ function makeMap() {
         marker.addTo(map);
         gym.setMarker = lv => marker.setIcon(icons[lv]);
     }
+
+    // add S2 cells
+ 
+    function latLng(cell, offset) {
+        const st = S2.IJToST(cell.ij, cell.level, offset);
+        const uv = S2.STToUV(st);
+        const xyz = S2.FaceUVToXYZ(cell.face, uv);
+        return S2.XYZToLatLng(xyz);
+    }
+ 
+    const bounds = map.getBounds();
+    const center = bounds.getCenter();
+    const cell = S2.S2Cell.FromLatLng(bounds.getNorthEast(), 12);
+    const grid = [];
+    for (let j = -5; j < 7; j++) {
+        const row = [];
+        for (let i = -5; i < 7; i++) {
+            row.push(latLng(cell, [i, j]));
+        }
+        grid.push(row);
+    }
+    const polys = [];
+    for (let x = 1; x < grid.length; x++) {
+        for (let y = 1; y < grid[0].length; y++) {
+            polys.push([grid[x-1][y], grid[x-1][y-1],grid[x][y-1]]);
+        }
+    }
+    L.polyline(polys, {color: 'blue', opacity: 0.3, weight: 2}).addTo(map);
 
     // redisplay after one frame to avoid blank tiles
     L.Util.requestAnimFrame(map.invalidateSize, map, !1, map._container);
