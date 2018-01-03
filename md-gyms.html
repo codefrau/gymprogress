@@ -12,12 +12,14 @@
     .badge{padding:10px 6px 10px 0}
     a,.item{white-space:nowrap}
     .item>*{display:inline-block;vertical-align:middle}
+    .exraid{background-image:linear-gradient(to left,#eeffeb,#D0EDCA,#eeffeb);border-radius:10px}
     .big{font-size:20px}
     .small{font-size:12px;font-style:italic}
     a{text-decoration:none;color:#719968}
     a.jumptarget{display:block;position:relative;top:-15px;visibility:hidden}
     button,#sums{background-image: linear-gradient(to left, rgb(36, 204, 170) 5%, rgb(162, 219, 149) 95%);
         border-radius:20px;border-width:0;color:white;font-weight:bold;height:24px;}
+    img.exbadge{width:48px;height:48px;padding:0 10px}
     #jump{position:fixed;bottom:90px;right:0;width:20px;line-height:1.4;border-radius:5px 0 0 5px;background-color: white;box-shadow:0 0 10px}
     #sums{position:fixed;bottom:0;height:50px;padding:10px;border-radius:20px 20px 0 0;z-index:2000}
     #share{margin:100px 0}
@@ -102,6 +104,7 @@ const gyms = getGyms();
         case '#map': showAsMap(); break; 
         case '#district': showByDistrict(); break; 
         case '#level': showByLevel(); break; 
+        case '#exraid': showByExraid(); break; 
         default: showByName();
     }
 })();
@@ -110,12 +113,12 @@ const gyms = getGyms();
 function makeList() {
     for (const gym of gyms) {
         gym.div = document.createElement('div');
-        gym.div.className = 'item';
+        gym.div.className = gym.exraid ? 'item exraid' : 'item';
         gym.div.innerHTML = `
             <img src="gym${gym.level}.png" class="badge" width="36" height="48">
             <div><b>${gym.name}</b><br>
                 ${gym.district}, <a href="https://www.google.com/maps/?q=${gym.location}">${gym.address}</a>
-            </div>`;
+            </div>${gym.exraid ? '<img src="exraid.png" class="exbadge" onclick="showByExraid()">' : ''}`;
         const badge = byClass(gym.div, 'badge')[0];
         badge.onclick = () => {
             const lv = incLevel(gym.id);
@@ -223,9 +226,11 @@ function show(ids) {
         $(id).style.display = ids.includes(id) ? 'block' : 'none';
 }
 
-function showList(sortFn, jumpFn) {
+function showList(sortFn, jumpFn, filterFn = _ => true) {
     deleteJumpTargets();
-    gyms.sort(sortFn).forEach(gym => $('list').appendChild(gym.div));
+    const list = $('list');
+    while (list.firstChild) list.removeChild(list.firstChild);
+    gyms.filter(filterFn).sort(sortFn).forEach(gym => list.appendChild(gym.div));
     if (jumpFn) makeJumpTable(jumpFn);
     show(jumpFn ? ['list','jump'] : ['list']);
 }
@@ -244,6 +249,11 @@ function showByLevel(level) {
     showList(compareLevels, gym => '' + gym.level);
     if (level !== undefined) location.hash = "#" + level;
     else history.replaceState(null, "By Level", "#level");
+}
+
+function showByExraid() {
+    showList(compareExraid, 0, gym => gym.exraid);
+    history.replaceState(null, "By Exraid", "#exraid");
 }
 
 function showAsMap() {
@@ -315,6 +325,11 @@ function compareLevels(a, b) {
     const result = b.level - a.level;
     if (result) return result;
     return compareDistricts(a, b);
+}
+
+function compareExraid(a, b) {
+    if (a.exraid !== b.exraid) return !a.exraid - !b.exraid;
+    return compareLevels(a, b);
 }
 
 //////////////// Badge Storage ////////////////
@@ -436,7 +451,7 @@ function gymData() {
     {name: "Gussasphaltkocher", district: "Werder", address: "Am Winterhafen 3", location: [52.123486,11.649843]},
     {name: "Gustav Adolf Pfeiffer", district: "Cracau", address: "Schwarzkopfweg 2", location: [52.116249,11.667232]},
     {name: "Halbkugeln Lemsdorfer Lümmel", district: "Lemsdorf", address: "Blankenburger Str. 11", location: [52.099281,11.597336]},
-    {name: "Harry Potter Spielplatz", district: "Neustädter Feld", address: "Othrichstraße 34", location: [52.155457,11.617514]},
+    {name: "Harry Potter Spielplatz", district: "Neustädter Feld", address: "Othrichstraße 34", location: [52.155457,11.617514], exraid: true},
     {name: "Hasselbachplatz / Plättbolzen", district: "Altstadt", address: "Breiter Weg 232", location: [52.120865,11.627843]},
     {name: "Hauptbahnhof", district: "Altstadt", address: "Bahnhofstraße 69", location: [52.130337,11.628231]},
     {name: "Hauptbahnhof Seiteneingang", district: "Altstadt", address: "Ernst-Reuter-Allee 45", location: [52.131149,11.626944]},
@@ -452,7 +467,7 @@ function gymData() {
     {name: "HS Magdeburg-Stendal, Haus 1", district: "Herrenkrug", address: "Breitscheidstraße 1B", location: [52.141144,11.673909]},
     {name: "Hsv Medizin Magdeburg", district: "Hopfengarten", address: "Leipziger Chaussee 55", location: [52.090614,11.621261]},
     {name: "Hubbrücke \"Von So Weit Her Bis Hier Hin\"", district: "Altstadt", address: "Hubbrücke", location: [52.119759,11.635375]},
-    {name: "Ich warte vor der Turnhalle", district: "Alte Neustadt", address: "Johann-Gottlob-Nathusius-Ring 8", location: [52.139713,11.648348]},
+    {name: "Ich warte vor der Turnhalle", district: "Alte Neustadt", address: "Johann-Gottlob-Nathusius-Ring 8", location: [52.139713,11.648348], exraid: true},
     {name: "Iss Raumstation", district: "Reform", address: "Lunochodstraße 7", location: [52.092087,11.615098]},
     {name: "Jean Burger", district: "Leipziger Straße", address: "Lennéstraße 4-5", location: [52.115273,11.621239]},
     {name: "Johann Gutenberg", district: "Alte Neustadt", address: "Gareisstraße 12", location: [52.140247,11.63952]},
@@ -478,7 +493,7 @@ function gymData() {
     {name: "Kunst in Olve", district: "Neu Olvenstedt", address: "Johannes-Göderitz-Straße 79", location: [52.153629,11.591518]},
     {name: "KZ Gedenkstätte", district: "Stadtfeld West", address: "Liebknechtstraße 68", location: [52.123314,11.604337]},
     {name: "Landeshauptarchiv Sachsen-Anhalt", district: "Brückfeld", address: "Brückstraße 2", location: [52.128395,11.659899]},
-    {name: "Leeres Wasserspiel", district: "Alte Neustadt", address: "Rogätzer Str. 13", location: [52.146633,11.653295]},
+    {name: "Leeres Wasserspiel", district: "Alte Neustadt", address: "Rogätzer Str. 13", location: [52.146633,11.653295], exraid: true},
     {name: "Leibniz-Institut für Neurobiologie", district: "Leipziger Straße", address: "Brenneckestraße 6", location: [52.101871,11.611201]},
     {name: "Lemsdorfer Kunst", district: "Lemsdorf", address: "Blankenburger Str. 21", location: [52.100555,11.597927]},
     {name: "Lichtstele", district: "Werder", address: "Heinrich-Heine-Weg", location: [52.118587,11.640822]},
@@ -511,7 +526,7 @@ function gymData() {
     {name: "Otto von Guericke - Brunnen", district: "Altstadt", address: "Bei der Hauptwache 3", location: [52.131832,11.639949]},
     {name: "Otto-von-Guericke-Universität", district: "Alte Neustadt", address: "Denhardtstraße 18", location: [52.139832,11.640374]},
     {name: "OVGU Heissdampf-Hochdruck-Lokomobile", district: "Alte Neustadt", address: "Gustav-Adolf-Straße 15", location: [52.139736,11.644889]},
-    {name: "Palm Fountain - Allee Center", district: "Altstadt", address: "Prämonstratenserberg", location: [52.129147,11.638456]},
+    {name: "Palm Fountain - Allee Center", district: "Altstadt", address: "Prämonstratenserberg", location: [52.129147,11.638456], exraid: true},
     {name: "Paul Niemeyer Denkmal", district: "Werder", address: "Niemeyerweg", location: [52.106754,11.657681]},
     {name: "Pavillon", district: "Stadtfeld Ost", address: "Albert-Vater-Straße 9", location: [52.139866,11.629824]},
     {name: "Poliklinik Sket", district: "Leipziger Straße", address: "Freie Str. 38", location: [52.105045,11.631012]},
@@ -540,9 +555,9 @@ function gymData() {
     {name: "Schützende Mutter", district: "Nordwest", address: "Ginsterbreite 21", location: [52.155128,11.603308]},
     {name: "Skulptur Fröhliche Frau", district: "Sudenburg", address: "Wiener Straße", location: [52.112953,11.608056]},
     {name: "Skulptur I Mensa", district: "Leipziger Straße", address: "Brenneckestraße 4B", location: [52.101601,11.614984]},
-    {name: "Skulpturenpark/Jaguar", district: "Altstadt", address: "Regierungsstraße 6", location: [52.12772,11.636788]},
+    {name: "Skulpturenpark/Jaguar", district: "Altstadt", address: "Regierungsstraße 6", location: [52.12772,11.636788], exraid: true},
     {name: "Sowjetischer Ehrenfriedhof", district: "Alte Neustadt", address: "Große Weinhofstraße", location: [52.143799,11.646197]},
-    {name: "Spielplatz Buckau", district: "Leipziger Straße", address: "Grusonstraße 8B", location: [52.107681,11.628183]},
+    {name: "Spielplatz Buckau", district: "Leipziger Straße", address: "Grusonstraße 8B", location: [52.107681,11.628183], exraid: true},
     {name: "Sportkomplex Seilerwiesen", district: "Werder", address: "Am Winterhafen 8", location: [52.120594,11.646641]},
     {name: "Stadtbibliothek Magdeburg", district: "Altstadt", address: "Breiter Weg 109", location: [52.136845,11.6389]},
     {name: "Station Sudenburg", district: "Sudenburg", address: "Am Sudenburger Bahnhof 2", location: [52.120415,11.597279]},
