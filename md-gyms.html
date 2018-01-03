@@ -115,13 +115,13 @@ function makeList() {
         gym.div = document.createElement('div');
         gym.div.className = gym.exraid ? 'item exraid' : 'item';
         gym.div.innerHTML = `
-            <img src="gym${gym.level}.png" class="badge" width="36" height="48">
+            <img src="gym${gym.level + 4 * !!gym.exraid}.png" class="badge" width="36" height="48">
             <div><b>${gym.name}</b><br>
                 ${gym.district}, <a href="https://www.google.com/maps/?q=${gym.location}">${gym.address}</a>
             </div>${gym.exraid ? '<img src="exraid.png" class="exbadge" onclick="showByExraid()">' : ''}`;
         const badge = byClass(gym.div, 'badge')[0];
         badge.onclick = () => {
-            const lv = incLevel(gym.id);
+            const lv = incLevel(gym.id) + 4 * !!gym.exraid;
             badge.src = `gym${lv}.png`;
             if (gym.setMarker) gym.setMarker(lv);   // update map marker
         };
@@ -164,7 +164,7 @@ function makeMap() {
         accessToken: '' // Bert's token. Please get your own. It's free.
     }).addTo(map);
 
-    const icons = [0,1,2,3].map(level => L.icon({
+    const icons = [0,1,2,3,4,5,6,7].map(level => L.icon({
         iconUrl: `gym${level}.png`,
         iconSize: [36, 48],
         iconAnchor: [18, 42],
@@ -175,7 +175,7 @@ function makeMap() {
     }));
 
     for (const gym of gyms) {
-        const marker = L.marker(gym.location, {icon: icons[gym.level], riseOnHover: true});
+        const marker = L.marker(gym.location, {icon: icons[gym.level + 4 * !!gym.exraid], riseOnHover: true});
         marker.bindTooltip(gym.name);
         marker.addTo(map);
         gym.setMarker = lv => marker.setIcon(icons[lv]);
