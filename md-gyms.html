@@ -33,6 +33,12 @@
 <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
     integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
     crossorigin=""></script>
+<script src="https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js"
+    integrity="sha384-btJhAWztz7ttA6ibFC5ppM39nkCPK6CWzRVmsaLcDn37mA3x1TzF1DbFwa6tJpTN"
+    crossorigin=""></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css"
+    integrity="sha384-t17w2haSDwLp3KSAOHF7+VI9q2maRMLDhnIyU/JasjeWyxcN3YOcrD7T95CiJSWE"
+    crossorigin="">
 <script src="https://unpkg.com/s2-geometry@1.2.9/src/s2geometry.js"
     integrity="sha384-WGDofm6Km+bZIxd/uBU2QJlwIMxX/9H5H7G9glfYtcAAR8vrm0wbzvtpIG54XhOZ"
     crossorigin=""></script>
@@ -158,6 +164,7 @@ function makeMap() {
         center: mapCenter(),
         zoom: 14,
         maxBounds: gymBounds(),
+        fullscreenControl: true,
     });
     //L.tileLayer('https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', {
     //L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
