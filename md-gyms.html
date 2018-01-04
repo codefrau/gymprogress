@@ -228,13 +228,13 @@ function makeMap() {
 }
 
 // add <a> jump targets and nav bar
-function makeJumpTable(nameFn) {
+function makeJumpTable(nameFn = _ => _.name) {
     const targets = [];
     let target = '';
     for (const gym of gyms) {
-        const name = nameFn ? nameFn(gym) : gym.name;
+        const name = nameFn(gym);
         const initial = name[0].toUpperCase();
-        if (target !== initial) {
+        if (target !== initial && initial.match(/[A-Z0-9]/i)) {
             target = initial;
             const a = document.createElement('a');
             a.id = target;
@@ -246,10 +246,10 @@ function makeJumpTable(nameFn) {
     $('jump').innerHTML = targets.map(t => `<a href="#${t}">&nbsp;${t}&nbsp;</a>`).join(' ');
 }
 
-function deleteJumpTargets() {
-    for (const a of byClass($('list'), 'jumptarget')) {
-        a.parentNode.removeChild(a);
-    }
+function deleteListItems() {
+    const list = $('list');
+    while (list.firstChild)
+        list.removeChild(list.firstChild);
 }
 
 function updateSums() {
@@ -269,10 +269,9 @@ function show(ids) {
 }
 
 function showList(sortFn, jumpFn, filterFn = _ => true) {
-    deleteJumpTargets();
-    const list = $('list');
-    while (list.firstChild) list.removeChild(list.firstChild);
-    gyms.filter(filterFn).sort(sortFn).forEach(gym => list.appendChild(gym.div));
+    deleteListItems();
+    gyms.sort(sortFn);     // for jump table
+    gyms.filter(filterFn).forEach(gym => $('list').appendChild(gym.div));
     if (jumpFn) makeJumpTable(jumpFn);
     show(jumpFn ? ['list','jump'] : ['list']);
 }
