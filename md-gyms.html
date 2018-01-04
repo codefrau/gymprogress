@@ -97,6 +97,8 @@ const byClass = (_, cls) => Array.from(_.getElementsByClassName(cls));
 
 let storage = {}; try {storage = localStorage} catch(e) {};
 
+let refreshMap = null;
+
 const gyms = getGyms();
 
 (function start() {
@@ -223,8 +225,7 @@ function makeMap() {
     }
     L.polyline(polys, {color: 'blue', opacity: 0.3, weight: 2}).addTo(map);
 
-    // redisplay after one frame to avoid blank tiles
-    L.Util.requestAnimFrame(map.invalidateSize, map, !1, map._container);
+    refreshMap = _ => L.Util.requestAnimFrame(map.invalidateSize, map, !1, map._container);
 }
 
 // add <a> jump targets and nav bar
@@ -301,6 +302,7 @@ function showAsMap() {
     const mapContent = $('map').children.length;
     if (!mapContent) makeMap();
     show(['map']);
+    refreshMap();
     history.replaceState(null, "Map", "#map");
 }
 
