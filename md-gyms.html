@@ -141,9 +141,11 @@ function makeList() {
     }
 }
 
-// add markers to leaflet.js map
+// leaflet.js map
 function makeMap() {
-    function mapCenter(weights = [1, 4, 16, 64]) {
+
+    // center map on higher-level gyms
+    function weightedCenter(weights = [1, 4, 16, 64]) {
         let center = [0, 0],
             count = 0;
         for (const gym of gyms) {
@@ -152,20 +154,14 @@ function makeMap() {
             center[1] += weight * gym.location[1];
             count += weight;
         }
-        return center.map(x => x / count);
+        return center.map(sum => sum / count);
     }
 
-    function gymBounds(expand = 0.05) {
-        return ['min', 'max']
-            .map(op => [0, 1]
-                .map(i => Math[op].apply(null,
-                    gyms.map(gym => gym.location[i] + expand * (op === 'min' ? -1 : 1)))));
-    }
-
+    const bounds = L.latLngBounds(gyms.map(gym => gym.location)).pad(0.3);
     const map = L.map('map', {
-        center: mapCenter(),
+        center: weightedCenter(),
         zoom: 14,
-        maxBounds: gymBounds(),
+        maxBounds: bounds,
         fullscreenControl: true,
     });
     //L.tileLayer('https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', {
@@ -179,7 +175,7 @@ function makeMap() {
     }).addTo(map);
 
     // add gym markers
-
+    // level 0-3 are regular gyms, 4-7 exraid gyms
     const icons = [0,1,2,3,4,5,6,7].map(level => L.icon({
         iconUrl: `gym${level}.png`,
         iconSize: [36, 48],
@@ -189,42 +185,38 @@ function makeMap() {
         shadowSize: [36, 48],
         shadowAnchor: [18, 35],
     }));
-
     for (const gym of gyms) {
         const marker = L.marker(gym.location, {icon: icons[gym.levelEx], riseOnHover: true});
         marker.bindTooltip(gym.name);
         marker.addTo(map);
-        gym.setMarker = lv => marker.setIcon(icons[lv]);
+        gym.setMarker = lv => marker.setIcon(icons[lv]);    // used in makeList()
     }
 
-    // add S2 cells
- 
-    function latLng(cell, offset) {
-        const st = S2.IJToST(cell.ij, cell.level, offset);
-        const uv = S2.STToUV(st);
-        const xyz = S2.FaceUVToXYZ(cell.face, uv);
-        return S2.XYZToLatLng(xyz);
-    }
- 
-    const bounds = map.getBounds();
-    const center = bounds.getCenter();
-    const cell = S2.S2Cell.FromLatLng(bounds.getNorthEast(), 12);
+    // Show S2 level 12 cells
+    // we just make a grid around the center cell
+    // count is based on 2000 m average level 12 cell size ... better use a S2RegionCoverer
+    const count = L.CRS.Earth.distance(bounds.getSouthWest(), bounds.getNorthEast()) / 2000 |0;
+    const cell = S2.S2Cell.FromLatLng(bounds.getCenter(), 12);
     const grid = [];
-    for (let j = -5; j < 7; j++) {
+    for (let j = -count; j < count; j++) {
         const row = [];
-        for (let i = -5; i < 7; i++) {
-            row.push(latLng(cell, [i, j]));
+        for (let i = -count; i < count; i++) {
+            const st = S2.IJToST(cell.ij, cell.level, [i, j]);
+            const uv = S2.STToUV(st);
+            const xyz = S2.FaceUVToXYZ(cell.face, uv);
+            row.push(S2.XYZToLatLng(xyz));
         }
         grid.push(row);
     }
-    const polys = [];
+    // separate polylines per cell so they get culled
     for (let x = 1; x < grid.length; x++) {
         for (let y = 1; y < grid[0].length; y++) {
-            polys.push([grid[x-1][y], grid[x-1][y-1],grid[x][y-1]]);
+            L.polyline([grid[x-1][y], grid[x-1][y-1], grid[x][y-1]],
+                {color: 'blue', opacity: 0.3, weight: 2}).addTo(map);
         }
     }
-    L.polyline(polys, {color: 'blue', opacity: 0.3, weight: 2}).addTo(map);
 
+    // used in showAsMap()
     refreshMap = _ => L.Util.requestAnimFrame(map.invalidateSize, map, !1, map._container);
 }
 
