@@ -165,14 +165,14 @@ function makeMap() {
         maxBounds: bounds,
         fullscreenControl: true,
     });
-    //L.tileLayer('https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', {
-    //L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    // Please get your own token at https://www.mapbox.com/signup/ It's free.
+    const mapboxToken = '';
+    // For testing only, you could use the OSM tile server instead:
+    // L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    L.tileLayer(`https://api.tiles.mapbox.com/v4/mapbox.pirates/{z}/{x}/{y}.png?access_token=${mapboxToken}`, {
         attribution: '© <a href="http://openstreetmap.org">OpenStreetMap</a> | © <a href="http://mapbox.com">Mapbox</a>',
         minZoom: 12,
         maxZoom: 17,
-        id: 'mapbox.pirates',
-        accessToken: '' // Bert's token. Please get your own. It's free.
     }).addTo(map);
 
     // add gym markers
