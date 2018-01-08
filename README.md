@@ -1,3 +1,5 @@
+![Screenshot](docs/screenshot.jpg)
+
 # Gym Badge Progress Tracker for Pokémon GO
 
 This is the progress tracker I made for our local community in Magdeburg, Germany.
