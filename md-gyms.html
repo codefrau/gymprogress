@@ -95,11 +95,14 @@
 const $ = _ => document.getElementById(_);
 const byClass = (_, cls) => Array.from(_.getElementsByClassName(cls));
 
-let storage = {}; try {storage = localStorage} catch(e) {};
+let storage = {}; try {storage = localStorage} catch(e) {}; // for testing in private window
 
 let refreshMap = null;
 
-const gyms = getGyms();
+const {gyms, city} = getGyms();
+
+const storageKey = city + ':gym-levels';
+const storageKeyOld = city + ':gym-levels-old';
 
 (function start() {
     updateSums();
@@ -373,11 +376,11 @@ function compareExraid(a, b) {
 //////////////// Badge Storage ////////////////
 
 function sanitize(s) { return String(s).replace(/[^0-3]/g, '0'); }
-function getLevelsString() { return sanitize(storage['gym-levels'] || ''); }
-function setLevelsString(s) { storage['gym-levels'] = sanitize(s); updateShare(); }
+function getLevelsString() { return sanitize(storage[storageKey] || storage['gym-levels'] || ''); }
+function setLevelsString(s) { storage[storageKey] = sanitize(s); updateShare(); }
 
-function getOldLevelsString() { return sanitize(storage['gym-levels-old'] || ''); }
-function setOldLevelsString(s) { storage['gym-levels-old'] = sanitize(s); }
+function getOldLevelsString() { return sanitize(storage[storageKeyOld] || ''); }
+function setOldLevelsString(s) { storage[storageKeyOld] = sanitize(s); }
 
 function setLevel(i, level) {
     let s = getLevelsString();
@@ -397,13 +400,16 @@ function incLevel(i) {
 // Add id to raw gym data and filter deleted gyms
 // also add level accessor
 function getGyms() {
-    return gymData().gyms
-        .map((gym, index) => Object.assign({
-            id: index,
-            get level() { return getLevel(index) },
-            get levelEx() { return getLevel(index) + ((gym.exraid || gym.park) ? 4 : 0)},
-        }, gym))
-        .filter(({deleted}) => !deleted);
+    const {city, gyms} = gymData();
+    return {
+        city: city,
+        gyms: gyms.map((gym, index) => Object.assign({
+                id: index,
+                get level() { return getLevel(index) },
+                get levelEx() { return getLevel(index) + ((gym.exraid || gym.park) ? 4 : 0)},
+            }, gym))
+            .filter(({deleted}) => !deleted),
+    };
 }
 
 // Raw gym data - replace for different city
@@ -412,7 +418,7 @@ function getGyms() {
 // BECAUSE progress is stored in user's localStorage by gym index
 function gymData() {
     return {
-    city: "MD",
+    city: "DE-MD", // country-city (used in localStorage key to allow tracking multiple cities)
     gyms: [
     {name: "3 Flotte Bienen", district: "Leipziger Straße", address: "Fermersleber Weg 45D", location: [52.105404,11.615429]},
     {name: "30 Jahre Straßenbahn nach Olvenstedt", district: "Neu Olvenstedt", address: "Scharnhorstring 51", location: [52.149517,11.586183]},
