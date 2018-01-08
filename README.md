@@ -3,8 +3,10 @@
 # Gym Badge Progress Tracker for Pokémon GO
 
 This is the progress tracker I made for our local community in Magdeburg, Germany.
+It shows which gyms are eligible for EX raids (according to OSM tags)
+and lets individual trainers keep track of their golden/silver/bronze badges.
 
-It uses a [static list of gyms](gymdata.js) so there is no TOS violation.
+It uses a [static list of gyms](gymdata.js) so there is no TOS violation. 
 
 ## Try it
 
