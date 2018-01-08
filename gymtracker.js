@@ -199,7 +199,7 @@ function showByLevel(level) {
 }
 
 function showByExraid() {
-    showList(compareExraid, 0, gym => gym.exraid || gym.park);
+    showList(compareDistricts, 0, gym => gym.exraid || gym.park);
     history.replaceState(null, "By Exraid", "#exraid");
 }
 
