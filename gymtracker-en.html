@@ -1,0 +1,76 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="author" content="Bert Freudenberg">
+<meta name="keywords" content="pokemon go">
+<meta name="description" content="Arena Progress Tracker by Bert Freudenberg">
+<link rel="icon" href="icon.png" type="image/png" />
+<link rel="stylesheet" type="text/css" href="gymtracker.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+    integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+    crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+    integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
+    crossorigin=""></script>
+<script src="https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js"
+    integrity="sha384-btJhAWztz7ttA6ibFC5ppM39nkCPK6CWzRVmsaLcDn37mA3x1TzF1DbFwa6tJpTN"
+    crossorigin=""></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css"
+    integrity="sha384-t17w2haSDwLp3KSAOHF7+VI9q2maRMLDhnIyU/JasjeWyxcN3YOcrD7T95CiJSWE"
+    crossorigin="">
+<script src="https://unpkg.com/s2-geometry@1.2.9/src/s2geometry.js"
+    integrity="sha384-WGDofm6Km+bZIxd/uBU2QJlwIMxX/9H5H7G9glfYtcAAR8vrm0wbzvtpIG54XhOZ"
+    crossorigin=""></script>
+<title>Bert's Gym Tracker</title>
+</head>
+
+<body>
+    <form id="undo">
+        The badges have been replace.
+        <br>
+        <button type="button" onclick="undoRestore()">Undo</button>
+        <button type="button" onclick="reload()">Keep new badges</button>
+    </form>
+
+    <h1>Gym Tracker</h1>
+
+    <form id="restore">
+        <i>Share this page to transfer the badges to another browser.</i>
+        <br><br>
+        Do you want to replace the badges stored in this browser?
+        <br>
+        <button type="button" onclick="doRestore()">Yes, replace badges</button>
+        <button type="button" onclick="reload()">No, cancel</button>
+    </form>
+
+    <div id="jump"></div>
+
+    <div id="sums" class="big">
+        <img src="gym3.png" width="36" onclick="showByLevel(3)"><span id="sum3">0</span> &nbsp;
+        <img src="gym2.png" width="36" onclick="showByLevel(2)"><span id="sum2">0</span> &nbsp;
+        <img src="gym1.png" width="36" onclick="showByLevel(1)"><span id="sum1">0</span> &nbsp;
+        <img src="gym0.png" width="36" onclick="showByLevel(0)"><span id="sum0">0</span>
+        / <span id="sum">0</span>
+    </div>
+
+    <div id="content">
+        <div class="small">Click the badges in the list to set them to bronze/silver/gold. 
+            <span style="white-space:nowrap">Have fun! Bert</span></div>
+        <button type="button" onclick="showByName()">Names</button>
+        <button type="button" onclick="showByDistrict()">Districts</button>
+        <button type="button" onclick="showByLevel()">Badges</button>
+        <button type="button" onclick="showByExraid()">EX</button>
+        <button type="button" onclick="showAsMap()">Map</button>
+        <div id="map"></div>
+        <div id="list"></div>
+        <div id="share">
+            The badges are only stored in this browser. To transfer them,
+            send the following link to another device:<br>
+            <a id="share-url">Badges</a>
+        </div>
+    </div>
+    <script src="gyms-DE-MD.js"></script>
+    <script src="gymtracker.js"></script>
+</body>
+</html>

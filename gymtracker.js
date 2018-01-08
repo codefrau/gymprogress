@@ -228,15 +228,13 @@ function updateShare() {
 }
 
 function doRestore() {
-    if (confirm("Wirklich alle Medaillen ersetzen?")) {
-        const undo = getLevelsString();
-        setLevelsString(location.search.substr(1));
-        if (undo) {
-            setOldLevelsString(undo);
-            reload('#undo');
-        } else {
-            reload();
-        }
+    const undo = getLevelsString();
+    setLevelsString(location.search.substr(1));
+    if (undo) {
+        setOldLevelsString(undo);
+        reload('#undo');
+    } else {
+        reload();
     }
 }
 
