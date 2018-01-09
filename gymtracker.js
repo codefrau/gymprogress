@@ -61,8 +61,9 @@ function makeList() {
         gym.div.innerHTML = `
             <img src="gym${gym.levelEx}.png" class="badge" width="36" height="48">
             <div><b>${gym.name}</b>
-                ${gym.park ? '(<a href="http://www.openstreetmap.org/' + gym.park + '">EX</a>)' : ''}<br>
-                ${gym.district}, <a href="https://www.google.com/maps/?q=${gym.location}">${gym.address}</a>
+                ${typeof gym.park == 'string' ? '(<a href="http://www.openstreetmap.org/' + gym.park + '">EX</a>)' : ''}<br>
+                ${gym.district ? gym.district+',' : ''}
+                <a href="https://www.google.com/maps/?q=${gym.location}">${gym.address || 'map'}</a>
             </div>${gym.exraid ? '<img src="exraid.png" class="exbadge">' : ''}`;
         const badge = byClass(gym.div, 'badge')[0];
         badge.onclick = () => {
@@ -330,7 +331,7 @@ function getGyms() {
     return {
         city: city,
         gyms: gyms.map((gym, index) => Object.assign({
-                id: index,
+                id: index,          // gym's index in storage string
                 get level() { return getLevel(index) },
                 get levelEx() { return getLevel(index) + ((gym.exraid || gym.park) ? 4 : 0)},
             }, gym))

@@ -2,6 +2,19 @@
 // NEVER change order of gyms or delete gyms
 // ONLY append at the end, and mark deleted gyms with 'deleted: true'
 // BECAUSE progress is stored in user's localStorage by gym index
+
+/* Data for each gym
+{
+ name: "Graffiti Lido Duschen",       // required
+ location: [52.151344,11.649406],     // required
+ district: "Alte Neustadt",           // optional, used for sorting by neighborhood
+ address: "Sieverstorstraße 32-33",   // optional, used as label for google maps link
+ park: true | "way/100146087",        // optional, potential EX raid location. If string, link to that OSM feature
+ exraid: true,                        // optional, confirmed EX raid location (a raid actually happened here)
+ deleted: true,                       // optional, used for hiding removed gyms without changing numbering
+}
+*/
+
 function gymData() {
     return {
     city: "DE-MD", // country-city (used in localStorage key to allow tracking multiple cities)
@@ -231,6 +244,7 @@ function gymData() {
     {name: "Zug Spray", district: "Alte Neustadt", address: "Sieverstorstraße 33", location: [52.150318,11.650093]},
     {name: "Zum Pelikan", district: "Altstadt", address: "Himmelreichstraße 4", location: [52.129059,11.633474]},
     {name: "Zweierpack Russian Style", district: "Neustädter See", address: "Am Seeufer 10", location: [52.171268,11.636608]},
+    // gyms below were added later - no sorting required
     {name: "Wasserturm Malerei", district: "Salbke", address: "Alt Salbke 20", location: [52.077903,11.66734]},
     {name: "Eurofusions Statue", district: "Westerhüsen", address: "Alt Westerhüsen 49A", location: [52.0614,11.6785]},
     {name: "Merkurstatue", district: "Salbke", address: "Alt Salbke 49", location: [52.072258,11.67038]},
