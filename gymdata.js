@@ -1,17 +1,22 @@
-// Raw gym data - include a different file for different city
-// NEVER change order of gyms or delete gyms
-// ONLY append at the end, and mark deleted gyms with 'deleted: true'
-// BECAUSE progress is stored in user's localStorage by gym index
+/*
+Raw gym data - include a different file for different city
 
-/* Data for each gym
+NEVER change order of gyms or delete gyms
+ONLY append at the end, and mark deleted gyms with 'deleted: true'
+BECAUSE progress is stored in user's localStorage by gym index
+
+Entries for each gym:
 {
- name: "Graffiti Lido Duschen",       // required
- location: [52.151344,11.649406],     // required
- district: "Alte Neustadt",           // optional, used for sorting by neighborhood
- address: "Sieverstorstraße 32-33",   // optional, used as label for google maps link
- park: true | "way/100146087",        // optional, potential EX raid location. If string, link to that OSM feature
- exraid: true,                        // optional, confirmed EX raid location (a raid actually happened here)
- deleted: true,                       // optional, used for hiding removed gyms without changing numbering
+  name: "The Gym Name",                // required
+  location: [latitude,longitude],      // required
+  district: "A Neighborhood",          // optional, used for sorting by neighborhood
+  address: "e.g. street and house#",   // optional, used as label for google maps link
+  park: true | "OSM feature",          // optional, potential EX raid location. If string, link to that OSM feature
+  exraid: true,                        // optional, confirmed EX raid location (a raid actually happened here)
+  deleted: true,                       // optional, used for hiding removed gyms without changing IDs
+  
+  // added by program in getGyms()
+  id: number,                          // index in this list. THIS MUST NEVER CHANGE!
 }
 */
 
