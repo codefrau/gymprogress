@@ -154,7 +154,7 @@ function makeMap() {
         for (let i = 0; i < 2; i++) { 
             for (let i = 0; i < steps; i++) {
                 addPoly(cell);
-                cell = cell.getNeighbors()[3 - (direction % 4)];
+                cell = cell.getNeighbors()[direction % 4];
             }
             direction++;
         }
@@ -231,7 +231,7 @@ function showByLevel(level) {
 }
 
 function showByExraid() {
-    showList(compareDistrict, null, gym => gym.exraid || gym.park);
+    showList(compareDistricts, null, gym => gym.exraid || gym.park);
     history.replaceState(null, "By Exraid", "#exraid");
 }
 
