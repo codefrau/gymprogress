@@ -26,7 +26,11 @@ a,.item {
 
 .item>* {
   display: inline-block;
-  vertical-align: middle
+  vertical-align: middle;
+}
+
+.item>div {
+  padding: 5px 0;
 }
 
 .exraid {
