@@ -142,7 +142,7 @@ function gymData() {
     {name: "Kunst in Olve", district: "Neu Olvenstedt", address: "Johannes-Göderitz-Straße 79", location: [52.153629,11.591518]},
     {name: "KZ Gedenkstätte", district: "Stadtfeld West", address: "Liebknechtstraße 68", location: [52.123314,11.604337]},
     {name: "Landeshauptarchiv Sachsen-Anhalt", district: "Brückfeld", address: "Brückstraße 2", location: [52.128395,11.659899]},
-    {name: "Leeres Wasserspiel", district: "Alte Neustadt", address: "Rogätzer Str. 13", location: [52.146633,11.653295], park: "way/295811005", exraid: true},
+    {name: "Leeres Wasserspiel", district: "Alte Neustadt", address: "Rogätzer Str. 13", location: [52.146633,11.653295]},
     {name: "Leibniz-Institut für Neurobiologie", district: "Leipziger Straße", address: "Brenneckestraße 6", location: [52.101871,11.611201]},
     {name: "Lemsdorfer Kunst", district: "Lemsdorf", address: "Blankenburger Str. 21", location: [52.100555,11.597927]},
     {name: "Lichtstele", district: "Werder", address: "Heinrich-Heine-Weg", location: [52.118587,11.640822], park: "way/5880756"},
