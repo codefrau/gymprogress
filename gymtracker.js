@@ -231,7 +231,7 @@ function showByLevel(level) {
 }
 
 function showByExraid() {
-    showList(compareDistricts, null, gym => gym.exraid || gym.park);
+    showList(compareCells, null, gym => gym.exraid || gym.park);
     history.replaceState(null, "By Exraid", "#exraid");
 }
 
@@ -305,9 +305,12 @@ function compareLevels(a, b) {
     return compareDistricts(a, b);
 }
 
-function compareExraid(a, b) {
-    if (a.exraid !== b.exraid) return !a.exraid - !b.exraid;
-    return compareLevels(a, b);
+function compareCells(a, b) {
+    if (a.cell === b.cell) return compareLevels(a, b);
+    const [, na, sa] = cellName(a.cell).match(/([0-9]+)(.*)$/);
+    const [, nb, sb] = cellName(b.cell).match(/([0-9]+)(.*)$/);
+    if (na !== nb) return parseInt(na) - parseInt(nb);
+    return sa.localeCompare(sb);
 }
 
 //////////////// Badge Storage ////////////////
