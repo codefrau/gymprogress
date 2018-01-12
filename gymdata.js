@@ -263,5 +263,22 @@ function gymData() {
     {name: "St. Stephani", district: "Ottersleben", address: "Alt Ottersleben 65", location: [52.087057,11.578938]},
     {name: "Halbkugeln Ottersleben", district: "Ottersleben", address: "Geschwister-Scholl-Straße 31", location: [52.089742,11.572509]},
     //{name: "", district: "", address: "", location: []},
-    ]};
+    ],
+    // local names for Level 12 cells
+    cells: {
+        '2/033113223322': 'Zelle 1 (Nördl. Altstadt)',
+        '2/033102332233': 'Zelle 2 (Südl. Altstadt)',
+        '2/033102332230': 'Zelle 3 (MD West)',
+        '2/033113223323': 'Zelle 4 (Stadtfeld)',
+        '2/033113223320': 'Zelle 5 (MD Nordwest)',
+        '2/033113223321': 'Zelle 6 (MD Nord)',
+        '2/033113223012': 'Zelle 7 (Herrenkrug)',
+        '2/033113223011': 'Zelle 8 (Elbauenpark)',
+        '2/033102332300': 'Zelle 9 (Rotehornpark)',
+        '2/033102332303': 'Zelle 10 (Buckau/Fermersleben)',
+        '2/033102332232': 'Zelle 11 (MD Süd)',
+        '2/033113223331': 'Zelle 16 (Olvenstedt)',
+        '2/033113223010': 'Zelle 23 (Elbauenpark Ost)',
+    },
+    };
 }

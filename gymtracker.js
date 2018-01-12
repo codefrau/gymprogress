@@ -27,7 +27,7 @@ let storage = {}; try {storage = localStorage} catch(e) {}; // for testing in pr
 
 let refreshMap = null;
 
-const {gyms, city} = getGyms();
+const {gyms, city, cells} = getGyms();
 
 const storageKey = city + ':gym-levels';
 const storageKeyOld = city + ':gym-levels-old';
@@ -53,6 +53,11 @@ const storageKeyOld = city + ':gym-levels-old';
     }
 })();
 
+function cellName(cell) {
+    let key = typeof cell == "string" ? cell : cell.toHilbertQuadkey();
+    return cells[key] || key;
+}
+
 // add divs for each gym
 function makeList() {
     for (const gym of gyms) {
@@ -60,10 +65,12 @@ function makeList() {
         gym.div.className = gym.exraid ? 'item exraid' : 'item';
         gym.div.innerHTML = `
             <img src="gym${gym.levelEx}.png" class="badge" width="36" height="48">
-            <div><b>${gym.name}</b>
-                ${typeof gym.park == 'string' ? '(<a href="http://www.openstreetmap.org/' + gym.park + '">EX</a>)' : ''}<br>
+            <div><b>${gym.name}</b><br>
                 ${gym.district ? gym.district+',' : ''}
                 <a href="https://www.google.com/maps/?q=${gym.location}">${gym.address || 'map'}</a>
+                ${gym.park ? '<br>' : ''}
+                ${typeof gym.park == 'string' ? '[<a href="http://www.openstreetmap.org/' + gym.park + '">EX</a>]' : ''}
+                ${gym.park ? cellName(gym.cell) : ''}
             </div>${gym.exraid ? '<img src="exraid.png" class="exbadge">' : ''}`;
         const badge = byClass(gym.div, 'badge')[0];
         badge.onclick = () => {
@@ -120,9 +127,9 @@ function makeMap() {
     }));
     for (const gym of gyms) {
         const loc = L.latLng(gym.location);
+        const id = gym.cell.slice(-2).split('').reduce((s, n) => +s * 4 + +n);
         const marker = L.marker(loc, {icon: icons[gym.levelEx], riseOnHover: true});
-        const id = S2.latLngToKey(loc.lat, loc.lng, 12).slice(-2).split('').reduce((s, n) => +s * 4 + +n);
-        marker.bindTooltip(`${String.fromCodePoint(0x24B6 + id)} ${gym.name}`);
+        marker.bindTooltip(`${gym.name}${gym.park ? ' [EX] ' + cellName(gym.cell) : ''}`);
         marker.addTo(map);
         gym.setMarker = lv => marker.setIcon(icons[lv]);    // used in makeList()
     }
@@ -131,24 +138,27 @@ function makeMap() {
     // we just make a grid around the center cell
     // count is based on 2000 m average level 12 cell size ... better use a S2RegionCoverer
     const count = L.CRS.Earth.distance(bounds.getSouthWest(), bounds.getNorthEast()) / 2000 |0;
-    const cell = S2.S2Cell.FromLatLng(bounds.getCenter(), 12);
-    const grid = [];
-    for (let j = -count; j < count; j++) {
-        const row = [];
-        for (let i = -count; i < count; i++) {
-            const st = S2.IJToST(cell.ij, cell.level, [i, j]);
-            const uv = S2.STToUV(st);
-            const xyz = S2.FaceUVToXYZ(cell.face, uv);
-            row.push(S2.XYZToLatLng(xyz));
-        }
-        grid.push(row);
+
+    function addPoly(cell) {
+        const poly = L.polygon(cell.getCornerLatLngs(),
+            {color: 'blue', opacity: 0.3, weight: 2, fillOpacity: 0.0});
+        poly.bindTooltip(cellName(cell));
+        poly.addTo(map);
     }
-    // separate polylines per cell so they get culled
-    for (let x = 1; x < grid.length; x++) {
-        for (let y = 1; y < grid[0].length; y++) {
-            L.polyline([grid[x-1][y], grid[x-1][y-1], grid[x][y-1]],
-                {color: 'blue', opacity: 0.3, weight: 2}).addTo(map);
+
+    // add cells spiraling outward
+    let cell = S2.S2Cell.FromLatLng(bounds.getCenter(), 12);
+    let steps = 1;
+    let direction = 0;
+    while (steps < count) {
+        for (let i = 0; i < 2; i++) { 
+            for (let i = 0; i < steps; i++) {
+                addPoly(cell);
+                cell = cell.getNeighbors()[3 - (direction % 4)];
+            }
+            direction++;
         }
+        steps++;
     }
 
     // used in showAsMap()
@@ -221,7 +231,7 @@ function showByLevel(level) {
 }
 
 function showByExraid() {
-    showList(compareDistricts, 0, gym => gym.exraid || gym.park);
+    showList(compareDistrict, null, gym => gym.exraid || gym.park);
     history.replaceState(null, "By Exraid", "#exraid");
 }
 
@@ -327,11 +337,13 @@ function incLevel(i) {
 // Add id to raw gym data and filter deleted gyms
 // also add level accessor
 function getGyms() {
-    const {city, gyms} = gymData();
+    const {city, gyms, cells} = gymData();
     return {
         city: city,
+        cells: cells,
         gyms: gyms.map((gym, index) => Object.assign({
                 id: index,          // gym's index in storage string
+                cell: S2.latLngToKey(gym.location[0], gym.location[1], 12),
                 get level() { return getLevel(index) },
                 get levelEx() { return getLevel(index) + ((gym.exraid || gym.park) ? 4 : 0)},
             }, gym))
