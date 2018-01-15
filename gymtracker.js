@@ -71,7 +71,7 @@ function makeList() {
                 ${gym.park ? '<br>' : ''}
                 ${typeof gym.park == 'string' ? '[<a href="http://www.openstreetmap.org/' + gym.park + '">EX</a>]' : ''}
                 ${gym.park ? cellName(gym.cell) : ''}
-            </div>${gym.exraid ? '<img src="exraid.png" class="exbadge">' : ''}`;
+            </div>${gym.exraid ? '<a href="md-exraids.html"><img src="exraid.png" class="exbadge"></a>' : ''}`;
         const badge = byClass(gym.div, 'badge')[0];
         badge.onclick = () => {
             incLevel(gym.id);
