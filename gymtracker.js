@@ -84,8 +84,8 @@ function makeList() {
 // leaflet.js map
 function makeMap() {
 
-    // center map on higher-level gyms
-    function weightedCenter(weights = [1, 4, 16, 64]) {
+    // center map on user's gyms
+    function weightedCenter(weights = [0.0001, 1, 2, 4]) {
         let center = [0, 0],
             count = 0;
         for (const gym of gyms) {
