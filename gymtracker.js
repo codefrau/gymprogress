@@ -55,7 +55,7 @@ const storageKeyOld = city + ':gym-levels-old';
 
 function cellName(cell) {
     let key = typeof cell == "string" ? cell : cell.toHilbertQuadkey();
-    return cells[key] || key;
+    return cells && cells[key] || key;
 }
 
 // add divs for each gym
@@ -135,32 +135,41 @@ function makeMap() {
     }
 
     // Show S2 level 12 cells
-    // we just make a grid around the center cell
-    // count is based on 2000 m average level 12 cell size ... better use a S2RegionCoverer
-    const count = L.CRS.Earth.distance(bounds.getSouthWest(), bounds.getNorthEast()) / 2000 |0;
+    
+    function showS2Cells(level, style) {
+        // we just make a grid around the center cell
+        // count is a guess based on S2 cell size ... better use a S2RegionCoverer
+        const size = L.CRS.Earth.distance(bounds.getSouthWest(), bounds.getNorthEast()) / 10000 + 1|0;
+        const count = 2 ** level * size >> 10;
 
-    function addPoly(cell) {
-        const poly = L.polygon(cell.getCornerLatLngs(),
-            {color: 'blue', opacity: 0.3, weight: 2, fillOpacity: 0.0});
-        poly.bindTooltip(cellName(cell));
-        poly.addTo(map);
-    }
-
-    // add cells spiraling outward
-    let cell = S2.S2Cell.FromLatLng(bounds.getCenter(), 12);
-    let steps = 1;
-    let direction = 0;
-    while (steps < count) {
-        for (let i = 0; i < 2; i++) { 
-            for (let i = 0; i < steps; i++) {
-                addPoly(cell);
-                cell = cell.getNeighbors()[direction % 4];
-            }
-            direction++;
+        function addPoly(cell) {
+            const poly = L.polygon(cell.getCornerLatLngs(),
+                Object.assign({color: 'blue', opacity: 0.3, weight: 2, fillOpacity: 0.0}, style));
+            if (level == 12 && cells) poly.bindTooltip(cellName(cell));
+            poly.addTo(map);
         }
-        steps++;
+
+        // add cells spiraling outward
+        let cell = S2.S2Cell.FromLatLng(bounds.getCenter(), level);
+        let steps = 1;
+        let direction = 0;
+        do {
+            for (let i = 0; i < 2; i++) { 
+                for (let i = 0; i < steps; i++) {
+                    addPoly(cell);
+                    cell = cell.getNeighbors()[direction % 4];
+                }
+                direction++;
+            }
+            steps++;
+        } while (steps < count);
     }
 
+    // showS2Cells( 9, {color: 'yellow', weight: 16});
+    showS2Cells(10, {color: 'red', weight: 4});
+    // showS2Cells(11, {color: 'green', weight: 3});
+    showS2Cells(12, {color: 'blue'});
+   
     // used in showAsMap()
     refreshMap = _ => L.Util.requestAnimFrame(map.invalidateSize, map, !1, map._container);
 }
