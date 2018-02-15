@@ -53,9 +53,31 @@ const storageKeyOld = city + ':gym-levels-old';
     }
 })();
 
+function keyToToken(key) {
+    // this function is missing from S2 JavaScript lib
+    // because it uses HilbertQuadkeys instead of 64 bit integers
+    const [face, quads] = (key+'20').split('/');    // need to append 1 bit, not quite sure why
+    // we start with 3 bits for the face
+    let bits = +face;
+    let n = 3;
+    let token = '';
+    // assemble token one hex digit at a time
+    for (let i = 0; i < quads.length; i++) {
+      bits = bits << 2 | quads[i];          // next 2 bits
+      n += 2;
+      if (n >= 4) {
+        const digit = bits >> (n-4);        // upper 4 bits
+        token += digit.toString(16);
+        bits = bits & ~(digit << (n-4));    // clear out
+        n -= 4;
+      }
+    }
+    return token.replace(/0+$/, '');        // trim trailing zeroes
+}
+
 function cellName(cell) {
-    let key = typeof cell == "string" ? cell : cell.toHilbertQuadkey();
-    return cells && cells[key] || key;
+    const token = cell.toHilbertQuadkey ? keyToToken(cell.toHilbertQuadkey()) : cell;
+    return cells && cells[token] || token;
 }
 
 // add divs for each gym
@@ -355,7 +377,7 @@ function getGyms() {
         cells: cells,
         gyms: gyms.map((gym, index) => Object.assign({
                 id: index,          // gym's index in storage string
-                cell: S2.latLngToKey(gym.location[0], gym.location[1], 12),
+                cell: keyToToken(S2.latLngToKey(gym.location[0], gym.location[1], 13)),
                 get level() { return getLevel(index) },
                 get levelEx() { return getLevel(index) + ((gym.exraid || gym.park) ? 4 : 0)},
             }, gym))
