@@ -149,25 +149,27 @@ function makeMap() {
     }));
     for (const gym of gyms) {
         const loc = L.latLng(gym.location);
-        const id = gym.cell.slice(-2).split('').reduce((s, n) => +s * 4 + +n);
         const marker = L.marker(loc, {icon: icons[gym.levelEx], riseOnHover: true});
         marker.bindTooltip(`${gym.name}${gym.park ? ' [EX] ' + cellName(gym.cell) : ''}`);
+        //if (gym.park) marker.bindPopup(cellName(gym.cell) + ': ' + gym.cell);
         marker.addTo(map);
         gym.setMarker = lv => marker.setIcon(icons[lv]);    // used in makeList()
     }
 
-    // Show S2 level 12 cells
-    
-    function showS2Cells(level, style) {
+    // Show S2 cells  
+    function showS2Cells(level, style, showNames) {
         // we just make a grid around the center cell
         // count is a guess based on S2 cell size ... better use a S2RegionCoverer
         const size = L.CRS.Earth.distance(bounds.getSouthWest(), bounds.getNorthEast()) / 10000 + 1|0;
         const count = 2 ** level * size >> 10;
 
         function addPoly(cell) {
-            const poly = L.polygon(cell.getCornerLatLngs(),
+            const shape = showNames ? "polygon" : "polyline";
+            const vertices = cell.getCornerLatLngs();
+            if (shape === "polyline") vertices.push(vertices[0]);
+            const poly = L[shape](vertices,
                 Object.assign({color: 'blue', opacity: 0.3, weight: 2, fillOpacity: 0.0}, style));
-            if (level == 12 && cells) poly.bindTooltip(cellName(cell));
+            if (showNames && cells) poly.bindTooltip(cellName(cell));
             poly.addTo(map);
         }
 
@@ -187,10 +189,11 @@ function makeMap() {
         } while (steps < count);
     }
 
-    // showS2Cells( 9, {color: 'yellow', weight: 16});
-    showS2Cells(10, {color: 'red', weight: 4});
+    showS2Cells(13, {color: '#999'});
+    showS2Cells(12, {color: 'blue'}, true);
     // showS2Cells(11, {color: 'green', weight: 3});
-    showS2Cells(12, {color: 'blue'});
+    showS2Cells(10, {color: 'red'});
+    // showS2Cells( 9, {color: 'yellow', weight: 16});
    
     // used in showAsMap()
     refreshMap = _ => L.Util.requestAnimFrame(map.invalidateSize, map, !1, map._container);
