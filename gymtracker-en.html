@@ -25,21 +25,21 @@
 <script src="https://unpkg.com/s2-geometry@1.2.9/src/s2geometry.js"
     integrity="sha384-WGDofm6Km+bZIxd/uBU2QJlwIMxX/9H5H7G9glfYtcAAR8vrm0wbzvtpIG54XhOZ"
     crossorigin=""></script>
-<title>Bert's Gym Tracker</title>
+<title>Bert's Gym Badge Tracker</title>
 </head>
 
 <body>
     <form id="undo">
-        The badges have been replaced.
+        Your badges have been replaced.
         <br>
         <button type="button" onclick="undoRestore()">Undo</button>
         <button type="button" onclick="reload()">Keep new badges</button>
     </form>
 
-    <h1>Gym Tracker</h1>
+    <h1>Gym Badge Tracker</h1>
 
     <form id="restore">
-        <i>Share this page to transfer the badges to another browser.</i>
+        <i>Share this page to transfer your badges to another browser.</i>
         <br><br>
         Do you want to replace the badges stored in this browser?
         <br>
@@ -69,7 +69,7 @@
         <div id="map"></div>
         <div id="list"></div>
         <div id="share">
-            The badges are only stored in this browser. To transfer them,
+            Your badges are only stored in this browser. To transfer them,
             send the following link to another device:<br>
             <a id="share-url">Badges</a>
         </div>

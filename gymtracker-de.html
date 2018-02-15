@@ -25,25 +25,25 @@
 <script src="https://unpkg.com/s2-geometry@1.2.9/src/s2geometry.js"
     integrity="sha384-WGDofm6Km+bZIxd/uBU2QJlwIMxX/9H5H7G9glfYtcAAR8vrm0wbzvtpIG54XhOZ"
     crossorigin=""></script>
-<title>Berts Arena Tracker</title>
+<title>Berts Arenaorden-Tracker</title>
 </head>
 
 <body>
     <form id="undo">
-        Die Medaillen wurden ersetzt.
+        Die Arenaorden wurden ersetzt.
         <br>
         <button type="button" onclick="undoRestore()">Rückgängig machen</button>
-        <button type="button" onclick="reload()">Neue Medaillen behalten</button>
+        <button type="button" onclick="reload()">Neue Arenaorden behalten</button>
     </form>
 
-    <h1>Arena Tracker</h1>
+    <h1>Arenaorden-Tracker</h1>
 
     <form id="restore">
-        <i>Teile diese Seite, um die Medaillen in einen anderen Browser zu übertragen.</i>
+        <i>Teile diese Seite, um Deine Arenaorden in einen anderen Browser zu übertragen.</i>
         <br><br>
-        Willst du die in diesem Browser gespeicherten Medaillen ersetzen?
+        Willst Du die in diesem Browser gespeicherten Arenaorden ersetzen?
         <br>
-        <button type="button" onclick="doRestore()">Ja, Medaillen ersetzen</button>
+        <button type="button" onclick="doRestore()">Ja, Arenaorden ersetzen</button>
         <button type="button" onclick="reload()">Nein, abbrechen</button>
     </form>
 
@@ -58,21 +58,21 @@
     </div>
 
     <div id="content">
-        <div class="small">Klicke die Medaillen in der Liste an, um sie auf <strong>Bronze/Silber/Gold</strong> zu stellen. 
-            Sie werden nur im Browser gespeichert, <strong>nicht auf dem Server</strong>.
+        <div class="small">Klicke die Arenaorden in der Liste an, um sie auf <strong>Bronze/Silber/Gold</strong> zu stellen. 
+            Sie werden nur in Deinem Browser gespeichert, <strong>nicht auf dem Server</strong>.
             Und falls Du an einem <strong>Mewtu</strong> interessiert bist, schau auf die <a href="md-exraids.html"><strong>EX-Raids in Magdeburg</strong></a>-Seite.
             <span style="white-space:nowrap">Viel Spaß! Bert</span></div>
         <button type="button" onclick="showByName()">Namen</button>
         <button type="button" onclick="showByDistrict()">Stadtteile</button>
-        <button type="button" onclick="showByLevel()">Medaillen</button>
+        <button type="button" onclick="showByLevel()">Arenaorden</button>
         <button type="button" onclick="showByExraid()">EX</button>
         <button type="button" onclick="showAsMap()">Karte</button>
         <div id="map"></div>
         <div id="list"></div>
         <div id="share">
-            Die Medaillen sind nur in diesem Browser gespeichert. Um sie zu übertragen,
+            Deine Arenaorden sind nur in diesem Browser gespeichert. Um sie zu übertragen,
             schicke den folgenden Link an ein anderes Gerät:<br>
-            <a id="share-url">Medaillen</a>
+            <a id="share-url">Arenaorden</a>
         </div>
     </div>
     <script src="gymdata.js"></script>
