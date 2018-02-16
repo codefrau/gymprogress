@@ -83,6 +83,7 @@ function cellName(cell) {
 // add divs for each gym
 function makeList() {
     for (const gym of gyms) {
+        // div for text list
         gym.div = document.createElement('div');
         gym.div.className = gym.exraid ? 'item exraid' : 'item';
         gym.div.innerHTML = `
@@ -94,12 +95,37 @@ function makeList() {
                 ${typeof gym.park == 'string' ? '[<a href="http://www.openstreetmap.org/' + gym.park + '">EX</a>]' : ''}
                 ${gym.park ? cellName(gym.cell) : ''}
             </div>${gym.exraid ? '<a href="md-exraids.html"><img src="exraid.png" class="exbadge"></a>' : ''}`;
-        const badge = byClass(gym.div, 'badge')[0];
-        badge.onclick = () => {
+        gym.showLevel = () => {
+            gym.badge.src = `gym${gym.levelEx}.png`;
+            if (gym.updateMarker) gym.updateMarker(gym.levelEx);   // update map marker
+            if (gym.updatePopup) gym.updatePopup(gym.level); // update marker popup
+            
+        }
+        gym.badge = byClass(gym.div, 'badge')[0];
+        gym.badge.onclick = () => {
             incLevel(gym.id);
-            badge.src = `gym${gym.levelEx}.png`;
-            if (gym.setMarker) gym.setMarker(gym.levelEx);   // update map marker
+            gym.showLevel();
         };
+        // div for map popup
+        gym.popup = (marker) => {
+            marker.closeTooltip();
+            const popup = document.createElement('div');
+            popup.className = 'item';
+            popup.innerHTML = `
+                <img src="gym${gym.park ? 4 : 0}.png" class="badge" width="36" height="48">
+                <img src="gym${gym.park ? 5 : 1}.png" class="badge" width="36" height="48">
+                <img src="gym${gym.park ? 6 : 2}.png" class="badge" width="36" height="48">
+                <img src="gym${gym.park ? 7 : 3}.png" class="badge" width="36" height="48">
+                <br>
+            <div><b>${gym.name}</b>${gym.park ? '<br>[EX] ' + cellName(gym.cell) : ''}</div>`;
+            const badges = byClass(popup, 'badge');
+            badges.forEach((badge, level) => {
+                badge.onclick = () => { setLevel(gym.id, level); gym.showLevel(); }
+            });
+            gym.updatePopup = (level) => badges.forEach((each,i) => each.className = level === i ? 'badge-selected' : 'badge');
+            gym.showLevel();
+            return popup;
+        }
     }
 }
 
@@ -142,7 +168,7 @@ function makeMap() {
         iconUrl: `gym${level}.png`,
         iconSize: [36, 48],
         iconAnchor: [18, 42],
-        popupAnchor: [18, 6],
+        popupAnchor: [0, -30],
         shadowUrl: 'gym_.png',
         shadowSize: [36, 48],
         shadowAnchor: [18, 35],
@@ -151,9 +177,9 @@ function makeMap() {
         const loc = L.latLng(gym.location);
         const marker = L.marker(loc, {icon: icons[gym.levelEx], riseOnHover: true});
         marker.bindTooltip(`${gym.name}${gym.park ? ' [EX] ' + cellName(gym.cell) : ''}`);
-        //if (gym.park) marker.bindPopup(cellName(gym.cell) + ': ' + gym.cell);
+        marker.bindPopup(gym.popup);
         marker.addTo(map);
-        gym.setMarker = lv => marker.setIcon(icons[lv]);    // used in makeList()
+        gym.updateMarker = lv => marker.setIcon(icons[lv]);    // used in makeList()
     }
 
     // Show S2 cells  
@@ -360,12 +386,12 @@ function setLevel(i, level) {
     let s = getLevelsString();
     while (s.length <= i) s += '0';
     setLevelsString(s.substr(0, i) + level + s.substr(i + 1));
+    updateSums();
 }
 function getLevel(i) { return getLevelsString()[i] & 3; }
 function incLevel(i) {
     const level = (getLevel(i) + 1) % 4;
     setLevel(i, level);
-    updateSums();
     return level;
 }
 

@@ -16,7 +16,12 @@ h1 {
 }
 
 .badge {
-  padding: 10px 6px 10px 0
+  padding: 10px 3px 10px 3px
+}
+.badge-selected {
+  padding: 10px 3px 10px 3px;
+  border-radius: 5px;
+  background: #D0EDCA;
 }
 
 a,.item {
