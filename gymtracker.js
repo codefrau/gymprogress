@@ -29,8 +29,12 @@ let refreshMap = null;
 
 const {gyms, city, cells} = getGyms();
 
-const storageKey = city + ':gym-levels';
-const storageKeyOld = city + ':gym-levels-old';
+const storageKeyV0 = 'gym-levels';
+const storageKeyV1 = city + ':gym-levels';
+const storageKeyV2 = city + ':gym-levels-v2';
+
+const storageKey = storageKeyV2;
+const storageKeyOld = storageKey + '-old';
 
 (function start() {
     updateSums();
@@ -107,7 +111,7 @@ function makeList() {
 function makeMap() {
 
     // center map on user's gyms
-    function weightedCenter(weights = [0.0001, 1, 2, 4]) {
+    function weightedCenter(weights = [0.0001, 0.001, 1, 2, 4]) {
         let center = [0, 0],
             count = 0;
         for (const gym of gyms) {
@@ -137,8 +141,8 @@ function makeMap() {
     }).addTo(map);
 
     // add gym markers
-    // level 0-3 are regular gyms, 4-7 exraid gyms
-    const icons = [0,1,2,3,4,5,6,7].map(level => L.icon({
+    // level 0-4 are regular gyms, 5-9 exraid gyms
+    const icons = [0,1,2,3,4,5,6,7,8,9].map(level => L.icon({
         iconUrl: `gym${level}.png`,
         iconSize: [36, 48],
         iconAnchor: [18, 42],
@@ -225,9 +229,10 @@ function deleteListItems() {
 }
 
 function updateSums() {
-    const sums = [0, 0, 0, 0];
+    const n = [0, 0, 0, 0, 0];
     for (const gym of gyms)
-        sums[gym.level]++;
+        n[gym.level]++;
+    const sums = [n[0] + n[1], n[2], n[3], n[4]];
     for (let i = 0; i < 4; i++)
         $(`sum${i}`).innerText = sums[i];
     $(`sum`).innerText = gyms.length;
@@ -349,8 +354,19 @@ function compareCells(a, b) {
 
 //////////////// Badge Storage ////////////////
 
-function sanitize(s) { return String(s).replace(/[^0-3]/g, '0'); }
-function getLevelsString() { return sanitize(storage[storageKey] || storage['gym-levels'] || ''); }
+function sanitizeV0(s) { return String(s).replace(/[^0-3]/g, '0'); }
+function sanitizeV1(s) { return String(s).replace(/[^0-3]/g, '0'); }
+function sanitizeV2(s) { return String(s).replace(/[^0-4]/g, '0'); }
+
+function convertV0ToV1(s) { return s; }
+function convertV1ToV2(s) { return s.replace(/3/g, '4').replace(/2/g, '3').replace(/1/g, '2'); }
+
+function getLevelsV0() { return sanitizeV0(storage[storageKeyV0] || ''); }
+function getLevelsV1() { return sanitizeV1(storage[storageKeyV1] || convertV0ToV1(getLevelsV0())); }
+function getLevelsV2() { return sanitizeV2(storage[storageKeyV2] || convertV1ToV2(getLevelsV1())); }
+
+function sanitize(s) { return sanitizeV2(s); }
+function getLevelsString() { return getLevelsV2(); }
 function setLevelsString(s) { storage[storageKey] = sanitize(s); updateShare(); }
 
 function getOldLevelsString() { return sanitize(storage[storageKeyOld] || ''); }
@@ -361,9 +377,9 @@ function setLevel(i, level) {
     while (s.length <= i) s += '0';
     setLevelsString(s.substr(0, i) + level + s.substr(i + 1));
 }
-function getLevel(i) { return getLevelsString()[i] & 3; }
+function getLevel(i) { return getLevelsString()[i] | 0; }
 function incLevel(i) {
-    const level = (getLevel(i) + 1) % 4;
+    const level = (getLevel(i) + 1) % 5;
     setLevel(i, level);
     updateSums();
     return level;
@@ -382,7 +398,7 @@ function getGyms() {
                 id: index,          // gym's index in storage string
                 cell: keyToToken(S2.latLngToKey(gym.location[0], gym.location[1], 13)),
                 get level() { return getLevel(index) },
-                get levelEx() { return getLevel(index) + ((gym.exraid || gym.park) ? 4 : 0)},
+                get levelEx() { return getLevel(index) + ((gym.exraid || gym.park) ? 5 : 0)},
             }, gym))
             .filter(({deleted}) => !deleted),
     };
