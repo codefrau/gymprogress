@@ -88,7 +88,7 @@ function makeList() {
         gym.div.className = gym.exraid ? 'item exraid' : 'item';
         gym.div.innerHTML = `
             <img src="gym${gym.levelEx}.png" class="badge" width="36" height="48">
-            <div><b>${gym.name}</b><br>
+            <div><b>${gym.name}</b>${gym.nick ? ' „' + gym.nick + '“' : ''}<br>
                 ${gym.district ? gym.district+',' : ''}
                 <a href="https://www.google.com/maps/?q=${gym.location}">${gym.address || 'map'}</a>
                 ${gym.park ? '<br>' : ''}
