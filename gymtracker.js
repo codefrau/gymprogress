@@ -230,6 +230,7 @@ function makeJumpTable(nameFn = _ => _.name) {
     const targets = [];
     let target = '';
     for (const gym of gyms) {
+        byClass(gym.div, 'jumptarget').forEach(a => a.parentNode.removeChild(a));
         const name = nameFn(gym);
         const initial = name[0].toUpperCase();
         if (target !== initial && initial.match(/[A-Z0-9]/i)) {
