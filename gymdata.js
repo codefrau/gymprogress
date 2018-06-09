@@ -268,6 +268,10 @@ function gymData() {
     {name: "Pferd an der Wand", district: "Sudenburg", address: "Lemsdorfer Weg 28", location: [52.109207,11.605525]},
     {name: "Engel auf Erden", district: "Stadtfeld West", address: "Große Diesdorfer Str. 103", location: [52.127942,11.581919]},
     {name: "Raumfahrt-Comic", district: "Brückfeld", address: "Gübser Weg 17", location: [52.12687,11.6752]},
+    {name: "Alte Diamant Brauerei Turm", district: "Neue Neustadt", address: "Lübecker Straße 127", location: [52.151102,11.64129]},
+    {name: "Sankt-Gertraud-Kirche", district: "Salbke", address: "Alt Salbke 79", location: [52.07632,11.668888]},
+    {name: "Street Art", district: "Fermersleben", address: "Mariannenstraße", location: [52.087929,11.66010]},
+    {name: "Gedenksäule", district: "Nordwest", address: "Olvenstedter Graseweg 37", location: [52.158749,11.606495]},
     //{name: "", district: "", address: "", location: []},
     ],
     // local names for Level 12 cells
