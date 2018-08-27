@@ -197,7 +197,7 @@ function gymData() {
     {name: "Schlafende Schönheit", district: "Stadtfeld West", address: "Spielhagenstraße 60", location: [52.127983,11.597104], park: "way/55279407", exraid: true},
     {name: "Schleckerbiene", district: "Buckau", address: "Karl-Schmidt-Straße 45", location: [52.102837,11.641193], park: "way/100348319", exraid: true},
     {name: "Schubkarre", district: "Stadtfeld Ost", address: "Stormstraße 15", location: [52.138805,11.608778]},
-    {name: "Schulkomplex Albert-Vater-Straße", district: "Stadtfeld Ost", address: "Albert-Vater-Straße 7", location: [52.139996,11.615286]},
+    {deleted: true, name: "Schulkomplex Albert-Vater-Straße", district: "Stadtfeld Ost", address: "Albert-Vater-Straße 7", location: [52.139996,11.615286]},
     {name: "Schwarze Kunst", district: "Neue Neustadt", address: "Umfassungsstraße 76a", location: [52.154984,11.63217]},
     {name: "Schwarze Pumpe", district: "Werder", address: "Badestraße 2", location: [52.128723,11.65041]},
     {name: "Schwerkran Elefant", district: "Alte Neustadt", address: "Wittenberger Str. 17", location: [52.149151,11.660668]},
@@ -272,6 +272,9 @@ function gymData() {
     {name: "Sankt-Gertraud-Kirche", district: "Salbke", address: "Alt Salbke 79", location: [52.07632,11.668888]},
     {name: "Street Art", district: "Fermersleben", address: "Mariannenstraße", location: [52.087929,11.66010]},
     {name: "Gedenksäule", district: "Nordwest", address: "Olvenstedter Graseweg 37", location: [52.158749,11.606495]},
+    {name: "Uhr an der Albert-Vater-Straße", district: "Stadtfeld Ost", address: "Albert-Vater-Straße 102", location: [52.13964,11.609896]},
+    {name: "Eike von Repgow", district: "Leipziger Straße", address: "Carl-Miller-Straße", location: [52.118638,11.621017]},
+    {name: "Gartenverein Seit 1927", district: "Salbke", address: "Beyendorfer Kirchweg", location: [52.076373,11.648978]},
     //{name: "", district: "", address: "", location: []},
     ],
     // local names for Level 12 cells
