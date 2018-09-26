@@ -13,7 +13,7 @@ It uses a [static list of gyms](gymdata.js) so there is no TOS violation.
 You can see the Magdeburg instance running at https://freudenbergs.de/bert/gymprogress/.
 Click the badges to change level.
 Badges are stored only in the browser's `localStorage`, not on the server.
-Badges can be transfered/saved, you can use [mine](https://freudenbergs.de/bert/gymprogress/?2021001101110203000010001110201301000300200011111100011100101102200120330110032211101001000220211000101000100002101011000200010100223010000020001010122221121000210200100310110100223122111133010222001010330111100031001000000200) for testing.
+Badges can be transfered/saved, you can use [mine](https://freudenbergs.de/bert/gymprogress/?2022002111210213220210201120221302001302201011112201021121101202201131331210132211111202100320211100201000201102101011100300020100233111000020001021222321131000210220110322111101223222211233010222001121330112101132001000010300201000101001) for testing.
 You can also [clear](https://freudenbergs.de/bert/gymprogress/?0) them again.
 
 ## To adapt this to your city
