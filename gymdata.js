@@ -275,6 +275,7 @@ function gymData() {
     {name: "Uhr an der Albert-Vater-Straße", district: "Stadtfeld Ost", address: "Albert-Vater-Straße 102", location: [52.13964,11.609896]},
     {name: "Eike von Repgow", district: "Leipziger Straße", address: "Carl-Miller-Straße", location: [52.118638,11.621017]},
     {name: "Gartenverein Seit 1927", district: "Salbke", address: "Beyendorfer Kirchweg", location: [52.076373,11.648978]},
+    {name: "Skulptur zum Gedenken an das Lager Magda", district: "Industriehafen", address: "Havelstraße 17", location: [52.16855,11.661571]},
     //{name: "", district: "", address: "", location: []},
     ],
     // local names for Level 12 cells
