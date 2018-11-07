@@ -263,7 +263,7 @@ function gymData() {
     {name: "St. Stephani", district: "Ottersleben", address: "Alt Ottersleben 65", location: [52.087057,11.578938]},
     {name: "Halbkugeln Ottersleben", district: "Ottersleben", address: "Geschwister-Scholl-Straße 31", location: [52.089742,11.572509]},
     {name: "Siedlung Cracau", district: "Cracau", address: "Mehringstraße 15", location: [52.12307,11.660761]},
-    {name: "Fire in the Hole MD", district: "Altstadt", address: "Schleinufer 1", location: [52.135792,11.651157], park: "way/27732059"},
+    {name: "Fire in the Hole MD", district: "Altstadt", address: "Schleinufer 1", location: [52.135792,11.651157], park: "way/27732059", exraid: true},
     {name: "Südfriedhof / Black Obelisk III", district: "Leipziger Straße", address: "Bertolt-Brecht-Straße 2", location: [52.104689,11.622919]},
     {name: "Pferd an der Wand", district: "Sudenburg", address: "Lemsdorfer Weg 28", location: [52.109207,11.605525]},
     {name: "Engel auf Erden", district: "Stadtfeld West", address: "Große Diesdorfer Str. 103", location: [52.127942,11.581919]},
@@ -276,6 +276,7 @@ function gymData() {
     {name: "Eike von Repgow", district: "Leipziger Straße", address: "Carl-Miller-Straße", location: [52.118638,11.621017]},
     {name: "Gartenverein Seit 1927", district: "Salbke", address: "Beyendorfer Kirchweg", location: [52.076373,11.648978]},
     {name: "Skulptur zum Gedenken an das Lager Magda", district: "Industriehafen", address: "Havelstraße 17", location: [52.16855,11.661571]},
+    {name: "Motoren Lady", district: "Buckau", address: "Schönebecker Str. 69", location: [52.099922,11.647062]},
     //{name: "", district: "", address: "", location: []},
     ],
     // local names for Level 12 cells
