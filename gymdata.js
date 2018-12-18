@@ -280,7 +280,7 @@ function gymData() {
     {name: "Buchstabensalat", district: "Brückfeld", address: "Brückstraße 2", location: [52.127851,11.659624]},
     {name: "Bahnhof Magdeburg Eichenweiler", district: "Industriehafen", address: "Am Schöppensteg", location: [52.166298,11.65803]},
     {name: "Zwei Nasen  Bein /Nein/ Zwei Nasen  Stein", district: "Salbke", address: "Alt Salbke 111E", location: [52.082451,11.667369]},
-    {name: "Spielplatz", district: "Stadtfeld West", address: "Harbker Str. 11", location: [52.126173,11.594773]},
+    {name: "Spielplatz", district: "Stadtfeld West", address: "Völpker Str. 11", location: [52.126208,11.594868]},
     //{name: "", district: "", address: "", location: []},
     ],
     // local names for Level 12 cells
