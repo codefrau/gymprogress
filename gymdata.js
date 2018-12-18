@@ -277,6 +277,10 @@ function gymData() {
     {name: "Gartenverein Seit 1927", district: "Salbke", address: "Beyendorfer Kirchweg", location: [52.076373,11.648978]},
     {name: "Skulptur zum Gedenken an das Lager Magda", district: "Industriehafen", address: "Havelstraße 17", location: [52.16855,11.661571]},
     {name: "Motoren Lady", district: "Buckau", address: "Schönebecker Str. 69", location: [52.099922,11.647062]},
+    {name: "Buchstabensalat", district: "Brückfeld", address: "Brückstraße 2", location: [52.127851,11.659624]},
+    {name: "Bahnhof Magdeburg Eichenweiler", district: "Industriehafen", address: "Am Schöppensteg", location: [52.166298,11.65803]},
+    {name: "Zwei Nasen  Bein /Nein/ Zwei Nasen  Stein", district: "Salbke", address: "Alt Salbke 111E", location: [52.082451,11.667369]},
+    {name: "Spielplatz", district: "Stadtfeld West", address: "Harbker Str. 11", location: [52.126173,11.594773]},
     //{name: "", district: "", address: "", location: []},
     ],
     // local names for Level 12 cells
