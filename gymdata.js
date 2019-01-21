@@ -281,6 +281,12 @@ function gymData() {
     {name: "Bahnhof Magdeburg Eichenweiler", district: "Industriehafen", address: "Am Schöppensteg", location: [52.166298,11.65803]},
     {name: "Zwei Nasen  Bein /Nein/ Zwei Nasen  Stein", district: "Salbke", address: "Alt Salbke 111E", location: [52.082451,11.667369]},
     {name: "Spielplatz", district: "Stadtfeld West", address: "Völpker Str. 11", location: [52.126208,11.594868]},
+    {name: "Carnotstr, Motorenschmiede", district: "Hopfengarten", address: "Carnotstraße 37", location: [52.080208,11.629023]},
+    {name: "Blumenwiese Nord", district: "Hopfengarten", address: "Carnotstraße", location: [52.080661,11.633191]},
+    {name: "Magdeburger Friseurmuseum", district: "Stadtfeld West", address: "Walbecker Str. 1", location: [52.128324,11.589635
+    ]},
+    {name: "Bäckerei Otto", district: "Sudenburg", address: "Halberstädter Str. 175", location: [52.10768,11.595013]},
+    {name: "Zitate An Der Sporthalle - Aristoteles", district: "Reform", address: "Otto-Baer-Straße", location: [52.089711,11.60919]},
     //{name: "", district: "", address: "", location: []},
     ],
     // local names for Level 12 cells
