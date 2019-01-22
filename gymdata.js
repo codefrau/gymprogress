@@ -286,6 +286,7 @@ function gymData() {
     {name: "Magdeburger Friseurmuseum", district: "Stadtfeld West", address: "Walbecker Str. 1", location: [52.128324,11.589635]},
     {name: "Bäckerei Otto", district: "Sudenburg", address: "Halberstädter Str. 175", location: [52.10768,11.595013]},
     {name: "Zitate An Der Sporthalle - Aristoteles", district: "Reform", address: "Otto-Baer-Straße", location: [52.089711,11.60919]},
+    {name: "Sonnenuhr Semmelweiss", district: "Leipziger Straße", address: "Semmelweisstraße 12", location: [52.108278,11.617345]},
     //{name: "", district: "", address: "", location: []},
     ],
     // local names for Level 12 cells
