@@ -287,6 +287,11 @@ function gymData() {
     {name: "Bäckerei Otto", district: "Sudenburg", address: "Halberstädter Str. 175", location: [52.10768,11.595013]},
     {name: "Zitate An Der Sporthalle - Aristoteles", district: "Reform", address: "Otto-Baer-Straße", location: [52.089711,11.60919]},
     {name: "Sonnenuhr Semmelweiss", district: "Leipziger Straße", address: "Semmelweisstraße 12", location: [52.108278,11.617345]},
+    {name: "NIA Monkeys", district: "Reform", address: "Okerstraße", location: [52.097139,11.606834]},
+    {name: "Ev. Kirche St. Johannes", district: "Ottersleben", address: "Lüttgen-Ottersleben 41", location: [52.09775,11.566158]},
+    {name: "Reservisten Schützenverein Buckau E. V.", district: "Buckau", address: "Schanzenweg 2", location: [52.096926,11.639235]},
+    {name: "Stolpersteine: Hans August Knüppel", district: "Sudenburg", address: "Tucholskystraße 6", location: [52.105712,11.587226]},
+    {name: "Graffiti Wand", district: "Reform", address: "Hektorweg 53", location: [52.085471,11.607059]},
     //{name: "", district: "", address: "", location: []},
     ],
     // local names for Level 12 cells
