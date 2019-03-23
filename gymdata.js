@@ -292,6 +292,12 @@ function gymData() {
     {name: "Reservisten Schützenverein Buckau E. V.", district: "Buckau", address: "Schanzenweg 2", location: [52.096926,11.639235]},
     {name: "Stolpersteine: Hans August Knüppel", district: "Sudenburg", address: "Tucholskystraße 6", location: [52.105712,11.587226]},
     {name: "Graffiti Wand", district: "Reform", address: "Hektorweg 53", location: [52.085471,11.607059]},
+    {name: "Adler auf Tor", district: "Stadtfeld West", address: "Diesdorfer Graseweg 101", location: [52.128648,11.574442]},
+    {name: "Sankt Briccius", district: "Cracau", address: "Burchardstraße 26", location: [52.116662,11.659624]},
+    {name: "Friedhofskapelle Westerhüsen", district: "Westerhüsen", address: "Holsteiner Straße", location: [52.059244,11.675671]},
+    {name: "Gründungsstein der Gartenstadt Reform", district: "Reform", address: "Verlorener Grundstein 23", location: [52.096873,11.61423]},
+    {name: "DaoKlan - Pink Panther", district: "Leipziger Straße", address: "Langer Heinrich", location: [52.101234,11.631927]},
+    {name: "Heimatkundlicher Rundweg", district: "Ottersleben", address: "Niendorfer Straße 21", location: [52.098301,11.566511]},
     //{name: "", district: "", address: "", location: []},
     ],
     // local names for Level 12 cells
