@@ -297,7 +297,9 @@ function gymData() {
     {name: "Friedhofskapelle Westerhüsen", district: "Westerhüsen", address: "Holsteiner Straße", location: [52.059244,11.675671]},
     {name: "Gründungsstein der Gartenstadt Reform", district: "Reform", address: "Verlorener Grundstein 23", location: [52.096873,11.61423]},
     {name: "DaoKlan - Pink Panther", district: "Leipziger Straße", address: "Langer Heinrich", location: [52.101234,11.631927]},
-    {name: "Heimatkundlicher Rundweg", district: "Ottersleben", address: "Niendorfer Straße 21", location: [52.098301,11.566511]},
+    {name: "Heimatkundlicher Rundweg", district: "Ottersleben", address: "Niendorfer Straße 21", location: [52.09909,11.575311]},
+    {name: "Der Tunnel", district: "Leipziger Straße", address: "Bernhard-Kellermann-Straße 38", location: [52.094835,11.622941]},
+    {name: "Spielplatz", district: "Leipziger Straße", address: "Innsbrucker Str. 34", location: [52.106947,11.614364]},
     //{name: "", district: "", address: "", location: []},
     ],
     // local names for Level 12 cells
