@@ -14,7 +14,7 @@ Entries for each gym:
   park: true | "OSM feature",          // optional, potential EX raid location. If string, link to that OSM feature
   exraid: true,                        // optional, confirmed EX raid location (a raid actually happened here)
   deleted: true,                       // optional, used for hiding removed gyms without changing IDs
-  
+
   // added by program in getGyms()
   id: number,                          // index in this list. THIS MUST NEVER CHANGE!
 }
@@ -300,8 +300,16 @@ function gymData() {
     {name: "Heimatkundlicher Rundweg", district: "Ottersleben", address: "Niendorfer Straße 21", location: [52.09909,11.575311]},
     {name: "Der Tunnel", district: "Leipziger Straße", address: "Bernhard-Kellermann-Straße 38", location: [52.094835,11.622941]},
     {name: "Spielplatz", district: "Leipziger Straße", address: "Innsbrucker Str. 34", location: [52.106947,11.614364]},
+    {name: "Neverending Grafiti", district: "Werder", address: "Seilerweg 23", location: [52.107447,11.656841]},
+    {name: "Ravelin 2", district: "Stadtfeld Ost", address: "Glacis", location: [52.126253,11.619831]},
+    {name: "Stein und Brücke des OB Reimarus 1907", district: "Werder", address: "Seilerweg 3", location: [52.112787,11.65322]},
+    {name: "Streetart Tukan", district: "Neue Neustadt", address: "Lübecker Privatweg 19", location: [52.164746,11.632602]},
+    {name: "Schüchternes Nackedei", district: "Stadtfeld West", address: "Diesdorfer Graseweg 100", location: [52.127546,11.576489]},
+    {name: "Pony", district: "Sudenburg", address: "Ferdinand-von-Schill-Straße 4", location: [52.108196,11.583952]},
+    {name: "Pumpe Neustädter Feld", district: "Neustädter Feld", address: "Rollestraße 24", location: [52.155429,11.620581]},
+    {name: "Pablo Picasso Straße, Skulptur die Krähen", district: "Kannenstieg", address: "Pablo-Picasso-Straße 20", location: [52.171558,11.619437]},
     //{name: "", district: "", address: "", location: []},
-    ],
+  ],
     // local names for Level 12 cells
     cells: {
         '47af5f5': 'Zelle 1 (Nördl. Altstadt)',
@@ -358,5 +366,5 @@ function gymData() {
         '47af5fbc': 'Zelle 16b',
         '47af5894': 'Zelle 23c',
     },
-    };
+  };
 }
