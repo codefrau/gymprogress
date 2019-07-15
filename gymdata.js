@@ -130,7 +130,7 @@ function gymData() {
     {name: "Klausenerstr. 45", district: "Sudenburg", address: "Klausenerstraße 49", location: [52.118015,11.604719]},
     {name: "Kleiner Leuchtturm", district: "Industriehafen", address: "Zwischenwerkstraße", location: [52.153019,11.670544], park: "way/22897160"},
     {name: "Klinik St. Marienstift", district: "Stadtfeld West", address: "Neustädter Bierweg 11A", location: [52.136959,11.600485]},
-    {name: "Kopfarbeit", district: "Stadtfeld West", address: "Westring 18", location: [52.127487,11.605249]},
+    {name: "Kopfarbeit", district: "Stadtfeld West", address: "Westring 18", location: [52.127379,11.605264]},
     {name: "Kreuzkirche", district: "Nordwest", address: "Flachsbreite 17", location: [52.151855,11.605404]},
     {name: "Kriegerdenkmal Buckau 1914", district: "Fermersleben", address: "Faberstraße 8", location: [52.097694,11.652882]},
     {name: "Kriegerdenkmal Fermersleben", district: "Fermersleben", address: "Alt Fermersleben 87A", location: [52.092785,11.654331], park: 'way/27231637'},
