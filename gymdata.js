@@ -213,7 +213,7 @@ function gymData() {
     {name: "Statue Pfeiffersche Stiftung", district: "Cracau", address: "Schwarzkopfweg", location: [52.116356,11.666139]},
     {name: "Statue Sportgymnasium", district: "Cracau", address: "Friedrich-Ebert-Straße 48", location: [52.12328,11.664376]},
     {name: "Sternstraße 31", district: "Altstadt", address: "Sternstraße 31", location: [52.119167,11.627575]},
-    {name: "Stolpersteine: Beck, Seligsohn und Meissner", district: "Altstadt", address: "Keplerstraße 6", location: [52.122517,11.627476]},
+    {name: "Stolpersteine: Beck, Seligsohn und Meissner", district: "Altstadt", address: "Keplerstraße 6", location: [52.122876,11.626921]},
     {name: "Street Art", district: "Neue Neustadt", address: "Haldensleber Str. 1", location: [52.159168,11.634065]},
     {name: "Streetart 24", district: "Sudenburg", address: "Halberstädter Str. 96-98", location: [52.111485,11.60364]},
     {name: "Säule Bahnhof Neustadt", district: "Alte Neustadt", address: "Lüneburger Str. 22", location: [52.147865,11.639375]},
