@@ -111,7 +111,7 @@ function gymData() {
     {name: "Hier wohnte Marianne Zentawer", district: "Stadtfeld Ost", address: "Friesenstraße 51", location: [52.135227,11.610068], nick: "Friesenstraße"},
     {name: "Hier Wohnten Grete Spangenthal Und Klaus Zindel", district: "Stadtfeld Ost", address: "Goethestraße 41", location: [52.13308,11.611289], nick: "Goethestraße"},
     {name: "Holundermauer Leipziger Straße", district: "Hopfengarten", address: "Lindenplan 1", location: [52.092258,11.621087]},
-    {name: "Holzkunst im Art Depot", district: "Stadtfeld West", address: "Spielhagenstraße 14", location: [52.127319,11.60489]},
+    {name: "Holzkunst im Art Depot", district: "Stadtfeld West", address: "Spielhagenstraße 14", location: [52.127641,11.604883]},
     {name: "Holzschnecke", district: "Herrenkrug", address: "Herrenkrugstraße 14", location: [52.139408,11.673041], park: "way/424488437"},
     {name: "HS Magdeburg-Stendal, Haus 1", district: "Herrenkrug", address: "Breitscheidstraße 1B", location: [52.141144,11.673909]},
     {name: "Hsv Medizin Magdeburg", district: "Hopfengarten", address: "Leipziger Chaussee 55", location: [52.090614,11.621261]},
