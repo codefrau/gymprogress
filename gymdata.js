@@ -319,6 +319,11 @@ function gymData() {
     {name: "Villa Böckelmann 1892", district: "Ottersleben", address: "Lüttgen-Ottersleben 18A", location: [52.096801, 11.566799]},
     {name: "Graffiti Ottostadt", district: "Sudenburg", address: "Wiener Straße", location: [52.112311,11.60989]},
     {name: "Alte Wasserpumpe", district: "Neue Neustadt", address: "Albert-Schweitzer-Str. 9-13", location: [52.1731, 11.6298]},
+    {name: "Spielplatz Rollestraße", district: "Neustädter Feld", address: "Rollestraße 11", location: [52.156821,11.619347]},
+    {name: "Basketball Graffity - Neustädter Feld", district: "Neustädter Feld", address: "Othrichstraße", location: [52.153258,11.614801]},
+    {name: "Windspiel", district: "Hopfengarten", address: "Gustav-Ricker-Straße 4", location: [52.086462,11.638298]},
+    {name: "Minigolfanlage", district: "Neustädter Feld", address: "Ulnerstraße 7", location: [52.157719,11.612825]},
+    {name: "Graffiti Fighting Ali", district: "Kannenstieg", address: "Johannes-R.-Becher-Straße 2", location: [52.174608,11.6189203]},
     //{name: "", district: "", address: "", location: []},
   ],
     // local names for Level 12 cells
