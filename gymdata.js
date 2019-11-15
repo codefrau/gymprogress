@@ -309,7 +309,7 @@ function gymData() {
     {name: "Pumpe Neustädter Feld", district: "Neustädter Feld", address: "Rollestraße 24", location: [52.155429,11.620581]},
     {name: "Pablo Picasso Straße, Skulptur die Krähen", district: "Kannenstieg", address: "Pablo-Picasso-Straße 20", location: [52.171558,11.619437]},
     {name: "Safari Spielplatz Diesdorf", district: "Diesdorf", address: "Kreipestraße 3", location: [52.129942,11.567484]},
-    {name: "⁣Villa Köhne Magdeburg Lemsdorf", district: "Lemsdorf", address: "Harzburger Str. 11", location: [52.097694, 11.600453]},
+    {name: "Villa Köhne Magdeburg Lemsdorf", district: "Lemsdorf", address: "Harzburger Str. 11", location: [52.097694, 11.600453]},
     {name: "Spielplatz Am Pechauer Platz", district: "Pechau", address: "Pechauer Platz 11", location: [52.112254, 11.670641]},
     {name: "Stählernes Monster auf Dach", district: "Leipziger Straße", address: "Langer Heinrich", location: [52.10008, 11.629512]},
     {name: "Bartels „Das letzte Bataillon“", district: "Fermersleben", address: "Alt Fermersleben 106", location: [52.097726, 11.649749]},
