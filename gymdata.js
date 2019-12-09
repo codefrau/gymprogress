@@ -342,8 +342,11 @@ function gymData() {
     {name: "2 Jungs Beim Spielen", district: "Neu Olvenstedt", address: "Bruno-Taut-Ring 119", location: [52.153259,11.584274]},
     {name: "Jugendclub Post", district: "Stadtfeld West", address: "Beimsstraße 21a", location: [52.125536,11.597227]},
     {name: "Zwillinge Wall Art", district: "Stadtfeld Ost", address: "Arndtstraße 55", location: [52.129749,11.611818]},
-    {name: "⁣Gartenverein Bördepark e.V.", district: "Neu Olvenstedt", address: "Rapsbreite", location: [52.152035,11.601509]},
+    {name: "Gartenverein Bördepark e.V.", district: "Neu Olvenstedt", address: "Rapsbreite", location: [52.152035,11.601509]},
     {name: "Verbunden 1982/2016", district: "Neu Olvenstedt", address: "Olvenstedter Grund 44", location: [52.149764,11.573398]},
+    {name: "Strandbad Neustädter See", district: "Neustädter See", address: "Schöppensteg 79", location: [52.172923,11.650995]},
+    {name: "Infotafel Asiatischer Laubholzbockkäfer", district: "Neustädter See", address: "Barleber Str. 1", location: [52.176055,11.637562]},
+    {name: "Skulptur \"Daphne\"", district: "Herrenkrug", address: "Jerichower Straße", location: [52.134236,11.661992]},
     //{name: "", district: "", address: "", location: []},
   ],
     // local names for Level 12 cells
