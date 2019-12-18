@@ -347,6 +347,9 @@ function gymData() {
     {name: "Strandbad Neustädter See", district: "Neustädter See", address: "Schöppensteg 79", location: [52.172923,11.650995]},
     {name: "Infotafel Asiatischer Laubholzbockkäfer", district: "Neustädter See", address: "Barleber Str. 1", location: [52.176055,11.637562]},
     {name: "Skulptur \"Daphne\"", district: "Herrenkrug", address: "Jerichower Straße", location: [52.134236,11.661992]},
+    {name: "Pfahlberg", district: "Neu Olvenstedt", address: "Rennebogen", location: [52.143251,11.574537]},
+    {name: "Graffiti am Club", district: "Neu Olvenstedt", address: "Rennebogen", location: [52.143817,11.57414]},
+    {name: "Wasserpumpe am Grenzweg", district: "Neu Olvenstedt", address: "Grenzweg", location: [52.1435,11.5828]},  // not exact coords
     //{name: "", district: "", address: "", location: []},
   ],
     // local names for Level 12 cells
