@@ -350,6 +350,8 @@ function gymData() {
     {name: "Pfahlberg", district: "Neu Olvenstedt", address: "Rennebogen", location: [52.143251,11.574537]},
     {name: "Graffiti am Club", district: "Neu Olvenstedt", address: "Rennebogen", location: [52.143817,11.57414]},
     {name: "Wasserpumpe am Grenzweg", district: "Neu Olvenstedt", address: "Grenzweg", location: [52.1435,11.5828]},  // not exact coords
+    {name: "Der große Silberberg", district: "Neustädter Feld", address: "Silberbergweg 1", location: [52.165376,11.607482]},
+    {name: "Eistüte", district: "Stadtfeld Ost", address: "Olvenstedter Str. 31", location: [52.135848,11.612632]},
     //{name: "", district: "", address: "", location: []},
   ],
     // local names for Level 12 cells
