@@ -352,6 +352,8 @@ function gymData() {
     {name: "Wasserpumpe am Grenzweg", district: "Neu Olvenstedt", address: "Grenzweg", location: [52.1435,11.5828]},  // not exact coords
     {name: "Der große Silberberg", district: "Neustädter Feld", address: "Silberbergweg 1", location: [52.165376,11.607482]},
     {name: "Eistüte", district: "Stadtfeld Ost", address: "Olvenstedter Str. 31", location: [52.135848,11.612632]},
+    {name: "Schöner Spielplatz in Olvenstedt", district: "Neu Olvenstedt", address: "Hans-Grade-Straße 67", location: [52.154299,11.589113]},
+    {name: "Charlys Boxhalle", district: "Neu Olvenstedt", address: "Hans-Grade-Straße", location: [52.153921,11.593601]},
     //{name: "", district: "", address: "", location: []},
   ],
     // local names for Level 12 cells
