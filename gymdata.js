@@ -241,7 +241,7 @@ function gymData() {
     {name: "Wasserspiele", district: "Neu Olvenstedt", address: "St.-Josef-Straße 34", location: [52.149872,11.581864]},
     {name: "Wasserturm Salbke", district: "Salbke", address: "Alt Salbke 111E", location: [52.082485,11.666805]},
     {name: "Westernplan 1945", district: "Stadtfeld Ost", address: "Klopstockstraße 13", location: [52.137051,11.617642]},
-    {name: "Windspiel", district: "Neustädter Feld", address: "Thietmarstraße 14", location: [52.155242,11.624708]},
+    {name: "Windspiel Neustädter Feld", district: "Neustädter Feld", address: "Thietmarstraße 14", location: [52.155242,11.624708]},
     {name: "Wood Statue", district: "Neue Neustadt", address: "Klosterwuhne 27", location: [52.166401,11.64205]},
     {name: "Zoo, Bronzener Widder", district: "Neustädter See", address: "Pablo-Neruda-Straße 10", location: [52.16827,11.638449]},
     {name: "Zoo, Der Ponystall", district: "Neue Neustadt", address: "Klosterwuhne 25", location: [52.167717,11.640037]},
@@ -354,6 +354,8 @@ function gymData() {
     {name: "Eistüte", district: "Stadtfeld Ost", address: "Olvenstedter Str. 31", location: [52.135848,11.612632]},
     {name: "Schöner Spielplatz in Olvenstedt", district: "Neu Olvenstedt", address: "Hans-Grade-Straße 67", location: [52.154299,11.589113]},
     {name: "Charlys Boxhalle", district: "Neu Olvenstedt", address: "Hans-Grade-Straße", location: [52.153921,11.593601]},
+    {name: "Verschiedene Bäume Malerei", district: "Hopfengarten", address: "Eschenweg 35", location: [52.090974,11.630618]},
+    {name: "Willkommen im Regenwurmland", district: "Lemsdorf", address: "Am Nordenfeld 4", location: [52.098752,11.591775]},
     //{name: "", district: "", address: "", location: []},
   ],
     // local names for Level 12 cells
