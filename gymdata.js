@@ -363,7 +363,8 @@ function gymData() {
     {name: "Die rote Anni", district: "Ottersleben", address: "Salbker Chaussee 15", location: [52.083762,11.581534]},
     {name: "Spielplatz Indianerpark", district: "Ottersleben", address: "Alt Benneckenbeck 171", location: [52.084599,11.589151]},
     {name: "Gedenkstein Ernst Jenrich", district: "Nordwest", address: "Rembrandtweg 1A", location: [52.147179,11.594511]},
-    //{name: "Kleiner Spielplatz", district: "", address: "", location: []},
+    {name: "Kleiner Spielplatz", district: "Reform", address: "Steinbockstraße 7", location: [52.089023,11.610558]},
+    {name: "Kamelpyramide", district: "Neue Neustadt", address: "Zooallee", location: [52.163894,11.646667]},
     //{name: "", district: "", address: "", location: []},
   ],
     // local names for Level 12 cells
