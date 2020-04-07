@@ -6,15 +6,15 @@ This is the progress tracker I made for our local community in Magdeburg, German
 It shows which gyms are eligible for EX raids (according to OSM tags)
 and lets individual trainers keep track of their golden/silver/bronze badges.
 
-It uses a [static list of gyms](gymdata.js) so there is no TOS violation. 
+It uses a [static list of gyms](gymdata.js) so there is no TOS violation.
 
 ## Try it
 
-You can see the Magdeburg instance running at https://freudenbergs.de/bert/gymprogress/.
+You can see the Magdeburg instance running at https://freudenbergs.de/vanessa/gymprogress/.
 Click the badges to change level.
 Badges are stored only in the browser's `localStorage`, not on the server.
-Badges can be transfered/saved, you can use [mine](https://freudenbergs.de/bert/gymprogress/?2022002111210213220210201120221302001302201011112201021121101202201131331210132211111202100320211100201000201102101011100300020100233111000020001021222321131000210220110322111101223222211233010222001121330112101132001000010300201000101001) for testing.
-You can also [clear](https://freudenbergs.de/bert/gymprogress/?0) them again.
+Badges can be transfered/saved, you can use [mine](https://freudenbergs.de/vanessa/gymprogress/?2022002111210213220210201120221302001302201011112201021121101202201131331210132211111202100320211100201000201102101011100300020100233111000020001021222321131000210220110322111101223222211233010222001121330112101132001000010300201000101001) for testing.
+You can also [clear](https://freudenbergs.de/vanessa/gymprogress/?0) them again.
 
 ## To adapt this to your city
 
