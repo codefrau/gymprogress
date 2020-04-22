@@ -377,6 +377,7 @@ function gymData() {
     {name: "Gedenkstein Erich Scharf", district: "Stadtfeld Ost", address: "Olvenstedter Platz", location: [52.136077,11.607743]},
     {name: "Moderner Postkasten im Retro Style", district: "Nordwest", address: "Boquet-Graseweg 100", location: [52.146831,11.60929]},
     {name: "Zwergi", district: "Stadtfeld Ost", address: "Große Diesdorfer Straße 231", location: [52.129788,11.614217]},
+    {name: "Kleiner Holzpavillon", district: "Neustädter See", address: "Barleber Chaussee 3", location: [52.178713,11.628617]},
     //{name: "", district: "", address: "", location: []},
   ],
     // local names for Level 12 cells
