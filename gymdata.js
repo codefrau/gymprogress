@@ -378,6 +378,9 @@ function gymData() {
     {name: "Moderner Postkasten im Retro Style", district: "Nordwest", address: "Boquet-Graseweg 100", location: [52.146831,11.60929]},
     {name: "Zwergi", district: "Stadtfeld Ost", address: "Große Diesdorfer Straße 231", location: [52.129788,11.614217]},
     {name: "Kleiner Holzpavillon", district: "Neustädter See", address: "Barleber Chaussee 3", location: [52.178713,11.628617]},
+    {name: "Die Schafwäsche - Heimkundlicher Rundweg Ottersleben", district: "Ottersleben", address: "Alt Ottersleben 68", location: [52.086352,11.579657]},
+    {name: "Pumpe Irenenplatz", district: "Fermersleben", address: "Irenenplatz 9", location: [52.078727,11.652691]},
+    {name: "XXL Vogelhaus", district: "Neustädter See", address: "Albert-Schweitzer-Straße 10", location: [52.171478,11.628962]},
     //{name: "", district: "", address: "", location: []},
   ],
     // local names for Level 12 cells
