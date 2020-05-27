@@ -381,6 +381,8 @@ function gymData() {
     {name: "Die Schafwäsche - Heimkundlicher Rundweg Ottersleben", district: "Ottersleben", address: "Alt Ottersleben 68", location: [52.086352,11.579657]},
     {name: "Pumpe Irenenplatz", district: "Fermersleben", address: "Irenenplatz 9", location: [52.078727,11.652691]},
     {name: "XXL Vogelhaus", district: "Neustädter See", address: "Albert-Schweitzer-Straße 10", location: [52.171478,11.628962]},
+    {name: "Gartenverein Rennetal", district: "Nordwest", address: "Rennetal 42", location: [52.142181,11.602006]},
+    {name: "Der HEILAND an der Wand", district: "Sudenburg", address: "Ambrosiusplatz 3", location: [52.110099,11.59756]},
     //{name: "", district: "", address: "", location: []},
   ],
     // local names for Level 12 cells
