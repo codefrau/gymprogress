@@ -383,6 +383,7 @@ function gymData() {
     {name: "XXL Vogelhaus", district: "Neustädter See", address: "Albert-Schweitzer-Straße 10", location: [52.171478,11.628962]},
     {name: "Gartenverein Rennetal", district: "Nordwest", address: "Rennetal 42", location: [52.142181,11.602006]},
     {name: "Der HEILAND an der Wand", district: "Sudenburg", address: "Ambrosiusplatz 3", location: [52.110099,11.59756]},
+    {name: "Steinsäule im Herrenkrugpark", district: "Herrenkrug", address: "Herrenkrugpark", location: [52.156406,11.682413]},
     //{name: "", district: "", address: "", location: []},
   ],
     // local names for Level 12 cells
