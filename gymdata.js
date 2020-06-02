@@ -369,8 +369,8 @@ function gymData() {
     {name: "Geburtstagsbank Floraparkgarten", district: "Neu Olvenstedt", address: "Florapark", location: [52.154056,11.598123]},
     {name: "Postsportverein", district: "Stadtfeld West", address: "Spielhagenstraße 31", location: [52.127161,11.60398]},
     {name: "Figur - Das Schwein", district: "Neu Olvenstedt", address: "Oberer Sülzeweg 20", location: [52.157967,11.579355]},
-    {name: "Graffiti Comic", district: "Ottersleben", address: "Albert-Dankert-Straße 1", location: [52.0871,11.5804]}, // coords not exact
-    {name: "Freiheitsstatue", district: "Sudenburg", address: "Fichtestraße 29A", location: [52.1183,11.5946]}, // coords not exact
+    {name: "Graffiti Comic", district: "Ottersleben", address: "Albert-Dankert-Straße 1", location: [52.087127,11.580484]},
+    {name: "Freiheitsstatue", district: "Sudenburg", address: "Fichtestraße 29A", location: [52.11834,11.594679]},
     {name: "Texas Graffiti", district: "Nordwest", address: "Robert-Koch-Straße 26", location: [52.14335,11.611086]},
     {name: "Friedhofskapelle Alt Olvenstedt", district: "Alt Olvenstedt", address: "Friedhofsweg", location: [52.158358,11.560995]},
     {name: "Trinkwasseroase", district: "Olvenstedt", address: "Am Teich 1", location: [52.157781,11.567063]},
