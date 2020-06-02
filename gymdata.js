@@ -384,6 +384,9 @@ function gymData() {
     {name: "Gartenverein Rennetal", district: "Nordwest", address: "Rennetal 42", location: [52.142181,11.602006]},
     {name: "Der HEILAND an der Wand", district: "Sudenburg", address: "Ambrosiusplatz 3", location: [52.110099,11.59756]},
     {name: "Steinsäule im Herrenkrugpark", district: "Herrenkrug", address: "Herrenkrugpark", location: [52.156406,11.682413]},
+    {name: "Brücke am Wasserfall", district: "Buckau", address: "Burchardstraße 13", location: [52.115647,11.657439]},
+    {name: "Magdeburger Ruderclub e.V. „Rudern aus Freude am Rudern“", district: "Werder", address: "Seilerweg 5", location: [52.113185,11.656661]},
+    {name: "Info Weidengewächse / Artur-Becker Teich", district: "Werder", address: "Heinrich-Heine-Weg", location: [52.1127,11.647]}, // approx coords
     //{name: "", district: "", address: "", location: []},
   ],
     // local names for Level 12 cells
