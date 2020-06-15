@@ -98,7 +98,7 @@ function gymData() {
     {name: "Gruson-Gewächshäuser", district: "Buckau", address: "Schönebecker Str. 129a", location: [52.113815,11.631601]},
     {name: "Guardian Angel", district: "Westerhüsen", address: "Sohlener Str. 6", location: [52.064209,11.673188]},
     {name: "Gussasphaltkocher", district: "Werder", address: "Am Winterhafen 3", location: [52.123486,11.649843], park: "way/5880756", exraid: true},
-    {name: "Gustav Adolf Pfeiffer", district: "Cracau", address: "Schwarzkopfweg 2", location: [52.116249,11.667232]},
+    {name: "Gustav Adolf Pfeiffer", district: "Cracau", address: "Pfeifferstraße 10", location: [52.116249,11.667232]},
     {name: "Halbkugeln Lemsdorfer Lümmel", district: "Lemsdorf", address: "Blankenburger Str. 11", location: [52.099281,11.597336]},
     {name: "Harry Potter Spielplatz", district: "Neustädter Feld", address: "Othrichstraße 34", location: [52.155457,11.617514], park: "way/197849495", exraid: true},
     {name: "Hasselbachplatz / Plättbolzen", district: "Altstadt", address: "Breiter Weg 232", location: [52.120865,11.627843]},
@@ -210,7 +210,7 @@ function gymData() {
     {name: "Sportkomplex Seilerwiesen", district: "Werder", address: "Am Winterhafen 8", location: [52.120594,11.646641], park: "way/5880756", exraid: true},
     {name: "Stadtbibliothek Magdeburg", district: "Altstadt", address: "Breiter Weg 109", location: [52.136845,11.6389]},
     {name: "Station Sudenburg", district: "Sudenburg", address: "Am Sudenburger Bahnhof 2", location: [52.120415,11.597279]},
-    {name: "Statue Pfeiffersche Stiftung", district: "Cracau", address: "Schwarzkopfweg", location: [52.116356,11.666139]},
+    {name: "Statue Pfeiffersche Stiftung", district: "Cracau", address: "Pfeifferstraße 10", location: [52.116356,11.666139]},
     {name: "Statue Sportgymnasium", district: "Cracau", address: "Friedrich-Ebert-Straße 48", location: [52.12328,11.664376]},
     {name: "Sternstraße 31", district: "Altstadt", address: "Sternstraße 31", location: [52.119167,11.627575]},
     {name: "Stolpersteine: Beck, Seligsohn und Meissner", district: "Altstadt", address: "Keplerstraße 6", location: [52.122876,11.626921]},
@@ -387,6 +387,11 @@ function gymData() {
     {name: "Brücke am Wasserfall", district: "Buckau", address: "Burchardstraße 13", location: [52.115647,11.657439]},
     {name: "Magdeburger Ruderclub e.V. „Rudern aus Freude am Rudern“", district: "Werder", address: "Seilerweg 5", location: [52.113185,11.656661]},
     {name: "Info Weidengewächse / Artur-Becker Teich", district: "Werder", address: "Heinrich-Heine-Weg", location: [52.1127,11.647]}, // approx coords
+    {name: "Statue Moritzplatz", district: "Neue Neustadt", address: "Moritzplatz 1", location: [52.155366,11.632803]},
+    {name: "Blaues Technikdenkmal", district: "Fermersleben", address: "SKL Gelände", location: [52.090688,11.652239]},
+    {name: "Skulptur „Beacon of The West“", district: "Cracau", address: "Pfeifferstraße 10", location: [52.115726,11.667282]},
+    {name: "Die verwunschene Burg", district: "Leipziger Straße", address: "Helmholtz Straße 40", location: [52.110558,11.627532]},
+    {name: "Heimstättengartengebiet I e.V Tor 5", district: "Reform", address: "Krokusweg", location: [52.0959,11.6094]}, // approx coords
     //{name: "", district: "", address: "", location: []},
   ],
     // local names for Level 12 cells
