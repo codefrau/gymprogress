@@ -391,7 +391,7 @@ function gymData() {
     {name: "Blaues Technikdenkmal", district: "Fermersleben", address: "SKL Gelände", location: [52.090688,11.652239]},
     {name: "Skulptur „Beacon of The West“", district: "Cracau", address: "Pfeifferstraße 10", location: [52.115726,11.667282]},
     {name: "Die verwunschene Burg", district: "Leipziger Straße", address: "Helmholtz Straße 40", location: [52.110558,11.627532]},
-    {name: "Heimstättengartengebiet I e.V Tor 5", district: "Reform", address: "Krokusweg", location: [52.0959,11.6094]}, // approx coords
+    {name: "⁣Heimstättengartengebiet I e.V Tor 5", district: "Reform", address: "Krokusweg", location: [52.096025,11.60908]},
     //{name: "", district: "", address: "", location: []},
   ],
     // local names for Level 12 cells
