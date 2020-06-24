@@ -236,7 +236,7 @@ function makeJumpTable(nameFn = _ => _.name) {
         if (target !== initial && initial.match(/[A-Z0-9]/i)) {
             target = initial;
             const a = document.createElement('a');
-            a.id = target;
+            a.name = target;
             a.className = 'jumptarget';
             gym.div.insertBefore(a, gym.div.childNodes[0]);
             if (initial.match(/[A-Z]/i)) targets.push(target);
