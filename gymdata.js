@@ -392,6 +392,9 @@ function gymData() {
     {name: "Skulptur „Beacon of The West“", district: "Cracau", address: "Pfeifferstraße 10", location: [52.115726,11.667282]},
     {name: "Die verwunschene Burg", district: "Leipziger Straße", address: "Helmholtz Straße 40", location: [52.110558,11.627532]},
     {name: "⁣Heimstättengartengebiet I e.V Tor 5", district: "Reform", address: "Krokusweg", location: [52.096025,11.60908]},
+    {name: "Graffiti Blitz Blank", district: "Olvenstedt", address: "Weizengrund 44", location: [52.150748,11.572403]},
+    {name: "Fröhlicher Krake", district: "Buckau", address: "Klosterbergegarten", location: [52.11521,11.632964]},
+    // {name: "Mein Baum für Magdeburg - Station 2", district: "", address: "", location: []}, // no coords
     //{name: "", district: "", address: "", location: []},
   ],
     // local names for Level 12 cells
