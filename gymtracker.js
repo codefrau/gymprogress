@@ -45,10 +45,10 @@ const storageKeyOld = city + ':gym-levels-old';
     makeList();
     updateShare();
     switch (location.hash) {
-        case '#map': showAsMap(); break; 
-        case '#district': showByDistrict(); break; 
-        case '#level': showByLevel(); break; 
-        case '#exraid': showByExraid(); break; 
+        case '#map': showAsMap(); break;
+        case '#district': showByDistrict(); break;
+        case '#level': showByLevel(); break;
+        case '#exraid': showByExraid(); break;
         default: showByName();
     }
 })();
@@ -99,7 +99,7 @@ function makeList() {
             gym.badge.src = `gym${gym.levelEx}.png`;
             if (gym.updateMarker) gym.updateMarker(gym.levelEx);   // update map marker
             if (gym.updatePopup) gym.updatePopup(gym.level); // update marker popup
-            
+
         }
         gym.badge = byClass(gym.div, 'badge')[0];
         gym.badge.onclick = () => {
@@ -182,7 +182,7 @@ function makeMap() {
         gym.updateMarker = lv => marker.setIcon(icons[lv]);    // used in makeList()
     }
 
-    // Show S2 cells  
+    // Show S2 cells
     function showS2Cells(level, style, showNames) {
         // we just make a grid around the center cell
         // count is a guess based on S2 cell size ... better use a S2RegionCoverer
@@ -204,7 +204,7 @@ function makeMap() {
         let steps = 1;
         let direction = 0;
         do {
-            for (let i = 0; i < 2; i++) { 
+            for (let i = 0; i < 2; i++) {
                 for (let i = 0; i < steps; i++) {
                     addPoly(cell);
                     cell = cell.getNeighbors()[direction % 4];
@@ -220,7 +220,7 @@ function makeMap() {
     // showS2Cells(11, {color: 'green', weight: 3});
     showS2Cells(10, {color: 'red'});
     // showS2Cells( 9, {color: 'yellow', weight: 16});
-   
+
     // used in showAsMap()
     refreshMap = _ => L.Util.requestAnimFrame(map.invalidateSize, map, !1, map._container);
 }
