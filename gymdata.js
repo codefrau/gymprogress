@@ -391,10 +391,14 @@ function gymData() {
     {name: "Blaues Technikdenkmal", district: "Fermersleben", address: "SKL Gelände", location: [52.090688,11.652239]},
     {name: "Skulptur „Beacon of The West“", district: "Cracau", address: "Pfeifferstraße 10", location: [52.115726,11.667282]},
     {name: "Die verwunschene Burg", district: "Leipziger Straße", address: "Helmholtz Straße 40", location: [52.110558,11.627532]},
-    {name: "⁣Heimstättengartengebiet I e.V Tor 5", district: "Reform", address: "Krokusweg", location: [52.096025,11.60908]},
+    {name: "Heimstättengartengebiet I e.V Tor 5", district: "Reform", address: "Krokusweg", location: [52.096025,11.60908]},
     {name: "Graffiti Blitz Blank", district: "Olvenstedt", address: "Weizengrund 44", location: [52.150748,11.572403]},
     {name: "Fröhlicher Krake", district: "Buckau", address: "Klosterbergegarten", location: [52.11521,11.632964]},
-    // {name: "Mein Baum für Magdeburg - Station 2", district: "", address: "", location: []}, // no coords
+    {name: "Mein Baum für Magdeburg - Station 2", district: "Olvenstedt", address: "Hegewiesenweg", location: [52.1605,11.5795]}, // approx coords
+    {name: "Schrottmännchen", district: "Cracau", address: "Thomas-Mann-Straße 29", location: [52.11481,11.676285]},
+    {name: "Vereinsheim Spatzenfalle", district: "Fermersleben", address: "KGV Hasengrund", location: [52.084636,11.653224]},
+    {name: "KgV Kümmelsberg", district: "Stadtfeld West", address: "Zum Lindenweiler 52", location: [52.136685,11.579957]},
+    {name: "Hier Wohnte Familie Heinemann", district: "Stadtfeld Ost", address: "Immermannstraße 1", location: [52.133173,11.608919]},
     //{name: "", district: "", address: "", location: []},
   ],
     // local names for Level 12 cells
