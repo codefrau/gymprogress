@@ -399,7 +399,7 @@ function gymData() {
     {name: "Vereinsheim Spatzenfalle", district: "Fermersleben", address: "KGV Hasengrund", location: [52.084636,11.653224]},
     {name: "KgV Kümmelsberg", district: "Stadtfeld West", address: "Zum Lindenweiler 52", location: [52.136685,11.579957]},
     {name: "Hier Wohnte Familie Heinemann", district: "Stadtfeld Ost", address: "Immermannstraße 1", location: [52.133173,11.608919]},
-    {name: "Abenteuerspielplatz", district: "Altstadt", address: "Johannisbergstraße", location: [52.131519,11.644205]},
+    {name: "Abenteuerspielplatz", district: "Neustädter See", address: "Victor-Jara-Straße 12", location: [52.168695,11.633951]},
     //{name: "", district: "", address: "", location: []},
   ],
     // local names for Level 12 cells
