@@ -404,6 +404,7 @@ function gymData() {
     {name: "Kleingartenverein Sonnenhain e.V.", district: "Sudenburg", address: "Seehäuser Weg", location: [52.118408,11.577256]},
     {name: "Stolperstein Abraham Basch", district: "Stadtfeld Ost", address: "Annastraße 17", location: [52.130554,11.608861]},
     {name: "Pumpe Graubestrasse", district: "Ottersleben", address: "Graubestraße 1", location: [52.083603,11.572151]},
+    {name: "Born to be wild", district: "Ottersleben", address: "Schafwäsche", location: [52.0849,11.5791]}, // approx coords
     //{name: "", district: "", address: "", location: []},
   ],
     // local names for Level 12 cells
