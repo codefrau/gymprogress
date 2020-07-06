@@ -386,7 +386,7 @@ function gymData() {
     {name: "Steinsäule im Herrenkrugpark", district: "Herrenkrug", address: "Herrenkrugpark", location: [52.156406,11.682413]},
     {name: "Brücke am Wasserfall", district: "Buckau", address: "Burchardstraße 13", location: [52.115647,11.657439]},
     {name: "Magdeburger Ruderclub e.V. „Rudern aus Freude am Rudern“", district: "Werder", address: "Seilerweg 5", location: [52.113185,11.656661]},
-    {name: "Info Weidengewächse / Artur-Becker Teich", district: "Werder", address: "Heinrich-Heine-Weg", location: [52.1127,11.647]}, // approx coords
+    {name: "Info Weidengewächse / Artur-Becker Teich", district: "Werder", address: "Heinrich-Heine-Weg", location: [52.112555,11.647148]},
     {name: "Statue Moritzplatz", district: "Neue Neustadt", address: "Moritzplatz 1", location: [52.155366,11.632803]},
     {name: "Blaues Technikdenkmal", district: "Fermersleben", address: "SKL Gelände", location: [52.090688,11.652239]},
     {name: "Skulptur „Beacon of The West“", district: "Cracau", address: "Pfeifferstraße 10", location: [52.115726,11.667282]},
