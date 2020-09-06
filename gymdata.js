@@ -408,6 +408,7 @@ function gymData() {
     {name: "Kleingartenverein „Neustädter Feld e.V.“", district: "Nordwest", address: "Lorenzweg 88", location: [52.146712,11.61815]},
     {name: "Großer Abenteuerspielplatz", district: "Neue Neustadt", address: "Robert-Mayer-Straße 9", location: [52.16451,11.650273]},
     {name: "Bienenweide Kannenstieg", district: "Kannenstieg", address: "Helene-Weigel-Straße 15", location: [52.170788,11.622299]},
+    {name: "Löwenbrunnen", district: "Stadtfeld West", address: "Große Diesdorfer Str. 104", location: [52.127911,11.580352]},
     //{name: "", district: "", address: "", location: []},
   ],
     // local names for Level 12 cells
