@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 Bert Freudenberg
+ * Copyright (c) 2017-2020 Vanessa Freudenberg
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -156,7 +156,7 @@ function makeMap() {
     const mapboxToken = '';
     // For testing only, you could use the OSM tile server instead:
     // L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-    L.tileLayer(`https://api.tiles.mapbox.com/v4/mapbox.pirates/{z}/{x}/{y}.png?access_token=${mapboxToken}`, {
+    L.tileLayer(`https://api.mapbox.com/styles/v1/mapbox/outdoors-v11/tiles/{z}/{x}/{y}?access_token=${mapboxToken}`, {
         attribution: '© <a href="http://openstreetmap.org">OpenStreetMap</a> | © <a href="http://mapbox.com">Mapbox</a>',
         minZoom: 12,
         maxZoom: 17,
