@@ -409,6 +409,8 @@ function gymData() {
     {name: "Großer Abenteuerspielplatz", district: "Neue Neustadt", address: "Robert-Mayer-Straße 9", location: [52.16451,11.650273]},
     {name: "Bienenweide Kannenstieg", district: "Kannenstieg", address: "Helene-Weigel-Straße 15", location: [52.170788,11.622299]},
     {name: "Löwenbrunnen", district: "Stadtfeld West", address: "Große Diesdorfer Str. 104", location: [52.127911,11.580352]},
+    {name: "Infotafel Wissenschaftshafen", district: "Alte Neustadt", address: "Sarajevo-Ufer", location: [52.14081,11.657153]},
+    {name: "Milan", district: "Stadtfeld West", address: "Harsdorfer Str. 68", location: [52.135007,11.592246]},
     //{name: "", district: "", address: "", location: []},
   ],
     // local names for Level 12 cells
