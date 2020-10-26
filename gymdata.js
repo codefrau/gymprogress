@@ -411,6 +411,8 @@ function gymData() {
     {name: "Löwenbrunnen", district: "Stadtfeld West", address: "Große Diesdorfer Str. 104", location: [52.127911,11.580352]},
     {name: "Infotafel Wissenschaftshafen", district: "Alte Neustadt", address: "Sarajevo-Ufer", location: [52.14081,11.657153]},
     {name: "Milan", district: "Stadtfeld West", address: "Harsdorfer Str. 68", location: [52.135007,11.592246]},
+    {name: "„Kletterakt“ Sudenburg", district: "Sudenburg", address: "Astonstraße 40", location: [52.108684,11.585816]},
+    {name: "KGV „Frieden“ e.V. Magdeburg", district: "Nordwest", address: "Langefelder Weg 13", location: [52.1461,11.6122]}, // approx coords
     //{name: "", district: "", address: "", location: []},
   ],
     // local names for Level 12 cells
