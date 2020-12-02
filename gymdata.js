@@ -413,6 +413,9 @@ function gymData() {
     {name: "Milan", district: "Stadtfeld West", address: "Harsdorfer Str. 68", location: [52.135007,11.592246]},
     {name: "„Kletterakt“ Sudenburg", district: "Sudenburg", address: "Astonstraße 40", location: [52.108684,11.585816]},
     {name: "KGV „Frieden“ e.V. Magdeburg", district: "Nordwest", address: "Langefelder Weg 13", location: [52.1461,11.6122]}, // approx coords
+    {name: "Wackel-Hunde", district: "Stadtfeld West", address: "Zum Lindenweiler 30", location: [52.138355,11.578843]},
+    {name: "Blumenmülleimer Ottersleben", district: "Ottersleben", address: "Adolf-Jentzen-Straße 2", location: [52.0915,11.5733]}, // approx coords
+    {name: "Herbstliche Parkbank", district: "Neustädter Feld", address: "Florapark", location: [52.156614,11.609957]},
     //{name: "", district: "", address: "", location: []},
   ],
     // local names for Level 12 cells
