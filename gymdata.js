@@ -349,7 +349,7 @@ function gymData() {
     {name: "Skulptur \"Daphne\"", district: "Herrenkrug", address: "Jerichower Straße", location: [52.134236,11.661992]},
     {name: "Pfahlberg", district: "Olvenstedt", address: "Rennebogen", location: [52.143251,11.574537]},
     {name: "Graffiti am Club", district: "Olvenstedt", address: "Rennebogen", location: [52.143817,11.57414]},
-    {name: "Wasserpumpe am Grenzweg", district: "Olvenstedt", address: "Grenzweg", location: [52.1435,11.5828]},  // not exact coords
+    {name: "Wasserpumpe am Grenzweg", district: "Olvenstedt", address: "Grenzweg", location: [52.143578,11.582817]},
     {name: "Der große Silberberg", district: "Neustädter Feld", address: "Silberbergweg 1", location: [52.165376,11.607482]},
     {name: "Eistüte", district: "Stadtfeld Ost", address: "Olvenstedter Str. 31", location: [52.135848,11.612632]},
     {name: "Schöner Spielplatz in Olvenstedt", district: "Olvenstedt", address: "Hans-Grade-Straße 67", location: [52.154299,11.589113]},
@@ -394,7 +394,7 @@ function gymData() {
     {name: "Heimstättengartengebiet I e.V Tor 5", district: "Reform", address: "Krokusweg", location: [52.096025,11.60908]},
     {name: "Graffiti Blitz Blank", district: "Olvenstedt", address: "Weizengrund 44", location: [52.150748,11.572403]},
     {name: "Fröhlicher Krake", district: "Buckau", address: "Klosterbergegarten", location: [52.11521,11.632964]},
-    {name: "Mein Baum für Magdeburg - Station 2", district: "Olvenstedt", address: "Hegewiesenweg", location: [52.1605,11.5795]}, // approx coords
+    {name: "Mein Baum für Magdeburg - Station 2", district: "Olvenstedt", address: "Hegewiesenweg", location: [52.160587,11.579574]},
     {name: "Schrottmännchen", district: "Cracau", address: "Thomas-Mann-Straße 29", location: [52.11481,11.676285]},
     {name: "Vereinsheim Spatzenfalle", district: "Fermersleben", address: "KGV Hasengrund", location: [52.084636,11.653224]},
     {name: "KgV Kümmelsberg", district: "Stadtfeld West", address: "Zum Lindenweiler 52", location: [52.136685,11.579957]},
@@ -404,7 +404,7 @@ function gymData() {
     {name: "Kleingartenverein Sonnenhain e.V.", district: "Sudenburg", address: "Seehäuser Weg", location: [52.118408,11.577256]},
     {name: "Stolperstein Abraham Basch", district: "Stadtfeld Ost", address: "Annastraße 17", location: [52.130554,11.608861]},
     {name: "Pumpe Graubestrasse", district: "Ottersleben", address: "Graubestraße 1", location: [52.083603,11.572151]},
-    {name: "Born To Be Wild", district: "Ottersleben", address: "Schafwäsche", location: [52.0849,11.5792]}, // approx coords
+    {name: "Born To Be Wild", district: "Ottersleben", address: "Schafwäsche", location: [52.085015,11.57891]},
     {name: "Kleingartenverein „Neustädter Feld e.V.“", district: "Nordwest", address: "Lorenzweg 88", location: [52.146712,11.61815]},
     {name: "Großer Abenteuerspielplatz", district: "Neue Neustadt", address: "Robert-Mayer-Straße 9", location: [52.16451,11.650273]},
     {name: "Bienenweide Kannenstieg", district: "Kannenstieg", address: "Helene-Weigel-Straße 15", location: [52.170788,11.622299]},
@@ -412,9 +412,9 @@ function gymData() {
     {name: "Infotafel Wissenschaftshafen", district: "Alte Neustadt", address: "Sarajevo-Ufer", location: [52.14081,11.657153]},
     {name: "Milan", district: "Stadtfeld West", address: "Harsdorfer Str. 68", location: [52.135007,11.592246]},
     {name: "„Kletterakt“ Sudenburg", district: "Sudenburg", address: "Astonstraße 40", location: [52.108684,11.585816]},
-    {name: "KGV „Frieden“ e.V. Magdeburg", district: "Nordwest", address: "Langefelder Weg 13", location: [52.1461,11.6122]}, // approx coords
+    {name: "KGV „Frieden“ e.V. Magdeburg", district: "Nordwest", address: "Langefelder Weg 13", location: [52.146146,11.612338]},
     {name: "Wackel-Hunde", district: "Stadtfeld West", address: "Zum Lindenweiler 30", location: [52.138355,11.578843]},
-    {name: "Blumenmülleimer Ottersleben", district: "Ottersleben", address: "Adolf-Jentzen-Straße 2", location: [52.0915,11.5733]}, // approx coords
+    {name: "Blumenmülleimer Ottersleben", district: "Ottersleben", address: "Adolf-Jentzen-Straße 2", location: [52.091605,11.573262]},
     {name: "Herbstliche Parkbank", district: "Neustädter Feld", address: "Florapark", location: [52.156614,11.609957]},
     //{name: "", district: "", address: "", location: []},
   ],
