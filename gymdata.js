@@ -416,6 +416,9 @@ function gymData() {
     {name: "Wackel-Hunde", district: "Stadtfeld West", address: "Zum Lindenweiler 30", location: [52.138355,11.578843]},
     {name: "Blumenmülleimer Ottersleben", district: "Ottersleben", address: "Adolf-Jentzen-Straße 2", location: [52.091605,11.573262]},
     {name: "Herbstliche Parkbank", district: "Neustädter Feld", address: "Florapark", location: [52.156614,11.609957]},
+    {name: "Spielplatz „MagdeBurg“", district: "Stadtfeld West", address: "Fröbelstraße 78", location: [52.125702,11.599571]},
+    {name: "Friedhof Ottersleben", district: "Ottersleben", address: "Wanzleber Chaussee 22", location: [52.087906,11.55924]},
+    {name: "Infotafel Amtshof Rittergut Klein Ottersleben", district: "Ottersleben", address: "Lüttgen-Ottersleben 18A", location: [52.09702,11.567001]},
     //{name: "", district: "", address: "", location: []},
   ],
     // local names for Level 12 cells
