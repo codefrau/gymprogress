@@ -419,6 +419,9 @@ function gymData() {
     {name: "Spielplatz „MagdeBurg“", district: "Stadtfeld West", address: "Fröbelstraße 78", location: [52.125702,11.599571]},
     {name: "Friedhof Ottersleben", district: "Ottersleben", address: "Wanzleber Chaussee 22", location: [52.087906,11.55924]},
     {name: "Infotafel Amtshof Rittergut Klein Ottersleben", district: "Ottersleben", address: "Lüttgen-Ottersleben 18A", location: [52.09702,11.567001]},
+    {name: "Villa Stadion Neue Welt", district: "Berliner Chaussee", address: "Berliner Chaussee 219", location: [52.133772,11.700673]},
+    {name: "Stolpersteine Fam. Buchhalter", district: "Altstadt", address: "Breiter Weg 114", location: [52.135735,11.63757]},
+    {name: "KGV „Insleber Straße“", district: "Alte Neustadt", address: "Insleber Straße", location: [52.149039,11.633759]},
     //{name: "", district: "", address: "", location: []},
   ],
     // local names for Level 12 cells
