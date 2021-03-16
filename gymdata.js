@@ -422,6 +422,9 @@ function gymData() {
     {name: "Villa Stadion Neue Welt", district: "Berliner Chaussee", address: "Berliner Chaussee 219", location: [52.133772,11.700673]},
     {name: "Stolpersteine Fam. Buchhalter", district: "Altstadt", address: "Breiter Weg 114", location: [52.135735,11.63757]},
     {name: "KGV „Insleber Straße“", district: "Alte Neustadt", address: "Insleber Straße", location: [52.149039,11.633759]},
+    {name: "Blumenwiese Gübser Weg", district: "Berliner Chaussee", address: "Gübser Weg", location: [52.125176,11.695942]},
+    {name: "Waterfall Mural", district: "Neustädter Feld", address: "Am Florapark 7", location: [52.160819,11.607293]},
+    {name: "Wächter Wedringer Straße", district: "Neue Neustadt", address: "Wedringer Str. 6", location: [52.1579,11.6324]}, // approx coords
     //{name: "", district: "", address: "", location: []},
   ],
     // local names for Level 12 cells
