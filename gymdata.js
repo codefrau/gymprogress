@@ -425,6 +425,8 @@ function gymData() {
     {name: "Blumenwiese Gübser Weg", district: "Berliner Chaussee", address: "Gübser Weg", location: [52.125176,11.695942]},
     {name: "Waterfall Mural", district: "Neustädter Feld", address: "Am Florapark 7", location: [52.160819,11.607293]},
     {name: "Wächter Wedringer Straße", district: "Neue Neustadt", address: "Wedringer Str. 6", location: [52.1579,11.6324]}, // approx coords
+    {name: "Kleingartenverein „Alt-Puppendorf e.V.“", district: "Berliner Chaussee", address: "Sülzwiesen-Privatweg", location: [52.129966,11.695183]},
+    {name: "Spielplatz am Bördepark", district: "Reform", address: "Salbker Chaussee 67", location: [52.083335,11.600347]},
     //{name: "", district: "", address: "", location: []},
   ],
     // local names for Level 12 cells
