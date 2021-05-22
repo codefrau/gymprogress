@@ -427,6 +427,8 @@ function gymData() {
     {name: "Wächter Wedringer Straße", district: "Neue Neustadt", address: "Wedringer Str. 6", location: [52.1579,11.6324]}, // approx coords
     {name: "Kleingartenverein „Alt-Puppendorf e.V.“", district: "Berliner Chaussee", address: "Sülzwiesen-Privatweg", location: [52.129966,11.695183]},
     {name: "Spielplatz am Bördepark", district: "Reform", address: "Salbker Chaussee 67", location: [52.083335,11.600347]},
+    {name: "Kleingärtnersparte Reichsbahn Magdeburg-Ost", district: "Berliner Chaussee", address: "Kleine Steinwiese 4. Gartenweg 43", location: [52.130657,11.692378]},
+    {name: "Spielplatz St.-Maria-Hilf Straße", district: "Ottersleben", address: "St.-Maria-Hilf-Straße 48", location: [52.0909,11.5780]}, // approx coords
     //{name: "", district: "", address: "", location: []},
   ],
     // local names for Level 12 cells
