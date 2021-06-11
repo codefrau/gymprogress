@@ -428,7 +428,11 @@ function gymData() {
     {name: "Kleingartenverein „Alt-Puppendorf e.V.“", district: "Berliner Chaussee", address: "Sülzwiesen-Privatweg", location: [52.129966,11.695183]},
     {name: "Spielplatz am Bördepark", district: "Reform", address: "Salbker Chaussee 67", location: [52.083335,11.600347]},
     {name: "Kleingärtnersparte Reichsbahn Magdeburg-Ost", district: "Berliner Chaussee", address: "Kleine Steinwiese 4. Gartenweg 43", location: [52.130657,11.692378]},
-    {name: "Spielplatz St.-Maria-Hilf Straße", district: "Ottersleben", address: "St.-Maria-Hilf-Straße 48", location: [52.0909,11.5780]}, // approx coords
+    {name: "Spielplatz St.-Maria-Hilf Straße", district: "Ottersleben", address: "St.-Maria-Hilf-Straße 48", location: [52.0908,11.5781]}, // approx coords
+    {name: "Giant Face", district: "Sudenburg", address: "Sudenburger Wuhne 60", location: [52.119934,11.586763]},
+    {name: "Football Graffiti", district: "Lemsdorf", address: "Bodestraße 36", location: [52.09979,11.60378]},
+    {name: "Graffiti White Skull", district: "Olvenstedt", address: "Olvenstedter Chaussee 30", location: [52.141817,11.594875]},
+    {name: "Kleingärtnerverein „Volkswohl von 1932“", district: "Ottersleben", address: "Wanzleber Chaussee 22", location: [52.08543,11.557987]},
     //{name: "", district: "", address: "", location: []},
   ],
     // local names for Level 12 cells
