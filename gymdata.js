@@ -435,7 +435,7 @@ function gymData() {
     {name: "Kleingärtnerverein „Volkswohl von 1932“", district: "Ottersleben", address: "Wanzleber Chaussee 22", location: [52.08543,11.557987]},
     {name: "Smart in the Air", district: "Rothensee", address: "Am Zweigkanal 9", location: [52.189585,11.675075]},
     {name: "Leuchtturm", district: "Sudenburg", address: "Thomas-Müntzer-Straße 26", location: [52.105819,11.580024]},
-    {name: "Spielplatz „Auf den Höhen“", district: "Ottersleben", address: "Auf den Höhen 48", location: [51.745964,11.054306]},
+    {name: "Spielplatz „Auf den Höhen“", district: "Ottersleben", address: "Auf den Höhen 48", location: [52.092814,11.561651]},
     {name: "Blaue Pumpe", district: "Herrenkrug", address: "Herrenkrugstraße 14", location: [52.142026,11.668481]},
     //{name: "", district: "", address: "", location: []},
   ],
