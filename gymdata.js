@@ -437,6 +437,11 @@ function gymData() {
     {name: "Leuchtturm", district: "Sudenburg", address: "Thomas-Müntzer-Straße 26", location: [52.105819,11.580024]},
     {name: "Spielplatz „Auf den Höhen“", district: "Ottersleben", address: "Auf den Höhen 48", location: [52.092814,11.561651]},
     {name: "Blaue Pumpe", district: "Herrenkrug", address: "Herrenkrugstraße 14", location: [52.142026,11.668481]},
+    {name: "Bienenfutter", district: "Reform", address: "Planetenweg 4", location: [52.085113,11.620567]},
+    {name: "Beachvolleyball am FKK-Strand am Neustätter See", district: "Neustädter See", address: "Schöppensteg", location: [52.176788,11.650001]},
+    {name: "Windmill", district: "Rothensee", address: "Gewerbegebiet Nord", location: [52.2007, 11.6699]},
+    {name: "Spielplatz Danziger Dorf", district: "Kannenstieg", address: "Wenddorfer Weg 12", location: [52.167056,11.618506]},
+    {name: "MVB Farbpalette", district: "Reform", address: "Leipziger Chaussee 106", location: [52.087537,11.621072]},
     //{name: "", district: "", address: "", location: []},
   ],
     // local names for Level 12 cells
