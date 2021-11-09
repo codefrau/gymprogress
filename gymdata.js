@@ -442,6 +442,31 @@ function gymData() {
     {name: "Windmill", district: "Rothensee", address: "Gewerbegebiet Nord", location: [52.2007, 11.6699]},
     {name: "Spielplatz Danziger Dorf", district: "Kannenstieg", address: "Wenddorfer Weg 12", location: [52.167056,11.618506]},
     {name: "MVB Farbpalette", district: "Reform", address: "Leipziger Chaussee 106", location: [52.087537,11.621072]},
+    {name: "Löwe im Bauhof", district: "Industriehafen", address: "Allerstraße", location: [52.162544,11.66281]}
+    {name: "Sportlerstatue", district: "Industriehafen", address: "Pettenkoferstraße", location: [52.16597,11.655207]}
+    {name: "Kinder Kunst in Olvenstedt", district: "Olvenstedt", address: "Olvenstedter Markt", location: [52.148515,11.580425]}
+    {name: "Spielplatz Johannes Göderitz Str", district: "Olvenstedt", address: "Johannes Göderitz Str", location: [52.152346,11.588983]}
+    {name: "Findlinge zu Olvenstedt", district: "Olvenstedt", address: "Nordstraße", location: [52.159788,11.569426]}
+    {name: "Spielplatz St-Laurentius-Weg", district: "Olvenstedt", address: "Granitweg", location: [52.143787,11.569898]}
+    {name: "Kinder Kunst in Olvenstedt", district: "Olvenstedt", address: "Olvenstedter Markt", location: [52.148515,11.580425]}
+    {name: "MotoRanch", district: "Diesdorf", address: "Alt Diesdorf 1", location: [52.130342,11.56445]}
+    {name: "Altes Relief", district: "Diesdorf", address: "Hannoversche Str. 22", location: [52.131029,11.573296]}
+    {name: "Bolzplatz Diesdorf", district: "Diesdorf", address: "Hohendodelebener Weg", location: [52.116122,11.566874]}
+    {name: "Historischer Gussasphaltkocher Alter Bauhof Magdeburg", district: "Sudenburg", address: "Sudenburger Wuhne 65", location: [52.117612,11.582156]}
+    {name: "Skatepark Reform", district: "Reform", address: "Hektorweg 66", location: [52.086161,11.607712]}
+    {name: "Circle of Void", district: "Cracau", address: "An der Lake 38", location: [52.134515,11.688515]}
+    {name: "Heimatkundlicher Rundweg", district: "Ottersleben", address: "Niendorfer Str", location: [52.098280,11.566490]}
+    {name: "Gartenverein "zum Nussbaum"", district: "Ottersleben", address: "Salbker Chaussee", location: [52.082683,11.587538]}
+    {name: "Halbkugeln Salbke", district: "Salbke", address: "Klosterhof 1G", location: [52.077289,11.66874]}
+    {name: "Spielplatz Paradies", district: "Lemsdorf", address: "Ballenstedter Str. 60", location: [52.09443,11.590154]}
+    {name: "Ulrichskirche", district: "Altstadt", address: "Ernst-Reuter-Allee", location: [52.131023,11.634389]}
+    {name: "Anker", district: "Werder", address: "Kleiner Werder 10b", location: [52.130130,11.648603]}
+    {name: "Steinmonument der Nachtweide", district: "Neue Neustadt", address: "Nachtweide 82 A", location: [52.157397,11.644536]}
+    {name: "Findling im Park", district: "Neue Neustadt", address: "Klosterwuhne", location: [52.165796,11.637818]}
+    {name: "Dog the Future", district: "Neue Neustadt", address: "Neustädter See", location: [52.172697,11.653283]}
+    {name: "Fensterkunst 'Magdeburger Dom'", district: "Stadtfeld", address: "Albert-Vater-Straße 70", location: [52.140853,11.616679]}
+    {name: "Fußballplatz des Universitätssportsclubs", district: "Stadtfeld", address: "Große Diesdorfer Str.", location: [52.129569,11.580352]}
+    {name: "Spielplatz Enckekaserne", district: "Stadtfeld", address: "An der Enckekaserne 14", location: [52.124028,11.594686]}
     //{name: "", district: "", address: "", location: []},
   ],
     // local names for Level 12 cells
