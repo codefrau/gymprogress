@@ -468,6 +468,7 @@ function gymData() {
     {deleted: true, name: "Fußballplatz des Universitätssportsclubs", district: "Stadtfeld", address: "Große Diesdorfer Str.", location: [52.129569,11.580352]},
     {name: "Spielplatz Enckekaserne", district: "Stadtfeld", address: "An der Enckekaserne 14", location: [52.124028,11.594686]},
     {name: "Eisbeeren Brenneckestraße", district: "Lemsdorf", address: "Brenneckestraße 46", location: [52.103397,11.600565]},
+    {name: "Europa is Alles", district: "Leipziger Straße", address: "Freie Str. 35", location: [52.100846,11.6297]},
     //{name: "", district: "", address: "", location: []},
   ],
     // local names for Level 12 cells
