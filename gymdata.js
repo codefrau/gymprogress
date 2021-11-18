@@ -469,6 +469,10 @@ function gymData() {
     {name: "Spielplatz Enckekaserne", district: "Stadtfeld", address: "An der Enckekaserne 14", location: [52.124028,11.594686]},
     {name: "Eisbeeren Brenneckestraße", district: "Lemsdorf", address: "Brenneckestraße 46", location: [52.103397,11.600565]},
     {name: "Europa is Alles", district: "Leipziger Straße", address: "Freie Str. 35", location: [52.100846,11.6297]},
+    {name: "Eichplatz", district: "Ottersleben", address: "Geschwister-Scholl-Straße 32", location: [52.089838,11.573163]},
+    {name: "Mein Baum für Magdeburg - Erinnerungen", district: "Berliner Chaussee", address: "Berliner Chaussee", location: [52.134333,11.711378]},
+    {name: "Partnerstädte von Magdeburg", district: "Berliner Chaussee", address: "Berliner Chaussee", location: [52.135017,11.713523]},
+    {name: "Sportplatz SSV Germania 1990 e. V Magdeburg", district: "Berliner Chaussee", address: "Zum Waldsee 11", location: [52.136286,11.712626]},
     //{name: "", district: "", address: "", location: []},
   ],
     // local names for Level 12 cells
