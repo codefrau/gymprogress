@@ -450,7 +450,7 @@ function gymData() {
     {deleted: true, name: "Spielplatz St-Laurentius-Weg", district: "Olvenstedt", address: "Granitweg", location: [52.143787,11.569898]},
     {deleted: true, name: "Kinder Kunst in Olvenstedt", district: "Olvenstedt", address: "Olvenstedter Markt", location: [52.148515,11.580425]},
     {deleted: true, name: "MotoRanch", district: "Diesdorf", address: "Alt Diesdorf 1", location: [52.130342,11.56445]},
-    {deleted: true, name: "Altes Relief", district: "Diesdorf", address: "Hannoversche Str. 22", location: [52.131029,11.573296]},
+    {name: "Altes Relief", district: "Diesdorf", address: "Hannoversche Str. 22", location: [52.131029,11.573296]},
     {name: "Bolzplatz Diesdorf", district: "Diesdorf", address: "Hohendodelebener Weg", location: [52.116122,11.566874]},
     {deleted: true, name: "Historischer Gussasphaltkocher Alter Bauhof Magdeburg", district: "Sudenburg", address: "Sudenburger Wuhne 65", location: [52.117612,11.582156]},
     {deleted: true, name: "Skatepark Reform", district: "Reform", address: "Hektorweg 66", location: [52.086161,11.607712]},
