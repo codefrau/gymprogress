@@ -477,6 +477,7 @@ function gymData() {
     {deleted: true, name: "Roter Hirsch", district: "Berliner Chaussee", address: "Zum Friedensweiler 12", location: [52.136900, 11.710400]},
     {name: "Kletterbirne", district: "Ottersleben", address: "Pfirsichweg", location: [52.092368,11.557586]},
     {name: "Spielplatz Neustädter Feld", district: "Neustädter Feld", address: "Mechthildstraße 48", location: [52.157241,11.622686]},
+    {name: "Mural Pablo Neruda", district: "Fermersleben", address: "Hermannstraße 1", location: [52.086957,11.660736]},
     //{name: "", district: "", address: "", location: []},
   ],
     // local names for Level 12 cells
