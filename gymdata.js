@@ -478,6 +478,7 @@ function gymData() {
     {name: "Kletterbirne", district: "Ottersleben", address: "Pfirsichweg", location: [52.092368,11.557586]},
     {name: "Spielplatz Neustädter Feld", district: "Neustädter Feld", address: "Mechthildstraße 48", location: [52.157241,11.622686]},
     {name: "Mural Pablo Neruda", district: "Fermersleben", address: "Hermannstraße 1", location: [52.086957,11.660736]},
+    {name: "Spielplatz Fabriciusstraße", district: "Sudenburg", address: "Fabriciusstraße 38", location: [52.101766,11.590821]},
     //{name: "", district: "", address: "", location: []},
   ],
     // local names for Level 12 cells
