@@ -480,6 +480,9 @@ function gymData() {
     {name: "Mural Pablo Neruda", district: "Fermersleben", address: "Hermannstraße 1", location: [52.086957,11.660736]},
     {name: "Spielplatz Fabriciusstraße", district: "Sudenburg", address: "Fabriciusstraße 38", location: [52.101766,11.590821]},
     {name: "KGV Am Domfelsen", district: "Werder", address: "Kleiner Stadtmarsch", location: [52.124622,11.641162]},
+    {name: "Wasserpumpe Nr 3", district: "Pechau", address: "Zipkeleber Weg 70", location: [52.111897, 11.682176]},
+    {name: "Gedenkstein Werner von Siemens Ring", district: "Ottersleben", address: "Werner-von-Siemens-Ring 1", location: [52.083341,11.582386]},
+      
     //{name: "", district: "", address: "", location: []},
   ],
     // local names for Level 12 cells
