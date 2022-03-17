@@ -484,6 +484,7 @@ function gymData() {
     {name: "Gedenkstein Werner von Siemens Ring", district: "Ottersleben", address: "Werner-von-Siemens-Ring 1", location: [52.083341,11.582386]},
     {name: "Stolperstein Anna Bertha Jordan", district: "Ottersleben", address: "Alt Benneckenbeck 23", location: [52.085365,11.58435]},
     {name: "Gartenverein „Naturfreunde“ e.V.", district: "Sudenburg", address: "Thomas-Müntzer-Straße 26", location: [52.106253,11.579467]},
+    {name: "Spielplatz Hugo Junkers Straße", district: "Nordwest", address: "Hugo-Junkers-Allee 94A", location: [52.150006,11.598882]},
       
     //{name: "", district: "", address: "", location: []},
   ],
