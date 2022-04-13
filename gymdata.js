@@ -486,6 +486,8 @@ function gymData() {
     {name: "Gartenverein „Naturfreunde“ e.V.", district: "Sudenburg", address: "Thomas-Müntzer-Straße 26", location: [52.106253,11.579467]},
     {name: "Spielplatz Hugo Junkers Straße", district: "Nordwest", address: "Hugo-Junkers-Allee 94A", location: [52.150006,11.598882]},
     {name: "Affenschaukel am Neustädter See", district: "Neustädter See", address: "Salvador-Allende-Straße 25", location: [52.17166,11.641166]},
+    {name: "Klettergerüst", district: "Cracau", address: "Hans-Fallada-Weg 19", location: [52.112544,11.673064]},
+    {name: "Otto-von-Guericke-Gedenksäule", district: "Kannenstieg", address: "Pablo-Picasso-Straße 9", location: [52.172699,11.620298]},
       
     //{name: "", district: "", address: "", location: []},
   ],
