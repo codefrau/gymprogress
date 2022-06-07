@@ -490,6 +490,7 @@ function gymData() {
     {name: "Otto-von-Guericke-Gedenksäule", district: "Kannenstieg", address: "Pablo-Picasso-Straße 9", location: [52.172699,11.620298]},
     {name: "Gartenverein „Am Akazienhain”", district: "Lemsdorf", address: "Am Nordenfeld 26", location: [52.097503,11.588773]},
     {name: "Rastplatz „Golfplatzrunde”", district: "Herrenkrug", address: "Herrenkrugpark", location: [52.145804,11.684497]},
+    {name: "Briefkasten im Retro-Style", district: "Neue Neustadt", address: "Curiestraße 36", location: [52.163492,11.652311]},
       
     //{name: "", district: "", address: "", location: []},
   ],
