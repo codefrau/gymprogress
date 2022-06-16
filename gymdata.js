@@ -491,6 +491,7 @@ function gymData() {
     {name: "Gartenverein „Am Akazienhain”", district: "Lemsdorf", address: "Am Nordenfeld 26", location: [52.097503,11.588773]},
     {name: "Rastplatz „Golfplatzrunde”", district: "Herrenkrug", address: "Herrenkrugpark", location: [52.145804,11.684497]},
     {name: "Briefkasten im Retro-Style", district: "Neue Neustadt", address: "Curiestraße 36", location: [52.163492,11.652311]},
+    {name: "In Gedenken an Krispin", district: "Ottersleben", address: "Wanzleber Chaussee", location: [52.086132,11.551673]},
       
     //{name: "", district: "", address: "", location: []},
   ],
