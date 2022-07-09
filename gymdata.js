@@ -492,6 +492,7 @@ function gymData() {
     {name: "Rastplatz „Golfplatzrunde”", district: "Herrenkrug", address: "Herrenkrugpark", location: [52.145804,11.684497]},
     {name: "Briefkasten im Retro-Style", district: "Neue Neustadt", address: "Curiestraße 36", location: [52.163492,11.652311]},
     {name: "In Gedenken an Krispin", district: "Ottersleben", address: "Wanzleber Chaussee", location: [52.086132,11.551673]},
+    {name: "Windmühle", district: "Pechau", address: "Pechauer Platz 1", location: [52.111674,11.671768]},
       
     //{name: "", district: "", address: "", location: []},
   ],
