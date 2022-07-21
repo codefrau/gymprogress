@@ -494,6 +494,8 @@ function gymData() {
     {name: "In Gedenken an Krispin", district: "Ottersleben", address: "Wanzleber Chaussee", location: [52.086132,11.551673]},
     {name: "Windmühle", district: "Pechau", address: "Pechauer Platz 1", location: [52.111674,11.671768]},
     {name: "Taucherschacht II", district: "Alte Neustadt", address: "Niels-Bohr-Straße 57", location: [52.150178,11.662383]},
+    {name: "Grafitti Electronic Art", district: "Fermersleben", address: "Alt Fermersleben 96", location: [52.094642 11.652791]},
+    {name: "Kleingartenverein e.V. „Friedensweiler”", district: "Berliner Chaussee", address: "zum Friedensweiler", location: [52.135987,11.710215]},
       
     //{name: "", district: "", address: "", location: []},
   ],
