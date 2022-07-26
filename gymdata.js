@@ -496,6 +496,8 @@ function gymData() {
     {name: "Taucherschacht II", district: "Alte Neustadt", address: "Niels-Bohr-Straße 57", location: [52.150178,11.662383]},
     {name: "Grafitti Electronic Art", district: "Fermersleben", address: "Alt Fermersleben 96", location: [52.094642 11.652791]},
     {name: "Kleingartenverein e.V. „Friedensweiler”", district: "Berliner Chaussee", address: "zum Friedensweiler", location: [52.135987,11.710215]},
+    {name: "Bolzplatz Friedensweiler", district: "Berliner Chaussee", address: "zur Muttereiche", location: [52.136988,11.714771]},
+    {name: "Der Pfahlberg", district: "Pfahlberg", address: "Am Pfahlberg 8", location: [52.182835,11.616084]},
       
     //{name: "", district: "", address: "", location: []},
   ],
