@@ -516,6 +516,15 @@ function gymData() {
     {name: "Walderlebnispfad Puppenweg", district: "Biederitzer Busch", address: "Biederitzer Busch", location: [52.149467,11.694882]},
     {name: "Baumbestimmung", district: "Biederitzer Busch", address: "Biederitzer Busch", location: [52.155088,11.694893]},
     {name: "Gedenktafel", district: "Biederitzer Busch", address: "Biederitzer Busch", location: [52.153396,11.694847]},
+    {name: "Infotafel Wassermühle Sohlen", district: "Beyendorf", address: "Froschgrund 17", location: [52.045516,11.634833]},
+    {name: "Hotel Sohlener Hof", district: "Beyendorf", address: "Dorfplatz 10", location: [52.048459,11.638326]},
+    {name: "Spielplatz Beyendorf", district: "Beyendorf", address: "Siedlung 9", location: [52.054907,11.634905]},
+    {name: "Bahnhof Beyendorf", district: "Beyendorf", address: "an den Gärten", location: [52.060802,11.630909]},
+    {name: "St. Sophie Kirche Randau", district: "Randau", address: "Randauer Dorfstraße", location: [52.062359,11.726122]},
+    {name: "Reifenschaukel am Barleber See", district: "Barleber See", address: "Tucheimer Str. 3", location: [52.217073,11.655029]},
+    {name: "Tischtennisplatte am Barleber See", district: "Barleber See", address: "Tucheimer Str. 3", location: [52.217346,11.655989]},
+    {name: "Gartensparte „Am Waldsee I e.V.“ - Tor zum Wald", district: "Berliner Chaussee", address: "Berliner Chaussee", location: [52.138321,11.707517]},
+      
       
     //{name: "", district: "", address: "", location: []},
   ],
