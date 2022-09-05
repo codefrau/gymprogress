@@ -524,6 +524,12 @@ function gymData() {
     {name: "Reifenschaukel am Barleber See", district: "Barleber See", address: "Tucheimer Str. 3", location: [52.217073,11.655029]},
     {name: "Tischtennisplatte am Barleber See", district: "Barleber See", address: "Tucheimer Str. 3", location: [52.217346,11.655989]},
     {name: "Gartensparte „Am Waldsee I e.V.“ - Tor zum Wald", district: "Berliner Chaussee", address: "Berliner Chaussee", location: [52.138321,11.707517]},
+    {name: "Festungsstadt Magdeburg", district: "Stadtfeld West", address: "Harsdorfer Str. 106-108", location: [52.135591,11.580473]},
+    {name: "Familie ist wie ein Baum", district: "Stadtfeld West", address: "Europaring 10", location: [52.132785,11.599429]},
+    {name: "KGV Petunia e.V.", district: "Nordwest", address: "Lorenzweg", location: [52.145504,11.621685]},
+    {name: "Wasserpumpe Ringfurther Weg", district: "Neusstädter Feld", address: "Milchweg 4", location: [52.162195,11.621871]},
+    {name: "Ernst Reuter Gedenktafel", district: "Berliner Chausee", address: "Berliner Chausee 67", location: [52.130004,11.673202]},
+    {name: "Stolpersteine Familie Rosenthal", district: "Brückfeld", address: "Jerichower Str. 34", location: [52.131547,11.667944]},
       
       
     //{name: "", district: "", address: "", location: []},
