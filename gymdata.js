@@ -531,6 +531,7 @@ function gymData() {
     {name: "Ernst Reuter Gedenktafel", district: "Berliner Chausee", address: "Berliner Chausee 67", location: [52.130004,11.673202]},
     {name: "Stolpersteine Familie Rosenthal", district: "Brückfeld", address: "Jerichower Str. 34", location: [52.131547,11.667944]},
     {name: "St. Andreas Kirche", district: "Cracau", address: "Büchnerstraße 17", location: [52.121955,11.654913]},
+    {name: "Innungs-Eiche", district: "Berliner Chausee", address: "Berliner Chausee", location: [52.130932,11.677974]},
       
       
     //{name: "", district: "", address: "", location: []},
