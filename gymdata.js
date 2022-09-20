@@ -532,6 +532,7 @@ function gymData() {
     {name: "Stolpersteine Familie Rosenthal", district: "Brückfeld", address: "Jerichower Str. 34", location: [52.131547,11.667944]},
     {name: "St. Andreas Kirche", district: "Cracau", address: "Büchnerstraße 17", location: [52.121955,11.654913]},
     {name: "Innungs-Eiche", district: "Berliner Chausee", address: "Berliner Chausee", location: [52.130932,11.677974]},
+    {name: "KGV „alter Münchhof 1925” e. V.", district: "Alte Neustadt", address: "Münchenhofstraße 64", location: [52.144462,11.630214]},
       
       
     //{name: "", district: "", address: "", location: []},
