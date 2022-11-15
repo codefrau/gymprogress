@@ -534,6 +534,8 @@ function gymData() {
     {name: "Innungs-Eiche", district: "Berliner Chausee", address: "Berliner Chausee", location: [52.130932,11.677974]},
     {name: "KGV „alter Münchhof 1925” e. V.", district: "Alte Neustadt", address: "Münchenhofstraße 64", location: [52.144462,11.630214]},
     {name: "Windmühlenstraße", district: "Rothensee", address: "Windmühlenstraße", location: [52.177605,11.664001]},
+    {name: "Baudenkmal „Wasserwerk Stufenfilter 1909”", district: "Buckau", address: "Am Buckauer Wasserwerk", location: [52.102293,11.649716]},
+    {name: "Meilenstein 21", district: "Berliner Chausee", address: "Berliner Chausee", location: [52.138968,11.713458]},     
       
       
     //{name: "", district: "", address: "", location: []},
