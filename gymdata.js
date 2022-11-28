@@ -535,7 +535,11 @@ function gymData() {
     {name: "KGV „alter Münchhof 1925” e. V.", district: "Alte Neustadt", address: "Münchenhofstraße 64", location: [52.144462,11.630214]},
     {name: "Windmühlenstraße", district: "Rothensee", address: "Windmühlenstraße", location: [52.177605,11.664001]},
     {name: "Baudenkmal „Wasserwerk Stufenfilter 1909”", district: "Buckau", address: "Am Buckauer Wasserwerk", location: [52.102293,11.649716]},
-    {name: "Meilenstein 21", district: "Berliner Chausee", address: "Berliner Chausee", location: [52.138968,11.713458]},     
+    {name: "Meilenstein 21", district: "Berliner Chausee", address: "Berliner Chausee", location: [52.138968,11.713458]}, 
+    {name: "Gesichter aus Stein", district: "Cracau", address: "Pechauer Str. 4", location: [52.1149329,11.6606327]}, 
+    {name: "Kanu-Klub Boerde e.V.", district: "Cracau", address: "Seestr.", location: [52.113441,11.660301]}, 
+    {name: "Der „Käfig” Fußballplatz des BSV 79 e.V.", district: "Cracau", address: "Zetkinstraße", location: [52.11815,11.65672]}, 
+    {name: "Memorial Harro Schulze-Boysen", district: "Sudenburg", address: "Harro-Schulze-Boysen-Straße 14", location: [52.102109,11.58403]},      
       
       
     //{name: "", district: "", address: "", location: []},
