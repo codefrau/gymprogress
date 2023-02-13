@@ -545,7 +545,9 @@ function gymData() {
     {name: "Übersichtskarte Elbdeiche", district: "Herrenkrug", address: "Herrenkrug", location: [52.143701,11.706395]},
     {name: "Grenzstein 12", district: "Herrenkrug", address: "Herrenkrug", location: [52.142174,11.714823]},
     {name: "Grenzstein 14", district: "Herrenkrug", address: "Herrenkrug", location: [52.141414,11.717459]},
-      
+    {name: "Interflug", district: "Beyendorfer Grund", address: "Leipziger Chaussee 91", location: [52.077573,11.621117]},
+    {name: "Wandbild „DFB-Pokalsieg”...", district: "Cracau", address: "Cracau", location: [52.124063,11.672132]},
+            
       
     //{name: "", district: "", address: "", location: []},
   ],
