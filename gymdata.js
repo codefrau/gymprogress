@@ -547,6 +547,8 @@ function gymData() {
     {name: "Grenzstein 14", district: "Herrenkrug", address: "Herrenkrug", location: [52.141414,11.717459]},
     {name: "Interflug", district: "Beyendorfer Grund", address: "Leipziger Chaussee 91", location: [52.077573,11.621117]},
     {name: "Wandbild „DFB-Pokalsieg”...", district: "Cracau", address: "Cracau", location: [52.124063,11.672132]},
+    {name: "Bahnhof Magdeburg-Rothensee", district: "Rothensee", address: "Am Schöppensteg", location: [52.186107,11.64791]},
+    {name: "Bolzplatz Lerchenwuhne", district: "Neustädter Feld", address: "Birkholzer Weg 18", location: [52.165822,11.615122]},      
             
       
     //{name: "", district: "", address: "", location: []},
