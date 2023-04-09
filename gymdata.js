@@ -548,7 +548,11 @@ function gymData() {
     {name: "Interflug", district: "Beyendorfer Grund", address: "Leipziger Chaussee 91", location: [52.077573,11.621117]},
     {name: "Wandbild „DFB-Pokalsieg”...", district: "Cracau", address: "Cracau", location: [52.124063,11.672132]},
     {name: "Bahnhof Magdeburg-Rothensee", district: "Rothensee", address: "Am Schöppensteg", location: [52.186107,11.64791]},
-    {name: "Bolzplatz Lerchenwuhne", district: "Neustädter Feld", address: "Birkholzer Weg 18", location: [52.165822,11.615122]},      
+    {name: "Bolzplatz Lerchenwuhne", district: "Neustädter Feld", address: "Birkholzer Weg 18", location: [52.165822,11.615122]},
+    {name: "Stromkasten Stubentiger", district: "Ottersleben", address: "Halberstädter Ch", location: [52.098518,11.575906]},
+    {name: "Spielplatz am Jugendclub", district: "Olvenstedt", address: "Kalksteinweg 26", location: [52.144289,11.573473]},
+    {name: "Kunterbuntes Wohnen", district: "Sudenburg", address: "Otto-Richter-Straße 1", location: [52.113962,11.585544]},
+    {name: "Sonnenkugel", district: "Herrenkrug", address: "Herrenkrugstraße 40", location: [52.149392,11.674185]},
             
       
     //{name: "", district: "", address: "", location: []},
