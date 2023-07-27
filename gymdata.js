@@ -553,6 +553,9 @@ function gymData() {
     {name: "Spielplatz am Jugendclub", district: "Olvenstedt", address: "Kalksteinweg 26", location: [52.144289,11.573473]},
     {name: "Kunterbuntes Wohnen", district: "Sudenburg", address: "Otto-Richter-Straße 1", location: [52.113962,11.585544]},
     {name: "Sonnenkugel", district: "Herrenkrug", address: "Herrenkrugstraße 40", location: [52.149392,11.674185]},
+    {name: "Grafitti Steinkuhle", district: "Stadtfeld", address: "An der Steinkuhle 18", location: [52.14163,11.619395]},
+    {name: "Infoschild Bördepark Magdeburg", district: "Reform", address: "Salbker Chaussee 67", location: [52.082302,11.5961]},
+    {name: "Partypavillon „am Feld”", district: "Ottersleben", address: "Auf den Höhen", location: [52.093046,11.555128]},
             
       
     //{name: "", district: "", address: "", location: []},
