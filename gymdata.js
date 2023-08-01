@@ -556,6 +556,8 @@ function gymData() {
     {name: "Grafitti Steinkuhle", district: "Stadtfeld", address: "An der Steinkuhle 18", location: [52.14163,11.619395]},
     {name: "Infoschild Bördepark Magdeburg", district: "Reform", address: "Salbker Chaussee 67", location: [52.082302,11.5961]},
     {name: "Partypavillon „am Feld”", district: "Ottersleben", address: "Auf den Höhen", location: [52.093046,11.555128]},
+    {name: "Graffiti 1965 1.FCM on Transformer House", district: "Sudenburg", address: "Diesdorfer Graseweg", location: [52.113606,11.575948]},
+    {name: "Frankenfelde Anno 1870", district: "Ottersleben", address: "Frankefelde 1-3", location: [52.098794,11.577889]},
             
       
     //{name: "", district: "", address: "", location: []},
