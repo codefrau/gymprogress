@@ -558,6 +558,9 @@ function gymData() {
     {name: "Partypavillon „am Feld”", district: "Ottersleben", address: "Auf den Höhen", location: [52.093046,11.555128]},
     {name: "Graffiti 1965 1.FCM on Transformer House", district: "Sudenburg", address: "Diesdorfer Graseweg", location: [52.113606,11.575948]},
     {name: "Frankenfelde Anno 1870", district: "Ottersleben", address: "Frankefelde 1-3", location: [52.098794,11.577889]},
+    {name: "Turmhof", district: "Rothensee", address: "Turmhofstarße 13", location: [52.183403,11.662795]},
+    {name: "Pumpe Rothensee", district: "Rothensee", address: "Fallersleber Str. 71", location: [52.182758,11.656947]},
+    {name: "Bunt bemaltes Spielhaus", district: "Cracau", address: "Cracau", location: [52.11437,11.659204]},      
             
       
     //{name: "", district: "", address: "", location: []},
