@@ -564,7 +564,10 @@ function gymData() {
     {name: "Gedenksätte G. A. Pfeiffer", district: "Cracau", address: "Mühlenweg", location: [52.121953,11.665213]},  
     {name: "Erinnerung an die Wüstung Camersdorf", district: "Ottersleben", address: "Osterweddinger Str. 101A", location: [52.077864,11.572209]},
     {name: "Obst und Gemüse", district: "Ottersleben", address: "Werner-von-Siemens-Ring 14G", location: [52.079187,11.57776]},
-            
+    {name: "Gartenverein Prester e.V. Klusdamm", district: "Prester", address: "Klusdamm 84", location: [52.106656,11.684154]},
+    {name: "„Abseitsfalle”", district: "Cracau", address: "Gübser Weg 33", location: [52.1262,11.679988]},   
+    {name: "Historisches Foto einer Dampflok in der Herderstraße", district: "Stadtfeld", address: "Herderstraße 8", location: [52.135618,11.618406]},   
+      
       
     //{name: "", district: "", address: "", location: []},
   ],
