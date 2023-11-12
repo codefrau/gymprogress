@@ -68,7 +68,7 @@ function gymData() {
     {name: "Erich-Rademacher-Bad", district: "Olvenstedt", address: "Johannes-Göderitz-Straße 113", location: [52.153633,11.595796]},
     {name: "Erker Maxim-Gorki-Straße", district: "Stadtfeld Ost", address: "Maxim-Gorki-Straße 6", location: [52.131969,11.618515]},
     {name: "Ernst Toller Straße", district: "Sudenburg", address: "Ernst-Toller-Straße 29", location: [52.107811,11.588989]},
-    {name: "Erwin und die Holzsoldaten", district: "Alte Neustadt", address: "Walther-Rathenau-Straße 8", location: [52.13821,11.651306], park: "way/295783550", exraid: true},
+    {deleted: true, name: "Erwin und die Holzsoldaten", district: "Alte Neustadt", address: "Walther-Rathenau-Straße 8", location: [52.13821,11.651306], park: "way/295783550", exraid: true},
     {name: "EXFA", district: "Alte Neustadt", address: "Sandtorstraße 23", location: [52.138821,11.651945]},
     {name: "Feierabendheim Süd", district: "Sudenburg", address: "Hesekielstraße 7A", location: [52.111774,11.596048]},
     {name: "Fenstermotive", district: "Stadtfeld Ost", address: "Liebknechtstraße 44", location: [52.12373,11.610421]},
@@ -566,7 +566,10 @@ function gymData() {
     {name: "Obst und Gemüse", district: "Ottersleben", address: "Werner-von-Siemens-Ring 14G", location: [52.079187,11.57776]},
     {name: "Gartenverein Prester e.V. Klusdamm", district: "Prester", address: "Klusdamm 84", location: [52.106656,11.684154]},
     {name: "„Abseitsfalle”", district: "Cracau", address: "Gübser Weg 33", location: [52.1262,11.679988]},   
-    {name: "Historisches Foto einer Dampflok in der Herderstraße", district: "Stadtfeld", address: "Herderstraße 8", location: [52.135618,11.618406]},   
+    {name: "Historisches Foto einer Dampflok in der Herderstraße", district: "Stadtfeld", address: "Herderstraße 8", location: [52.135618,11.618406]},  
+    {name: "Grafitti Sonne", district: "Alte Neustadt", address: "Markgrafenstraße", location: [52.137059,11.653203]},  
+    {name: "Infokasten Südeingang Nußbaum e.V.", district: "Ottersleben", address: "Beyendorfer Weg", location: [52.081424,11.586214]},  
+    {name: "Mew on the Wall", district: "Prester", address: "Alt Prester", location: [52.104445,11.67341]},  
       
       
     //{name: "", district: "", address: "", location: []},
