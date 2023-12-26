@@ -570,6 +570,10 @@ function gymData() {
     {name: "Grafitti Sonne", district: "Alte Neustadt", address: "Markgrafenstraße", location: [52.137059,11.653203]},  
     {name: "Infokasten Südeingang Nußbaum e.V.", district: "Ottersleben", address: "Beyendorfer Weg", location: [52.081424,11.586214]},  
     {name: "Mew on the Wall", district: "Prester", address: "Alt Prester", location: [52.104445,11.67341]},  
+    {name: "Entrance to Jurassic Park", district: "Sudenburg", address: "Remkersleber Weg 43", location: [52.112119,11.57246]},  
+    {name: "Kleingartenverein Paradies e.V.", district: "Lemsdorf", address: "Ballenstedter Str. 60", location: [52.094212,11.590754]}, 
+    {name: "Wegweiser", district: "Barleber See", address: "Brassenweg", location: [52.224208,11.643457]}, 
+      
       
       
     //{name: "", district: "", address: "", location: []},
