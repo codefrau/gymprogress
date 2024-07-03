@@ -573,6 +573,10 @@ function gymData() {
     {name: "Entrance to Jurassic Park", district: "Sudenburg", address: "Remkersleber Weg 43", location: [52.112119,11.57246]},  
     {name: "Kleingartenverein Paradies e.V.", district: "Lemsdorf", address: "Ballenstedter Str. 60", location: [52.094212,11.590754]}, 
     {name: "Wegweiser", district: "Barleber See", address: "Brassenweg", location: [52.224208,11.643457]}, 
+    {name: "Fahrradroute", district: "Diesdorf", address: "Ottersleber Weg", location: [52.116423,11.542364]}, 
+    {name: "ICE Container", district: "Altstadt", address: "Maybachstraße 26", location: [52.12879,11.623663]}, 
+    {name: "Infotafel Martinsplatz", district: "Alte Neustadt", address: "Martinsplatz", location: [52.147325,11.653817]}, 
+    {name: "Abenteuerspielplatz Langer Weg", district: "Sudenburg", address: "Langer Weg 7", location: [52.113783,11.597355]},
       
       
       
